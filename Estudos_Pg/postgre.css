@@ -1,0 +1,10 @@
+.subTitulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: 28px;
+
+  padding: 0px 20px;
+}

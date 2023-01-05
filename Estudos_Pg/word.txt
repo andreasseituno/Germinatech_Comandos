@@ -1,0 +1,329 @@
+Docker e bancos:
+
+Iniciar o pg (deixar pg no verde):  
+docker start pg
+
+Executar a instância (como entrar no root):  
+docker exec -it pg bash
+
+Entrar no postgres:  
+psql -U postgres
+
+Sair do postgres:  
+\q
+
+Ver quais bancos existem:  
+\l
+
+Criar banco dbMercado:
+createdb dbMercado -U postgres
+
+Entrar no banco (dentro do root):  
+psql dbGerminare -U postgres
+
+Apagar banco:
+dropdb dbPratica -U postgres
+
+
+ 
+Tabelas:
+
+Ver quais tabelas existem:  
+\dt
+
+Ver o tipo da tabela (adicione o nome da tabela depois de \d):
+\d
+
+Criar tabela:  
+CREATE TABLE aluno (
+codigo DECIMAL,
+nome VARCHAR (80), 
+cpf BIGINT,
+idade INT, 
+media REAL,
+verdade BOOL,
+data_mat DATE,
+hora_nascimento DATETIME);
+
+Criar tabela (com herança):
+CREATE TABLE industrializado (
+embalagem VARCHAR (20))
+inherits (alimento);
+
+Renomear tabela:  
+ALTER TABLE professor
+RENAME TO professores;
+
+
+ 
+Colunas:
+
+Adicionar coluna na tabela:  
+ALTER TABLE professor
+ADD COLUMN sobrenome VARCHAR (80);
+
+Apagar coluna na tabela:  
+ALTER TABLE professor
+DROP COLUMN sobrenome;
+
+Renomear uma coluna:   
+ALTER TABLE professor
+RENAME data_contratacao TO contraste;
+
+Adicionar um valor máximo para uma coluna:
+ALTER TABLE aluno
+ADD CHECK (media < 10);
+
+Renomear uma coluna temporariamente (aliás):
+SELECT nomes AS professores FROM professor;
+
+Adicionar uma nova coluna temporariamente com uma condição:
+SELECT *, CASE
+WHEN media = 10 THEN ‘Você tirou 10’
+WHEN media > 7 THEN ‘Você passou, mas não foi 10’
+ELSE ‘Você não passou’
+END AS mensagem FROM aluno;
+
+Verificar se é par ou ímpar:
+SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
+ 
+Valores:
+
+Verificar todos os valores da tabela:  
+SELECT * FROM aluno;
+
+Colocar/inserir valores na tabela:  
+INSERT INTO aluno (nome, data_mat) 
+VALUES (‘Andre’, ’01-20-2022’), (‘Ana’, ’02-20-2022’);
+
+Apagar todos os valores da tabela:
+TRUNCATE TABLE professor;	
+
+Olhar valores de diferentes tabelas:
+SELECT professor.academias, academias.nome FROM professor, academias 
+WHERE professor.academias= academias.id;
+
+Trocar todos os valores da tabela, (apenas no Rodrigo nesse caso):  
+UPDATE professor
+SET idade=30, salario=2000
+WHERE nome LIKE 'Rodrigo’;
+
+Deletar/apagar valores só de 1 linha:  
+DELETE FROM aluno
+WHERE nome LIKE ‘Rodrigo’;
+
+Colocar/inserir valores na tabela de outra tabela:
+INSERT INTO aluno (cpf, nome, idade)
+SELECT INTO professor.cpf, professsor.nome, professor.idade FROM professor;
+
+
+ 
+Chaves e Serial:
+
+Criar tabela com chave primária (pode trocar INT por SERIAL):  
+CREATE TABLE produtos (
+id INT PRIMARY KEY, 
+nome VARCHAR (80), 
+preco REAL);
+
+Criar tabela com chave estrangeira:  
+CREATE TABLE aluno (
+coluna INT REFERENCES professor);
+
+Criar tabela com 2 chaves primárias (chave composta) e 2 chaves estrangeiras (modo alterno):
+CREATE TABLE notas_avv (
+id_aluno INT,
+id_professor INT, 
+nota REAL,
+PRIMARY KEY (id_aluno, id_professor),
+FOREIGN KEY (id_aluno) REFERENCES aluno,
+FOREIGN KEY (id_professor) REFENCES professor);
+
+Reiniciar SERIAL: 
+TRUNCATE TABLE professor RESTART IDENTITY; 
+
+Adicionar a restrição de not null:
+ALTER TABLE aluno 
+ALTER COLUMN nome SET NOT NULL;
+
+ 
+Editar Selects:
+
+Ver colunas específicas:  
+SELECT nome, idade FROM aluno;
+
+Ordenar por ordem alfabética ou crescente (adicione DESC depois da coluna para inverter):  
+SELECT * FROM aluno ORDER BY nome, idade;
+
+Somar colunas (a idade com o salario):
+SELECT nomes, idade + salario FROM professor;
+
+Ver colunas tenham 1 ou outra coluna igual (aceita o símbolo de =, >, <, ! depois de OR):
+SELECT nomes, sobrenomes FROM professor WHERE id=1 OR idades > 30;
+
+Ver colunas tenham 1 e outra coluna igual (aceita o símbolo de =, >, <, ! depois de AND):
+SELECT nomes, sobrenomes FROM professor WHERE nomes= “Marcelo” AND idades =< 16;
+
+Ver algo entre certos valores (adicione NOT antes de BETWEEN para ser entre 0 a 6):
+SELCT * FROM aluno WHERE media BETWEEN 7 AND 10;
+
+Ver colunas que começam com uma letra específica (S) (trocar LIKE por SIMILAR TO):
+SELECT * FROM aluno WHERE nome LIKE ‘S%’;
+
+Não mostrar resultados repetidos:
+SELECT DISTINCT academias FROM professor;
+
+Filtrar com um limite (os 3 melhores, tirando os 2 primeiros):
+SELECT * FROM professor ORDER BY id LIMIT 3 OFFSET 2;
+
+Pegar as informações encontrados só na tabela produto (herança):
+SELECT * FROM ONLY produto;
+ 
+Funções de Numbers:
+
+Módulo de um número:
+SELECT abs (-3);
+
+Definir os decimais (round para arredondar, e trunc para eliminar) (,3 = casas dps da virgula):
+SELECT round (3.39812, 3);
+
+Arredondar (ceil para acima, floor para baixo):
+SELECT ceil (10.9);
+
+Potência (210):
+SELECT power (2,10);
+
+Converter inteiro em decimal (temporariamente):
+SELECT nome, trunc (cast (media AS decimal),2) AS media_em_decimal FROM aluno;
+
+Somar valores (agregação):
+SELECT *, (SELECT sum(idade) FROM aluno) AS soma FROM aluno;
+
+Exemplo de usar função de agregação para 1 coluna (agregação):
+SELECT *, (SELECT avg(idade) FROM aluno) AS media FROM aluno;
+
+Contar quantas colunas tem de algo (agregação):
+SELECT *, (SELECT count(nome) FROM aluno) AS Quantidade FROM aluno;
+
+Modo fácil de escrever usando funções de agregação:
+SELECT nome, MAX (idade) FROM cliente
+GROUP BY nome
+HAVING max (idade) > 30;
+
+ 
+Funções de Strings:
+
+Colocar em FIXA (lower para diminuir):
+SELECT upper(nome) FROM aluno;
+
+Contar caracteres:
+SELECT char_length(nome) FROM aluno; 
+
+Contar letras (não caracteres):
+SELECT char_length (replace (nome, ‘ ‘, ‘ ‘)) FROM aluno;
+
+Filtrar quantos dígitos antes e depois da vírgula (D):
+SELECT to_char (media, ‘000D9’) FROM aluno;
+
+Obter dia (day), mês (month), e ano (year):
+SELECT extract (month FROM data_mat) AS Mes FROM aluno;
+
+Filtrar quantos dígitos por data:
+SELECT to_char (data_mat, ‘DD/Mon/YYYY’) FROM aluno;
+
+
+ 
+Funções de Pessoais:
+
+Ver todas as funções:
+\df
+
+Criar função:
+CREATE FUNCTION somar_inteiros(int, int) RETURNS int
+AS ‘SELECT $1 + $2;’
+LANGUAGE SQL
+IMMUTABLE RETURNS NULL ON NULL INPUT;
+
+Criar função (2):
+CREATE OR REPLACE FUNCTION somar_dias (data date, dias integer) RETURNS date AS $$
+BEGIN 
+RETURN data + dias;
+END;
+$$ LANGUAGE  	psqlgsql
+
+Criar função (3):
+CREATE FUNCTION adicionar_pedido (_id, _cliente, _data) RETURNS void AS $$ 
+BEGIN
+INSERT INTO pedido (id, cliente, data) 
+VALUES (_id, _cliente, _data);
+END;
+$$ LANGUAGE ‘plpgsql’;
+
+Apagar função:
+DROP FUNCTION somar_dias (data, integer);
+
+Usar funções de agregação em locais (colunas) específicos:
+SELECT sum(preco) FILTER(WHERE marca = ‘Swift’) AS swift FROM produto;
+ 
+Privilégios (User e Role):
+*User ainda funciona, mas não é usado. O correto é usar Role. A principal diferença é que roles possuem privilégios e podem ser um usuário e/ou um grupo. *
+
+Ver todos os usuários (dentro do postgres ou outro usuário) (único diferente do Role):
+SELECT * FROM pg_user;
+
+Criar Usuário:
+CREATE USER teste;
+
+Entrar em um usuário ou role específico (dentro do root): 
+psql postgres -U teste 
+
+Ver em qual usuário você está:
+SELECT * FROM current_user;
+
+Apagar usuário:
+DROP USER teste;
+------------------------------------------------------------------------------------------------------------------------------
+Ver todas as roles (dentro do postgres ou outro usuário) (único diferente do user):
+SELECT * FROM pg_roles;
+
+Criar Usuário (2 opções pra você):
+CREATE ROLE aluno WITH LOGIN PASSWORD ‘12345’;
+CREATE ROLE aluno NOSUPERUSER NOCREATEDB NOCREATEROLE LOGIN;
+
+Ver em qual role você está:
+SELECT * FROM current_role;
+
+Apagar role:
+DROP ROLE aluno;
+ 
+Privilégios (Grant e Revoke e Schema) e Views:
+
+Permitir um usuário acessar o banco:
+GRANT USAGE ON SCHEMA administrativo TO funcionario;
+
+Garantir privilégios à um usuário (estagiario) (trocar os update e selects por ALL, para todos):
+GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
+
+Revogar privilégios à um usuário (estagiário) (trocar os update, select por ALL, para todos):
+REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
+
+Ver todos os Schemas (do banco):
+SELECT schema_name FROM information_schema.schemata;
+
+Criar Schema:
+CREATE SCHEMA administrativo;
+
+Criar Tabela dentro do Schema (administrativo):
+CREATE TABLE administrativo.funcionario (cod INT);
+
+Garantir privilégio às tabelas de um schema para 1 usuário:
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
+
+Revogar privilégio às tabelas de um schema para 1 usuário:
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
+------------------------------------------------------------------------------------------------------------------------------
+Ver todas as Views:
+\d+
+
+Criar View:
+CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;

@@ -1,0 +1,156 @@
+/* Cores Principais
+  rgb(9, 115, 148)
+  rgb(149, 152, 231)
+  rgb(210, 210, 255);
+*/
+
+/* Elementos- Agrupadores */
+
+body {
+  background-color: rgb(149, 152, 231);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header#principal {
+  top: 0;
+  position: absolute;
+}
+
+header#falso {
+  background-color: rgb(9, 115, 148);
+  min-height: 70px;
+  height: 15vmin;
+  max-height: 150px;
+}
+
+header#secundario {
+  background-color: rgb(9, 115, 148);
+  text-align: center;
+  padding: 20px;
+}
+
+main {
+  background-color: rgb(255, 250, 245);
+  margin: auto;
+
+  width: 75%;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+footer {
+  background-color: rgba(210, 210, 255, 0.5);
+  text-align: center;
+  padding: 5px;
+}
+
+section {
+  background-color: rgb(226, 216, 197);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5);
+
+  margin: 20px auto;
+  border-radius: 30px;
+
+  width: 80%;
+  overflow: hidden;
+}
+
+section button {
+  background-color: rgb(182, 142, 108);
+  border-top: 0px solid rgb(35, 24, 100);
+
+  font-size: 16px;
+  border-radius: 25px 30px 0px 0px;
+
+  width: 100%;
+  padding: 15px;
+  cursor: pointer;
+}
+
+section button:hover {
+  background-color: rgb(153, 119, 91);
+  transition: background-color 1.75s ease 0s;
+}
+
+section button:focus {
+  background-color: rgb(153, 119, 91);
+  border-top: 2px solid rgb(35, 24, 100);
+  outline: none;
+}
+
+select {
+  background-color: rgba(210, 210, 255, 0.8);
+  border: 5px solid rgb(255, 250, 245);
+  box-shadow: -5px -1px 5px rgba(0, 0, 0, 0.3);
+  display: block;
+
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 18px;
+
+  width: 225px;
+  padding: 8px 5px;
+}
+
+option {
+  background-color: rgb(255, 250, 245);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/* Elementos- Texto */
+
+section h3 {
+  display: flex;
+  align-items: center;
+
+  text-indent: 7px;
+  margin: 0;
+}
+
+section h4 {
+  text-align: center;
+  margin: 20px 30px;
+}
+
+section p {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
+  flex-grow: 1;
+  border-radius: 3px;
+  line-height: 25px;
+
+  width: 300px;
+  min-height: 100px;
+  margin: 1px 0.65%;
+  padding: 10px 20px 25px;
+}
+
+section strong {
+  color: rgba(0, 0, 0, 0.7);
+  display: block;
+  margin-bottom: 9px;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+/* Classes */
+
+.conteudo {
+  display: flex;
+  flex-direction: row column;
+  flex-wrap: wrap;
+  height: 0;
+}
+
+/* Imagens */
+
+.circulo {
+  width: 25px;
+  height: 25px;
+}

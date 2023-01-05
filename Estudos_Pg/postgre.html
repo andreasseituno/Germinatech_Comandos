@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lista de Comados de Programação da
+    Linguagem de Banco de Dados: PostgreSql, lista criada por um estudante de
+    curso técnico 'Germinatech'"
+    />
+    <title>PG PRÁTICA</title>
+    <link
+      rel="shortcut icon"
+      href="../Imagens/icone_pg.webp"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="postgre.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+
+    <script src="../Estilos_Padrao/secundario.js" defer></script>
+    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo">
+      <header id="principal">
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
+      </header>
+
+      <aside>
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <hr style="margin-top: -1px" />
+
+        <h3>Acessar</h3>
+
+        <nav>
+          <a href="../Pagina_Principal/index.html">
+            <div>
+              <img
+                src="../Imagens/icone_home.webp"
+                alt="Casinha"
+                class="icone"
+              />
+              Início
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_info.webp"
+                alt="logo saber mais"
+                class="icone"
+              />
+              Saiba Mais
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_html.webp"
+                alt="Logo Html"
+                class="icone"
+              />
+              Html Prática
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_css.webp"
+                alt="Logo Css"
+                class="icone"
+              />
+              Css Prática
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_ub.webp"
+                alt="Logo Ubuntu"
+                class="icone"
+              />Ub Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Pg/postgre.html">
+            <div>
+              <img
+                src="../Imagens/icone_pg.webp"
+                alt="Logo PostgreSql"
+                rel="next"
+                class="icone"
+              />
+              Pg Prática
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_git.webp"
+                alt="Logo Git"
+                class="icone"
+              />
+              Git Prática
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_sql.webp"
+                alt="Logo Banco de Dados"
+                class="icone"
+              />
+              Server Prática
+            </div>
+          </a>
+        </nav>
+      </aside>
+    </div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Comandos SqlPostgres</h1>
+      <h2>
+        Todos os Comandos de PgSql que anotei durante minhas aulas da
+        Germinatech
+      </h2>
+      <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <option value="#docker"><p>Docker e bancos</p></option>
+        <option value="#tabelas"><p>Tabelas</p></option>
+        <option value="#colunas"><p>Colunas</p></option>
+        <option value="#valores"><p>Valores</p></option>
+        <option value="#chaves"><p>Chaves e Serial</p></option>
+        <option value="#selects"><p>Selects</p></option>
+        <option value="#fNumeros"><p>Funções de Numbers</p></option>
+        <option value="#fString"><p>Funções de Strings</p></option>
+        <option value="#fPessoal"><p>Funções de Pessoais</p></option>
+        <option value="#privilegio"><p>User e Role</p></option>
+        <option value="#view"><p>Views</p></option>
+        <option value="#view"><p>Grant, Revoke, Schema</p></option>
+      </select>
+    </header>
+
+    <main>
+      <section>
+        <button id="docker">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Docker e bancos:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Iniciar o pg (deixar pg no verde):</strong>
+            docker start pg
+          </p>
+
+          <p>
+            <strong>Executar a instância (entrar no root):</strong>
+            docker exec -it pg bash
+          </p>
+
+          <p>
+            <strong>Entrar no postgres:</strong>
+            psql -U postgres
+          </p>
+
+          <p>
+            <strong>Sair do postgres:</strong>
+            \q
+          </p>
+
+          <p>
+            <strong>Ver quais bancos existem:</strong>
+            \l
+          </p>
+
+          <p>
+            <strong>Criar banco dbMercado: </strong>
+            createdb dbMercado -U postgres
+          </p>
+
+          <p>
+            <strong>Entrar no banco (dentro do root):</strong>
+            psql dbGerminare -U postgres
+          </p>
+
+          <p>
+            <strong>Apagar banco: </strong>
+            dropdb dbPratica -U postgres
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button>
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Tabelas:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver quais tabelas existem:</strong>
+            \dt
+          </p>
+
+          <p>
+            <strong>
+              Ver o tipo da tabela (adicione o nome da tabela depois de \d):
+            </strong>
+            \d
+          </p>
+
+          <p>
+            <strong>Criar tabela:</strong>
+            CREATE TABLE aluno <br />( codigo DECIMAL, <br />
+            nome VARCHAR (80), <br />
+            cpf BIGINT, <br />
+            idade INT, <br />
+            media REAL, <br />
+            verdade BOOL, <br />
+            data_mat DATE, <br />
+            hora_nascimento DATETIME);
+          </p>
+
+          <p>
+            <strong>Criar tabela (com herança):</strong>
+            CREATE TABLE industrializado <br />
+            ( embalagem VARCHAR (20)) <br />
+            inherits (alimento);
+          </p>
+
+          <p>
+            <strong>Renomear tabela:</strong>
+            ALTER TABLE professor <br />
+            RENAME TO professores;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="colunas">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Colunas:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Adicionar coluna na tabela:</strong>
+            ALTER TABLE professor <br />
+            ADD COLUMN sobrenome VARCHAR (80);
+          </p>
+
+          <p>
+            <strong>Renomear uma coluna:</strong>
+            ALTER TABLE professor <br />
+            RENAME data_contratacao TO contraste;
+          </p>
+
+          <p>
+            <strong>Adicionar um valor máximo para uma coluna:</strong>
+            ALTER TABLE aluno <br />
+            ADD CHECK (media &lt; 10);
+          </p>
+
+          <p>
+            <strong>Renomear uma coluna temporariamente (aliás):</strong>
+            SELECT nomes AS professores <wbr />
+            FROM professor;
+          </p>
+
+          <p>
+            <strong>
+              Adicionar uma nova coluna temporariamente com uma condição:
+            </strong>
+            SELECT *, CASE <br />
+            WHEN media = 10 THEN 'Você tirou 10' <br />
+            WHEN media > 7 THEN 'Você passou, mas não foi 10' <br />
+            ELSE 'Você não passou' <br />
+            END AS mensagem FROM aluno;
+          </p>
+
+          <p>
+            <strong>Verificar se é par ou ímpar:</strong>
+            SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="valores">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Valores:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Verificar todos os valores da tabela: </strong>
+            SELECT * FROM aluno;
+          </p>
+
+          <p>
+            <strong>Colocar/inserir valores na tabela: </strong>
+            INSERT INTO aluno (id, nome) <br />
+            VALUES (1, 'André), (2, 'Ana');
+          </p>
+
+          <p>
+            <strong>Olhar valores de diferentes tabelas:</strong>
+            SELECT aluno.academias, academias.nome FROM aluno, academias <br />
+            WHERE aluno.academias= academias.id;
+          </p>
+
+          <p>
+            <strong>
+              Trocar os valores da tabela, (apenas no Rodrigo nesse caso):
+            </strong>
+            UPDATE professor <br />
+            SET idade=30, salario=2000 <br />
+            WHERE nome LIKE 'Rodrigo';
+          </p>
+
+          <p>
+            <strong>Apagar todos os valores da tabela:</strong>
+            TRUNCATE TABLE professor;
+          </p>
+
+          <p>
+            <strong>Deletar/apagar valores só de 1 linha:</strong>
+            DELETE FROM aluno <br />
+            WHERE nome LIKE 'Rodrigo';
+          </p>
+
+          <p>
+            <strong>Colocar/inserir valores na tabela de outra tabela:</strong>
+            INSERT INTO professor (cpf, nome, idade) <br />
+            SELECT INTO aluno.cpf, aluno.nome, aluno.idade FROM aluno;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="chaves">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Chaves e Serial:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Criar tabela com chave primária (pode trocar INT por SERIAL):
+            </strong>
+            CREATE TABLE produtos ( <br />
+            id INT PRIMARY KEY, <br />
+            nome VARCHAR (80), <br />
+            preco REAL);
+          </p>
+
+          <p>
+            <strong>Criar tabela com chave estrangeira:</strong>
+            CREATE TABLE aluno ( <br />
+            coluna INT REFERENCES professor);
+          </p>
+
+          <p>
+            <strong>Reiniciar SERIAL:</strong>
+            TRUNCATE TABLE professor RESTART IDENTITY;
+          </p>
+
+          <p>
+            <strong>Adicionar a restrição de not null:</strong>
+            ALTER TABLE aluno <br />
+            ALTER COLUMN nome SET NOT NULL;
+          </p>
+
+          <p>
+            <strong>
+              Criar tabela com 2 chaves primárias (chave composta) e 2 chaves
+              estrangeiras (modo alterno):
+            </strong>
+
+            CREATE TABLE notas_avv ( <br />
+            id_aluno INT, <br />
+            id_professor INT, <br />
+            nota REAL, <br />
+            PRIMARY KEY (id_aluno, id_professor), <br />
+            FOREIGN KEY (id_aluno) REFERENCES aluno, <br />
+            FOREIGN KEY (id_professor) REFENCES professor);
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="selects">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Editar Selects:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver colunas específicas:</strong>
+            SELECT nome, idade FROM aluno;
+          </p>
+
+          <p>
+            <strong>Somar colunas (a idade com o salario):</strong>
+            SELECT nomes, idade + salario FROM professor;
+          </p>
+
+          <p>
+            <strong>
+              Ver colunas tenham 1 OU outra coluna igual (aceita o símbolo de =,
+              &gt;, &lt;, ! depois de OR):
+            </strong>
+            SELECT nome, sobrenome FROM aluno WHERE id=1 OR idade > 16;
+          </p>
+
+          <p>
+            <strong>
+              Ver colunas tenham 1 E outra coluna igual (aceita o símbolo de =,
+              &gt;, &lt;, ! depois de AND):
+            </strong>
+            SELECT nome, sobrenome FROM aluno WHERE nome= “Ana” AND idade =&lt;
+            16;
+          </p>
+
+          <p>
+            <strong>
+              Ordenar por ordem alfabética ou crescente (adicione DESC depois da
+              coluna para inverter):
+            </strong>
+            SELECT * FROM aluno ORDER BY nome, idade;
+          </p>
+
+          <p>
+            <strong>
+              Ver algo entre certos valores (adicione NOT antes de BETWEEN para
+              ser entre 0 a 6):
+            </strong>
+            SELECT * FROM aluno WHERE media BETWEEN 7 AND 10;
+          </p>
+
+          <p>
+            <strong>
+              Filtrar com um limite (os 3 melhores, tirando os 2 primeiros):
+            </strong>
+            SELECT * FROM professor ORDER BY id LIMIT 3 OFFSET 2;
+          </p>
+
+          <p>
+            <strong>
+              Ver colunas que começam com uma letra única (S) (optar LIKE por
+              SIMILAR TO):
+            </strong>
+            SELECT * FROM aluno WHERE nome LIKE 'S%';
+          </p>
+
+          <p>
+            <strong>Não mostrar resultados repetidos:</strong>
+            SELECT DISTINCT academias FROM professor;
+          </p>
+
+          <p>
+            <strong>
+              Pegar as informações encontrados só na tabela produto (herança):
+            </strong>
+            SELECT * FROM ONLY produto;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fNumeros">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de Numbers:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p><strong>Módulo:</strong> SELECT abs (-3);</p>
+
+          <p>
+            <strong>Potência (2 <sup>10</sup> ):</strong>
+            SELECT power (2,10);
+          </p>
+
+          <p>
+            <strong>
+              Definir os decimais (round para arredondar, e trunc para eliminar)
+              (,3 = casas dps da virgula):
+            </strong>
+            SELECT round (3.39812, 3);
+          </p>
+
+          <p>
+            <strong>Arredondar (ceil para acima, floor para baixo):</strong>
+            SELECT ceil (10.9);
+          </p>
+
+          <p>
+            <strong>Converter inteiro em decimal (momento):</strong>
+            SELECT nome, trunc (cast (media AS decimal),2) AS media_em_decimal
+            FROM aluno;
+          </p>
+
+          <p>
+            <strong>Somar valores (agregação):</strong>
+            SELECT *, (SELECT sum(idade) FROM aluno) AS soma FROM aluno;
+          </p>
+
+          <p>
+            <strong>Calcular média (agregação):</strong>
+            SELECT *, (SELECT avg(idade) FROM aluno) AS media FROM aluno;
+          </p>
+
+          <p>
+            <strong>Contar quantas colunas tem de algo (agregação):</strong>
+            SELECT *, (SELECT count(nome) FROM aluno) AS Quantidade FROM aluno;
+          </p>
+
+          <p>
+            <strong>Modo fácil de escrever usando funções de agregação:</strong>
+            SELECT nome, MAX (idade) FROM cliente <br />
+            GROUP BY nome <br />
+            HAVING max (idade) > 30;
+          </p>
+
+          <p>
+            <strong>
+              Modo +fácil de escrever usando funções de agregação:
+            </strong>
+            SELECT sum(preco) FILTER(WHERE marca = 'Swift') AS swift FROM
+            produto;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fString">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de Strings:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Contar caracteres:</strong>
+            SELECT char_length(nome) FROM aluno;
+          </p>
+
+          <p>
+            <strong>Contar letras (não caracteres):</strong>
+            SELECT char_length(replace (nome, ' ', ' ')) FROM aluno;
+          </p>
+
+          <p>
+            <strong>Colocar em FIXA (lower para diminuir):</strong> SELECT
+            upper(nome) FROM aluno;
+          </p>
+
+          <p>
+            <strong>
+              Filtrar quantos dígitos antes e depois da vírgula (D):
+            </strong>
+            SELECT to_char (media, '000D9') FROM aluno;
+          </p>
+
+          <p>
+            <strong>Obter dia (day), mês (month), ano (year):</strong>
+            SELECT extract (month FROM data_mat) AS Mes FROM aluno;
+          </p>
+
+          <p>
+            <strong>Filtrar quantos dígitos por data:</strong>
+            SELECT to_char(data_mat, 'DD/Mon/YYY') FROM aluno;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fPessoal">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de Pessoais:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver todas as funções:</strong>
+            \df
+          </p>
+
+          <p>
+            <strong>Apagar função:</strong>
+            DROP FUNCTION somar_dias (data, integer);
+          </p>
+
+          <p>
+            <strong>Criar função:</strong>
+            CREATE FUNCTION somar_inteiros(int, int) RETURNS int <br />
+            AS 'SELECT $1 + $2;' <br />
+            LANGUAGE SQL <br />
+            IMMUTABLE RETURNS NULL ON NULL INPUT;
+          </p>
+
+          <p>
+            <strong>Criar função (2):</strong>
+            CREATE OR REPLACE FUNCTION somar_dias (data date, dias integer)
+            RETURNS date AS $$ <br />
+            BEGIN <br />
+            RETURN data + dias; <br />
+            END; <br />
+            $$ LANGUAGE psqlgsql
+          </p>
+
+          <p>
+            <strong>Criar função (3):</strong>
+            CREATE FUNCTION adicionar_pedido (_id, _cliente, _data) RETURNS void
+            AS $$ <br />
+            BEGIN <br />
+            INSERT INTO pedido (id, cliente, data) <br />
+            VALUES (_id, _cliente, _data); <br />
+            END; <br />
+            $$ LANGUAGE 'plpgsql';
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="privilegio">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Privilégios (User e Role):
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <h4>
+            *User ainda funciona, mas não é usado. O correto é usar Role. A
+            principal diferença é que roles possuem privilégios e podem ser um
+            usuário e/ou um grupo. *
+          </h4>
+
+          <p class="subTitulo">User:</p>
+          <p class="subTitulo">Role:</p>
+
+          <p>
+            <strong>
+              Ver todos os usuários (dentro do postgres ou outro usuário):
+            </strong>
+            SELECT * FROM pg_user;
+          </p>
+
+          <p>
+            <strong
+              >Ver todas as roles (dentro do postgres ou outro usuário):</strong
+            >
+            SELECT * FROM pg_roles;
+          </p>
+
+          <p>
+            <strong>Criar Usuário:</strong>
+            CREATE USER teste;
+          </p>
+
+          <p>
+            <strong>Criar Role (2 opções pra você):</strong>
+            CREATE ROLE aluno WITH LOGIN PASSWORD '12345'; <br />
+            CREATE ROLE aluno NOSUPERUSER NOCREATEDB NOCREATEROLE LOGIN;
+          </p>
+
+          <p>
+            <strong>Ver em qual usuário você está:</strong>
+            SELECT * FROM current_user;
+          </p>
+
+          <p>
+            <strong>Ver em qual role você está:</strong>
+            SELECT * FROM current_role;
+          </p>
+
+          <p>
+            <strong>Apagar usuário:</strong>
+            DROP USER teste;
+          </p>
+
+          <p>
+            <strong>Apagar role:</strong>
+            DROP ROLE aluno;
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="view">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Privilégios (Grant e Revoke e Schema) e Views:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Permitir um usuário acessar o banco:</strong>
+            GRANT USAGE ON SCHEMA administrativo TO funcionario;
+          </p>
+
+          <p>
+            <strong>Ver todos os Schemas (do banco):</strong>
+            SELECT schema_name FROM information_schema.<wbr />schemata;
+          </p>
+
+          <p>
+            <strong>
+              Garantir privilégios à um usuário (estagiario) (trocar o update,
+              selects por ALL, para todos):
+            </strong>
+            GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
+          </p>
+
+          <p>
+            <strong>
+              Revogar privilégios à um usuário (estagiario) (trocar o update,
+              select por ALL, para todos):
+            </strong>
+            REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
+          </p>
+
+          <p>
+            <strong>Criar Schema:</strong>
+            CREATE SCHEMA administrativo;
+          </p>
+
+          <p>
+            <strong>Criar Tabela dentro do Schema (administrativo):</strong>
+            CREATE TABLE administrativo.<wbr />funcionario (cod INT);
+          </p>
+
+          <p>
+            <strong>
+              Garantir privilégio às tabelas de um schema para 1 usuário:
+            </strong>
+            GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
+          </p>
+
+          <p>
+            <strong
+              >Revogar privilégio às tabelas de um schema para 1 usuário:
+            </strong>
+            REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
+          </p>
+
+          <p>
+            <strong>Ver todas as Views:</strong>
+            \d+
+          </p>
+
+          <p>
+            <strong>Criar View:</strong>
+            CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Realizado inteiramente por
+        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
+      </p>
+    </footer>
+  </body>
+</html>

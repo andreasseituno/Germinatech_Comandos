@@ -1,0 +1,38 @@
+/* Elementos- Agrupadores */
+
+body {
+  background-color: rgb(226, 216, 197);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row column;
+  flex-wrap: wrap;
+
+  height: calc(84vh - 55px);
+}
+
+/* Elementos- Texto */
+
+main a {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
+  flex-grow: 1;
+
+  min-width: 225px;
+  width: 30%;
+  margin: 2px;
+}
+
+main a:hover {
+  background-color: rgb(255, 243, 222);
+  transition-duration: 0.85s;
+}
+
+main a:nth-child(1) {
+  background-image: url(../Imagens/imagem_postgre.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
