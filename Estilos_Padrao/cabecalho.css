@@ -48,6 +48,7 @@ aside nav {
   height: 50vh;
 
   overflow: hidden;
+  overflow-y: auto;
 }
 
 aside nav div {
@@ -162,12 +163,6 @@ aside h3 {
 
 @media screen and (max-width: 840px) {
   header#principal h3 {
-    display: none;
-  }
-}
-
-@media screen and (max-height: 375px) {
-  aside .containerLogo {
     display: none;
   }
 }
