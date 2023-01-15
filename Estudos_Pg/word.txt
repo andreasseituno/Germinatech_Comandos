@@ -87,6 +87,8 @@ END AS mensagem FROM aluno;
 Verificar se é par ou ímpar:
 SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
  
+
+
 Valores:
 
 Verificar todos os valores da tabela:  
@@ -147,6 +149,7 @@ ALTER TABLE aluno
 ALTER COLUMN nome SET NOT NULL;
 
  
+
 Editar Selects:
 
 Ver colunas específicas:  
@@ -179,6 +182,8 @@ SELECT * FROM professor ORDER BY id LIMIT 3 OFFSET 2;
 Pegar as informações encontrados só na tabela produto (herança):
 SELECT * FROM ONLY produto;
  
+
+
 Funções de Numbers:
 
 Módulo de um número:
@@ -209,6 +214,7 @@ Modo fácil de escrever usando funções de agregação:
 SELECT nome, MAX (idade) FROM cliente
 GROUP BY nome
 HAVING max (idade) > 30;
+
 
  
 Funções de Strings:
@@ -265,6 +271,8 @@ DROP FUNCTION somar_dias (data, integer);
 Usar funções de agregação em locais (colunas) específicos:
 SELECT sum(preco) FILTER(WHERE marca = ‘Swift’) AS swift FROM produto;
  
+
+
 Privilégios (User e Role):
 *User ainda funciona, mas não é usado. O correto é usar Role. A principal diferença é que roles possuem privilégios e podem ser um usuário e/ou um grupo. *
 
@@ -295,6 +303,8 @@ SELECT * FROM current_role;
 
 Apagar role:
 DROP ROLE aluno;
+ 
+
  
 Privilégios (Grant e Revoke e Schema) e Views:
 

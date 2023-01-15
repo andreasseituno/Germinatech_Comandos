@@ -91,7 +91,9 @@
             </div>
           </a>
 
-          <a href="https://github.com/andreasseituno/Germinatech_Comandos/blob/main/README.md">
+          <a
+            href="https://github.com/andreasseituno/Germinatech_Comandos/blob/main/README.md"
+          >
             <div>
               <img
                 src="../Imagens/icone_info.webp"
@@ -113,7 +115,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="../Estudos_Css/css.html">
             <div>
               <img
                 src="../Imagens/icone_css.webp"
@@ -749,8 +751,8 @@
             usuário e/ou um grupo. *
           </h4>
 
-          <p class="subTitulo">User:</p>
-          <p class="subTitulo">Role:</p>
+          <p class="subtitulo">User:</p>
+          <p class="subtitulo">Role:</p>
 
           <p>
             <strong>
@@ -812,65 +814,69 @@
         </button>
 
         <div class="conteudo">
-          <p>
-            <strong>Permitir um usuário acessar o banco:</strong>
-            GRANT USAGE ON SCHEMA administrativo TO funcionario;
-          </p>
+          <div class="separador">
+            <p>
+              <strong>Permitir um usuário acessar o banco:</strong>
+              GRANT USAGE ON SCHEMA administrativo TO funcionario;
+            </p>
 
-          <p>
-            <strong>Ver todos os Schemas (do banco):</strong>
-            SELECT schema_name FROM information_schema.<wbr />schemata;
-          </p>
+            <p>
+              <strong>Ver todos os Schemas (do banco):</strong>
+              SELECT schema_name FROM information_schema.<wbr />schemata;
+            </p>
 
-          <p>
-            <strong>
-              Garantir privilégios à um usuário (estagiario) (trocar o update,
-              selects por ALL, para todos):
-            </strong>
-            GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
-          </p>
+            <p>
+              <strong>
+                Garantir privilégios à um usuário (estagiario) (trocar o update,
+                selects por ALL, para todos):
+              </strong>
+              GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
+            </p>
 
-          <p>
-            <strong>
-              Revogar privilégios à um usuário (estagiario) (trocar o update,
-              select por ALL, para todos):
-            </strong>
-            REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
-          </p>
+            <p>
+              <strong>
+                Revogar privilégios à um usuário (estagiario) (trocar o update,
+                select por ALL, para todos):
+              </strong>
+              REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
+            </p>
 
-          <p>
-            <strong>Criar Schema:</strong>
-            CREATE SCHEMA administrativo;
-          </p>
+            <p>
+              <strong>Criar Schema:</strong>
+              CREATE SCHEMA administrativo;
+            </p>
 
-          <p>
-            <strong>Criar Tabela dentro do Schema (administrativo):</strong>
-            CREATE TABLE administrativo.<wbr />funcionario (cod INT);
-          </p>
+            <p>
+              <strong>Criar Tabela dentro do Schema (administrativo):</strong>
+              CREATE TABLE administrativo.<wbr />funcionario (cod INT);
+            </p>
 
-          <p>
-            <strong>
-              Garantir privilégio às tabelas de um schema para 1 usuário:
-            </strong>
-            GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
-          </p>
+            <p>
+              <strong>
+                Garantir privilégio às tabelas de um schema para 1 usuário:
+              </strong>
+              GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
+            </p>
 
-          <p>
-            <strong
-              >Revogar privilégio às tabelas de um schema para 1 usuário:
-            </strong>
-            REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
-          </p>
+            <p>
+              <strong>
+                Revogar privilégio às tabelas de um schema para 1 usuário:
+              </strong>
+              REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
+            </p>
+          </div>
 
-          <p>
-            <strong>Ver todas as Views:</strong>
-            \d+
-          </p>
+          <div class="separador">
+            <p>
+              <strong>Ver todas as Views:</strong>
+              \d+
+            </p>
 
-          <p>
-            <strong>Criar View:</strong>
-            CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;
-          </p>
+            <p>
+              <strong>Criar View:</strong>
+              CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;
+            </p>
+          </div>
         </div>
       </section>
     </main>

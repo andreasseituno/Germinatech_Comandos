@@ -19,7 +19,7 @@ header#principal {
 header#falso {
   background-color: rgb(9, 115, 148);
   min-height: 70px;
-  height: 15vmin;
+  height: calc(15vmin + 15px);
   max-height: 150px;
 }
 
@@ -68,12 +68,12 @@ section button {
 }
 
 section button:hover {
-  background-color: rgb(153, 119, 91);
+  background-color: rgb(155, 121, 92);
   transition: background-color 1.75s ease 0s;
 }
 
 section button:focus {
-  background-color: rgb(153, 119, 91);
+  background-color: rgb(155, 121, 92);
   border-top: 2px solid rgb(35, 24, 100);
   outline: none;
 }
@@ -113,6 +113,7 @@ section h3 {
 
 section h4 {
   text-align: center;
+  width: 100%;
   margin: 20px 30px;
 }
 
@@ -146,6 +147,35 @@ a {
   flex-direction: row column;
   flex-wrap: wrap;
   height: 0;
+}
+
+.subtitulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: 28px;
+
+  min-height: 100px;
+  padding: 0px 20px;
+}
+
+.separador {
+  width: 100%;
+  display: flex;
+  flex-direction: row column;
+  flex-wrap: wrap;
+
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.185);
+  border-radius: 5px;
+  margin: 6px 3px;
+  padding: 3px;
+}
+
+.esticado p {
+  width: 550px;
 }
 
 /* Imagens */

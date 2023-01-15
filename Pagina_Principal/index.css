@@ -30,9 +30,16 @@ main a:hover {
   transition-duration: 0.85s;
 }
 
-main a:nth-child(1) {
-  background-image: url(../Imagens/imagem_postgre.webp);
+main a:nth-child(n) {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+}
+
+main a:nth-child(1) {
+  background-image: url(../Imagens/imagem_css.webp);
+}
+
+main a:nth-child(2) {
+  background-image: url(../Imagens/imagem_postgre.webp);
 }

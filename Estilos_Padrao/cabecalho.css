@@ -76,6 +76,7 @@ aside nav a {
 
   min-width: 150px;
   width: 45%;
+  min-height: 40px;
   padding: 5px;
 }
 
@@ -159,7 +160,7 @@ aside h3 {
   height: 32px;
 }
 
-/* Media-Query */
+/* Especiais */
 
 @media screen and (max-width: 840px) {
   header#principal h3 {

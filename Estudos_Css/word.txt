@@ -1,0 +1,230 @@
+Texto (text):
+
+Deixar sublinhado:
+{text-decoration}
+
+Definir posição X do texto (centralizar com center):
+{text-align}
+
+Definir posição Y do texto (centralizar com middle):
+{vertical-align}
+
+Espaçamento antes do parágrafo:
+{text-indent}
+
+Adicionar sombra em um texto:
+{text-shadow}
+
+Transformar o texto em FIXA:
+{text-transform: uppercase}
+
+
+ 
+Texto (font e outros):
+
+Definir fonte:
+{font-family}
+
+Definir tamanho da letra:
+{font-size}
+
+Deixar em negrito:
+{font-weight}
+
+Deixar em itálico:
+{font-style}	
+
+Espaçamento de linha:
+{line-height}
+
+Dividir um texto em partes (geralmente listas):
+{columns}
+
+
+ 
+Cor:
+
+Mudar cor da letra:
+{color}
+
+Mudar cor da borda:
+{border-color}
+
+Mudar cor de fundo:
+{background-color:
+width: fit-content}
+
+Mudar cor de fundo com degradê:
+{background-image: linear-gradient (θdeg, color1 x%, color2, color3…}
+
+Mudar cor do traço de digitação (que fica piscando):
+{caret-color}
+
+
+ 
+Borda:
+
+Criar/editar borda:
+{border-style}
+
+Mudar tamanho/grossura da borda:
+{border-width}
+
+Fazer curva na borda:
+{border-radius}
+
+Criar borda feita de imagens:
+{border-image-source: url(‘img.png’);
+border-image-repeat: repeat;
+border-image-slice: 15px}
+
+Deixar a grade de tabela visualmente mais bonito:
+{border-collapse}
+
+
+ 
+Editar caixas:
+
+Redimensionar a caixa (auto para centralizar):
+{margin}
+
+Redimensionar o conteúdo de dentro em relação à caixa:
+{padding}
+
+Adicionar sombra em uma caixa:
+{box-shadow}
+
+Colocar caixas uma ao lado da outra, se quebrando:
+{display: inline-block}
+
+Colocar caixas uma ao lado da outra, se espremendo (colocar no elemento pai):
+{display: flex}
+
+Ocultar um elemento:
+{display: none}
+
+Fazer o mouse clicável:
+{cursor: pointer}
+
+Colocar uma caixa (img) ao lado de um texto:
+{float}
+
+Fazer os objetos filhos não escaparem do elemento (exclui o que fica fora):
+{overflow: hidden}
+
+Adicionar uma scrollbar horizontal na caixa:
+{overflow-x: auto}
+ 
+
+
+Position e FlexBox:
+*Position se coloca no elemento individual, FleBox SÓ no elemento pai*
+
+Colocar uma caixa sobreposta a outra (z-index é a prioridade em aparecer para a frente):
+{position: relative;
+z-index}
+
+Fazer elemento se referir à tamanho de tela e o deixar fixado:
+{position: fixed}
+
+Deixar uma caixa grudada na parte de cima:
+{position: sticky
+top: 0}
+
+Posicionar a caixa exatamente no centro:
+{position: absolute;
+top: 50%;
+transform: translate(-50%, -50%)}
+------------------------------------------------------------------------------------------------------------------------------
+Posicionar as caixas exatamente no centro (2):
+{display: flex;
+align-items: center;
+justify-content: center}
+
+Espaçamento igual p/ caixaS (space-around, para vazio externo, spance-evenly para + vazio):
+{display: flex;
+justify-content: space-between}
+
+Colocar um objeto a direita de tudo:
+{display: flex;
+justify-content: right}
+ 
+
+
+Pseudo-classes(:) e Pseudo-elementos(::) e Transição:
+
+Quando mouse em cima:
+div:hover {}
+
+Quando clicado:
+div:active {}
+
+Quando link já visitado (por padrão já visitado é roxo e não visitado é azul):
+a:visited {}
+
+Criar variáveis:
+:root{--exemploVar: black}
+
+(efeito zebrado) Selecionar apenas par(even) ou ímpar(odd) ou todos(n) ou específico(7):
+tr:nth-child(even) {}
+------------------------------------------------------------------------------------------------------------------------------
+Adicionar texto no final:
+div::after {content: ‘texto’}
+
+Adicionar texto no início:
+div::before {content: ‘texto’}
+------------------------------------------------------------------------------------------------------------------------------
+Colocar um tempo para a alteração do elemento:
+{transition-duration: .5s}
+
+Ter uma espera, até fazer a alteração:
+{transition-delay: 1s}
+
+Deixar sua transição mais suave:
+{transition-timing-function: ease} 
+Imagens de fundo:
+
+Colocar uma imagem de fundo: 
+{background-image: url(imagem.png);
+background-size: 280px, 130px}
+
+Mencionar quando a imagem começa (valor= top, bottom, left, right, center):
+{background-position: valorX valorY}
+
+Colocar imagem com responsividade e com proporções iguais:
+{background-size: contain}
+
+Colocar imagem com responsividade e com proporções cortadas:
+{background-size: cover}
+
+Deixa imagem parada pela scrollbar:
+{background-attachment-fixed}
+
+
+ 
+Shorthands:
+
+Margin e Padding:
+Cima    Direita    Baixo    Esquerda
+Cima    Direita e Esquerda    Baixo
+Cima e Baixo    Direita e Esquerda
+
+Font:
+font-style    font-weight    font-size    line-height    font-family   
+
+Border:
+border-width    border-style    border-color
+
+Background:
+bg-color    bg-image    bg-position    bg-repeat    bg-attachment
+
+Border-radius:
+Superior Esquerdo    Superior Direito    Inferior Direito    Inferior Esquerdo
+Superior Esquerdo    Superior Direito e Inferior Esquerdo    Inferior Direito
+Superior Esquerdo e Inferior Direito    Superior Direito e Inferior Esquerdo 
+
+Flex:
+flex-grow    flex-shrink    flex-basis
+
+Transition:
+tr-property    tr-duration    tr-timing-function   tr-delay
