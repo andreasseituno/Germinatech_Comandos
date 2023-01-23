@@ -43,3 +43,7 @@ main a:nth-child(1) {
 main a:nth-child(2) {
   background-image: url(../Imagens/imagem_postgre.webp);
 }
+
+main a:nth-child(3) {
+  background-image: url(../Imagens/imagem_git.webp);
+}

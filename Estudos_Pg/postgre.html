@@ -17,9 +17,9 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="postgre.css" />
     <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
     <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="stylesheet" href="postgre.css" />
 
     <script src="../Estilos_Padrao/secundario.js" defer></script>
     <script src="../Estilos_Padrao/cabecalho.js" defer></script>
@@ -148,7 +148,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="../Estudos_Git/git.html">
             <div>
               <img
                 src="../Imagens/icone_git.webp"
@@ -182,18 +182,18 @@
         Germinatech
       </h2>
       <select name="opcoes" id="opcoes" onchange="location = this.value">
-        <option value="#docker"><p>Docker e bancos</p></option>
-        <option value="#tabelas"><p>Tabelas</p></option>
-        <option value="#colunas"><p>Colunas</p></option>
-        <option value="#valores"><p>Valores</p></option>
-        <option value="#chaves"><p>Chaves e Serial</p></option>
-        <option value="#selects"><p>Selects</p></option>
-        <option value="#fNumeros"><p>Funções de Numbers</p></option>
-        <option value="#fString"><p>Funções de Strings</p></option>
-        <option value="#fPessoal"><p>Funções de Pessoais</p></option>
-        <option value="#privilegio"><p>User e Role</p></option>
-        <option value="#view"><p>Views</p></option>
-        <option value="#view"><p>Grant, Revoke, Schema</p></option>
+        <option value="#docker">Docker e bancos</option>
+        <option value="#tabelas">Tabelas</option>
+        <option value="#colunas">Colunas</option>
+        <option value="#valores">Valores</option>
+        <option value="#chaves">Chaves e Serial</option>
+        <option value="#selects">Selects</option>
+        <option value="#fNumeros">Funções de Numbers</option>
+        <option value="#fString">Funções de Strings</option>
+        <option value="#fPessoal">Funções de Pessoais</option>
+        <option value="#privilegio">User e Role</option>
+        <option value="#view">Views</option>
+        <option value="#view">Grant, Revoke, Schema</option>
       </select>
     </header>
 
@@ -660,6 +660,11 @@
           </p>
 
           <p>
+            <strong>Obter data atual:</strong>
+            SELECT now();
+          </p>
+
+          <p>
             <strong>
               Filtrar quantos dígitos antes e depois da vírgula (D):
             </strong>
@@ -667,7 +672,9 @@
           </p>
 
           <p>
-            <strong>Obter dia (day), mês (month), ano (year):</strong>
+            <strong>
+              Obter dia (day), mês (month), ano (year) de uma coluna:
+            </strong>
             SELECT extract (month FROM data_mat) AS Mes FROM aluno;
           </p>
 

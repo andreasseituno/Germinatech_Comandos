@@ -1,0 +1,94 @@
+Configurações git:
+
+Adicionar nome de usuário:
+git config --global user.name “André”
+
+Adicionar e-mail:
+git config --global user.email email@exemplo.com
+
+Ver credenciais:
+git config --list
+
+Adicionar repositório no git bash:
+git remote add origin https://github.com/andreasseituno/mega-aula-6.git
+
+Criar/iniciar um repositório na pasta em que está:
+git init
+
+Trocar nome da branch master (para main):
+git branch -M main 
+
+
+
+Arquivos e Pastas:
+
+Ver todas as pastas: 
+ls -l
+
+Criar pasta:
+mkdir pasta1
+
+Abrir pasta:
+cd pasta1
+
+Abrir a pasta com VS code:
+code .
+
+Criar arquivo:
+touch arquivo.txt
+
+Renomear arquivo (para arquivo.txt):
+git mv aquvi.txt arquivo.txt
+
+Apagar arquivo:
+git clean -fd andre.txt 
+
+
+
+Estados e Commits:
+
+Clonar:
+git clone https://github.com/andreasseituno/mega-aula-6.2.git
+
+Ver os status do Code (Undefinied, A, M etc.):
+code .status
+
+Estado modificado para preparado:
+git add andre.txt
+
+Estado preparado para modificado (voltar):
+git reset andre.txt
+
+Desfaz uma alteração do arquivo modificado:
+git restore –staged andre.txt 
+
+Dar commit:
+git commit -m mensagem
+
+Ver todos os commits (adicione o –oneline –graph para ficar mais bonito):
+git log
+
+
+ 
+Pull, Push e Branches:
+
+Checar/ver situação da branch, ver se tem commit a fazer (trocar main para mudar de branch):
+git checkout main
+
+Dar push:
+git push origin main
+
+Dar push com licença MIT e README: 
+git push --rebase origin main
+
+Dar o pull mais seguro:
+git fetch
+
+Dar pull (git fetch + git merge):
+git pull origin
+
+Criar branch:
+git branch nome_da-branch
+
+Ver em qual branch você está:
+git checkout
