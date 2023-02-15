@@ -90,6 +90,8 @@ select {
 
   width: 225px;
   padding: 8px 5px;
+
+  cursor: pointer;
 }
 
 option {
