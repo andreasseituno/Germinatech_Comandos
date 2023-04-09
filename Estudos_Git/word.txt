@@ -1,7 +1,7 @@
 Configurações git:
 
 Adicionar nome de usuário:
-git config --global user.name “André”
+git config --global user.name 'André'
 
 Adicionar e-mail:
 git config --global user.email email@exemplo.com
@@ -51,7 +51,7 @@ Clonar:
 git clone https://github.com/andreasseituno/mega-aula-6.2.git
 
 Ver os status do Code (Undefinied, A, M etc.):
-code .status
+code status
 
 Estado modificado para preparado:
 git add andre.txt

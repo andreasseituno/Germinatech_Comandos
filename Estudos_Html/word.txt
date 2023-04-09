@@ -1,0 +1,300 @@
+Tags para body (1):
+
+<body> corpo de texto <body>
+
+<h1...h2...h6> título principal (grande), secundário (médio), terciário (pequeno) <h1...h2...h6>
+<p> parágrafo <p>
+
+</br> quebra de texto </br>
+</wbr> quebra de palavra </wbr> (aplica quando não há mais texto para quebrar)
+
+<strong> texto de destaque/importância <strong> (negrito)
+<em> dar ênfase <em> (itálico)
+
+</hr> linha horizontal </hr>
+
+<ol> lista ordenada <ol>
+<ul> lista não ordenada <ul>
+<li> item da lista <li> 
+
+<nav> conjunto de vários links <nav>
+<a> palavra que leva à outra página <a> (add o param href)
+
+</img> imagem </img> (add o param src)
+
+<div> caixa com quebra de linha <div>
+<span> caixa sem quebra de linha <span>
+
+
+ 
+Tags para body (2):
+
+<ins> novo texto inserido <ins> (sublinhado)
+<del> texto deletado <del> (taxado)
+<s> texto sem relevância <s> (taxado)
+
+<q> citação curta <q> (aspas)
+<blockquote> citação longa/ de bloco <blockquote>
+<cite> os créditos da citação, nome do autor <cite> (itálico)
+
+<sup> número em cima <sup>
+<sub> número em baixo <sub>
+
+<dl> lista de definição <dl> 
+<dt> termo que vai ser definido <dt> 
+<dd> definição do termo <dd>
+
+<abbr> sigla ou abreviação <abbr> (sublinhado) (add o param title) 
+
+<pre> <code> códigos <code> <pre> (monoespaçado)
+<kbd> tecla do computador, Ctrl <kbd> (monoespaçado)
+<var> variável de programação ou de matemática, x² <var> (itálico)
+<samp> mensagem do computador <samp> (monoespaçado)
+
+
+ 
+Tags para body (3):
+
+</source> adição de elementos de mídia para o navegador escolher o compatível </source> (dentro de <picture>, <audio> ou <video>)
+<picture> conjunto de imagens e </source srcet> <picture> 
+<audio> arquivo de áudio <audio>
+<video> arquivo de vídeo <video>
+</track> arquivo de legenda </track>
+<iframe> quadro de vídeo <iframe> (dentro a mensagem quando não carregado) 
+
+<header> cabeçalho <header> 
+<main> conteúdo principal <main> (só existe 1)
+<aside> conteúdo lateral <aside>
+<section> seção <section>
+<article> artigo <article>
+<footer> rodapé <footer>
+
+<hgroup> conjuntos de títulos e subtítulos, tags <h> <hgroup>
+
+<figure> imagem e <figcaption> <figure>
+<figcaption> legenda de uma imagem <figcaption>
+
+<time> data <time> (hora, dia, ano, mês)
+<address> endereço <address> (itálico)
+
+<mark> texto grifado/marcado <mark>
+<small> texto pequeno/ letras miúdas <small> 
+
+<map> conjunto de <area> <map> (add o param name igual ao param usemap no <img>)
+<area> coordenadas de um mapa </area> (add o param shape, href, coords)
+
+
+
+Tags para body (4):
+
+<b> negrito <b> 
+<i> itálico <i> 
+<u> texto distinto com estilo diferente, palavras com erro <u> (sublinhado)
+
+<ruby> caractere asiático que precisa/tem um significado/pronunciação <ruby>
+<rt> pronúncia de um <ruby> <rt>
+<rp> parênteses que agrupam um <rt> <rp>
+
+<details> <summary> texto expansível quando clicado <summary> <details> (<summary> é o título, adicione conteúdo entre <summary> e <details>)
+
+<template> conteúdo escondido quando tela carregada <template>
+<dialog> caixa de mensagem pop-up para diálogo <dialog> (add o param open)
+
+<bdo> texto que vai ser invertido <bdo> (add o param dir)
+<bdi> texto que possivelmente pode ser lido por direção diferente <bdi>
+
+<canvas> gráfico gerado por script <canvas> (dentro a mensagem para quando não carregar)
+<svg> arquivo em SVG <svg>
+
+
+ 
+Tags para formulários:
+
+<form> início e fim do formulário <form>
+<label> texto em referência ao item do formulário <label> (add o param for)
+</input> campo para digitar </input>
+
+<textarea> campo com altura <textarea> (add o param cols e rows)
+
+<fieldset> seção do formulário <fieldset>
+<legend> legenda de uma seção <legend>
+
+<select> <option> opção numa lista <option> <select> 
+<optgroup> seção de <option> <optgroup> (add o param label para título)
+
+<datalist> <option> sugestão de opção em </input> <option> <datalist> (add o param id igual ao param list no <input>) 
+
+<meter> range não alterável <meter> (add o param value, min, max)
+<progress> range não alterável para barras de progresso <progress> (add o param value, max)
+
+<output> resultado de uma conta <output> (add o param oninput no <form>)
+
+
+
+Parâmetros para formulários:
+
+method= “post”: dentro de <form> para proteger dados, ou dados muito pesados/grandes.
+form= “formularioPrincipal”: dizer a qual (id do) <form> pertence.
+
+for= “telefone”: dentro de <label> para dizer a qual (id do) </input> se refere.
+value= “enviar”: dentro de <input> para escrever algo dentro de um botão ou caixa.
+
+autocomplete= “off”: dentro de <form> ou <input> para desabilitar sugestões.
+autofocus: dentro de <input> para ser selecionado, assim que o site carregar.
+required: dentro de <input> para obrigar a responder para enviar.
+disabled: dentro de <input> para deixar desabilitado.
+checked: dentro de <input> para deixar um checkbox já marcado.
+selected: dentro de <input> ou <option> para deixar uma opção já selecionada.
+placeholder= “exemplo@gmail.com”: dentro de <input> para uma mensagem inicial.
+minlength= “4”: dentro de <input> para definir um mínimo de caracteres (pode variar para maxlength, ou pra max/min caso números).
+step= “0.5”: dentro de <input> para dizer de quanto em quanto é aceito.
+size= “4”: dentro de <input> para definir sua largura, em número de caracteres.
+
+list= “opcoes”: dentro de <input> para se conectar à tag <datalist> pelo param id.
+pattern= “[A-z]” title= “somente letras”: dentro de <input> PATTERN é o requirido para enviar o formulário, TITLE é a mensagem de erro.
+
+label= “título”: dentro de <optgroup> para dar um título à seção de opções.
+readonly: dentro de <textarea> para deixar o texto apenas visível, não editável.
+cols= “9” rows= “9”: dentro de <textarea> para fixar o tamanho, COLS é largura e ROWS altura.
+oninput= “c.value = a.value + b.value”: dentro de <form> para que a conta entre <input> (a, b) seja igual à um <output> (c).
+low= “3” high= “7”: dentro de <meter> para definir o que é muito/pouco para estilização LOW é valor baixo e HIGH valor alto.
+optimum= “5”: dentro de <meter> para definir o valor mais adequado.
+ 
+
+
+Tags e Parâmetros para tabelas:
+
+<table> tabela <table>
+<tr> linha da tabela <tr>
+<th> dado da coluna com importância <th> (título da coluna)
+<td> dado da coluna <td> 
+
+<thead> cabeçalho da tabela <thead> 
+<tbody> corpo da tabela <tbody> 
+<tfoot> rodapé da tabela <tfoot>
+<caption> legenda/título da tabela <caption> 
+
+<colgroup> conjunto de </col> <colgroup>
+</col class= “col1”> (estiliza uma coluna inteira, se tem 4 colunas, use 4 col, ou o param span)
+
+rowspan= ”3”: dentro de <td> para juntar 3 linhas.
+colspan= ”2”: dentro de <td> para juntar 2 colunas.
+
+scope= “col”: dentro de <th> para dizer que o título se refere à coluna (cima-baixo).
+scope= “row”: dentro de <th> para dizer que o título se refere à linha (esquerda-direita).
+
+headers= “telefone”: dentro de <td> para dizer à qual (id do) <th> se refere.
+
+span= “5”: dentro de </col> para se referir a 5 colunas.
+ 
+
+ 
+Tags para head:
+
+<head> informações invisíveis ao usuário <head>
+
+<!DOCTYPE html> tipo de documento, nesse caso html.
+<html lang= “pt-br”> linguagem do documento, nesse caso português.
+
+<meta charset= “UTF-8”> permite o uso de caracteres especiais como Ç ou acentos.
+<meta http-equiv= “X-UA-Compatible” content=”IE=edge”> renderiza com a versão mais recente do navegador.
+<meta name= “viewport” content= “width=advice-width, initial-scale=1.0”> body ocupa 100% da tela disponível do navegador.
+
+<title> título do site/aba <title>
+
+</link> relaciona o documento com algo de fora, CSS ou ICON </link>
+
+<style> configurar o CSS dentro do HTML, internal <style>
+<script> configurar o JS dentro do HTML, internal <script>
+<noscript> mensagem para usuários com scripts desabilitados <noscript>
+
+</base> link padrão para todos os <a> </base> (add o param href)
+
+
+ 
+Parâmetros/atributos (1):
+
+id= “ipsum”: especifica uma parte do texto.
+class= “ipsum”: específica partes do texto parecidas.
+style= “color: green”: mudar visualmente o elemento, inline.
+
+href= “#impsum” target= “_blank”: dentro de <a> o HREF direciona o link ou palavra específica do texto ou uma outra página, TARGET diz onde o href vai levar (_blank = nova aba).
+src= “gato.jpg” alt= “gato bege”: dentro de <img> o SCR é o caminho do arquivo, ALT a explicação da imagem, para acessibilidade.
+
+width= “420px” height= “240px”: dentro de <iframe> para definir seu tamanho (WIDTH é  largura e HEIGHT altura).
+
+type= “1”: dentro de <ul> ou <ol> para transformar listas (“1” varia para a, A, i, I ou em <ul> para circle ou square).
+start= “5”: dentro de <ul> ou <ol> para iniciar a lista por um número/letra específica.
+reversed: dentro de <ol> para inverter a numeração (maior pro menor).
+
+async: dentro de <script> para não dar prioridade em sua execução.
+defer: dentro de <script> para carregar todo o HTML, só depois o Javascript.
+
+
+ 
+Parâmetros/atributos (2):
+
+cite= “https://”: dentro de <blockquote> ou <q> para dizer a referência da situação, se é uma frase de um autor, adicione no o link da página do autor.
+title= “Acre”: dentro de <abbr> para dizer o significado da sigla, mouse em cima pra mostrar.
+
+rel= “next”: dentro de <a> para referenciar aonde o link vai (next= próximo index, prev= index anterior, external= link pela URL, nofollow= external, mas com link patrocinado ou duvidoso).
+hreflang= “pt-br”: dentro de <a> para dizer a linguagem do link.
+
+preload= “auto”: dentro de <audio> ou <video> para determinar quanto vai ser baixado (auto= carrega o arquivo inteiro, metadata= informações principais, none= só quando tocar no play).
+autoplay controls loop muted: dentro de <audio> ou <video> AUTOPLAY CONTROLS permite ser tocado, o LOOP autoexplicativo, MUTED o vídeo fica inicialmente sem som.
+poster= “imagem.png”:  dentro de <video> para thumbnail do vídeo.
+srcset= “imagem.jpg” dentro de <source> para o caminho do arquivo.
+
+scrolling= “yes”: dentro de <iframe> para habilitar (yes) ou desabilitar (no) a barra de rolagem.
+frameborder= “0”: dentro de <iframe> para ter (1) ou remover (0) borda.
+srcdoc = “<p> oi </p>”: dentro de <iframe> para editar o que aparece dentro com uso de tags.
+sandbox= “sandbox” referrerpolicy= “no-referrer”: dentro de <iframe> para impedir o conteúdo dentro do quadro tenha uma correlação com o site, o sandbox pode ser alterado para ter as exceções do que ele permite, tudo é uma questão de segurança.
+
+media= “print”: dentro de </link> para pegar um Css específico (print= impressora, all= todos os tipos, screen= telas).
+media= “screen and (orientation: portrait)”:  dentro de </link> para pegar um Css específico. (orientation: portrait= modo retrato/em pé, orientation: landscape= modo paisagem/deitado).
+media= “(max-width: 100px)” srcet= “imagens/foto.png”: dentro de <source> MEDIA define o tamanho máximo que a imagem comporta e o SRCET o caminho da mesma.
+ 
+
+
+Parâmetros/atributos (3):
+
+contenteditable= “true” spellcheck= “true”: CONTENTEDITABLE deixa conteúdo de texto editável pelo usuário e SPELLCHECK habilita a correção ortográfica.
+hidden: desaparecer o elemento.
+name= “mapa”: nome do elemento.
+tabindex= “3”: definir a ordem de tab para elementos.
+
+usemap= “#mapaBrasil”: dentro de <img> para se conectar à tag <map> pelo param name.
+shape= “rect” coords= “198, 140, 313, 225”: dentro de <area> SHAPE é o formato da área clicável e COORDS a localização (rect= retângulo, circle= círculo, poly= personalizado) (cada coordenada tem 2 valores [width, height]px, quando rect, precisa da coord superior esquerda e da inferior direita, quando circle, coord do centro e o raio, quando poly diversas coordenadas).
+
+dir= “rtl” dentro de <bdo> para dizer a direção do texto, para ser invertido.
+open: dentro de <dialog> para o deixar visível.
+datetime= “2022-12-25”: dentro de <time> para especificar a data do evento/feriado.
+default: dentro de <track> para deixar uma legenda padrão quando ativada.
+
+
+
+Informações importantes:
+
+Iniciar código com este comando (mudar a linguagem para pt-br):
+!
+
+Palavras aleatórias (lorem) com número exato de palavras (Y):
+loremY
+
+Adicionar comentários:
+<! -- comentário -->
+
+Modo simples de criar tabela com 3 tr e 6 td:
+table>tr*3>td*6
+
+Modo simples de criar uma div com id= pai, que comporta 5 spans de mesma classe, em que cada span possui um título, e 5 parágrafos que são enumerados de 1 a 5:
+#pai>span. filhos*5>h1{Título $}+p{Palavra número $}*5
+
+Adicionar símbolo de menor < e maior >:
+&lt; &gt;
+
+Adicionar o símbolo de arroba @: 
+&copy;
+
+Adicionar um emoji (entre o X e o ; vem o código do emoji):
+&#x;

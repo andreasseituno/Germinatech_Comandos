@@ -43,7 +43,7 @@ idade INT,
 media REAL,
 verdade BOOL,
 data_mat DATE,
-hora_nascimento DATETIME);
+hora_nascimento TIMESTAMP);
 
 Criar tabela (com herança):
 CREATE TABLE industrializado (
@@ -58,24 +58,24 @@ RENAME TO professores;
  
 Colunas:
 
-Adicionar coluna na tabela:  
+Adicionar coluna:  
 ALTER TABLE professor
 ADD COLUMN sobrenome VARCHAR (80);
 
-Apagar coluna na tabela:  
+Apagar coluna:  
 ALTER TABLE professor
 DROP COLUMN sobrenome;
 
-Renomear uma coluna:   
+Renomear coluna:   
 ALTER TABLE professor
 RENAME data_contratacao TO contraste;
+
+Renomear coluna temporariamente (aliás):
+SELECT nomes AS professores FROM professor;
 
 Adicionar um valor máximo para uma coluna:
 ALTER TABLE aluno
 ADD CHECK (media < 10);
-
-Renomear uma coluna temporariamente (aliás):
-SELECT nomes AS professores FROM professor;
 
 Adicionar uma nova coluna temporariamente com uma condição:
 SELECT *, CASE
@@ -94,18 +94,18 @@ Valores:
 Verificar todos os valores da tabela:  
 SELECT * FROM aluno;
 
-Colocar/inserir valores na tabela:  
+Colocar/inserir valores:  
 INSERT INTO aluno (nome, data_mat) 
 VALUES (‘Andre’, ’01-20-2022’), (‘Ana’, ’02-20-2022’);
 
-Apagar todos os valores da tabela:
+Apagar todos os valores:
 TRUNCATE TABLE professor;	
 
 Olhar valores de diferentes tabelas:
 SELECT professor.academias, academias.nome FROM professor, academias 
 WHERE professor.academias= academias.id;
 
-Trocar todos os valores da tabela, (apenas no Rodrigo nesse caso):  
+Trocar todos os valores, (apenas no Rodrigo nesse caso):  
 UPDATE professor
 SET idade=30, salario=2000
 WHERE nome LIKE 'Rodrigo’;
@@ -114,7 +114,7 @@ Deletar/apagar valores só de 1 linha:
 DELETE FROM aluno
 WHERE nome LIKE ‘Rodrigo’;
 
-Colocar/inserir valores na tabela de outra tabela:
+Colocar/inserir valores de outra tabela:
 INSERT INTO aluno (cpf, nome, idade)
 SELECT INTO professor.cpf, professsor.nome, professor.idade FROM professor;
 
@@ -139,7 +139,7 @@ id_professor INT,
 nota REAL,
 PRIMARY KEY (id_aluno, id_professor),
 FOREIGN KEY (id_aluno) REFERENCES aluno,
-FOREIGN KEY (id_professor) REFENCES professor);
+FOREIGN KEY (id_professor) REFERENCES professor);
 
 Reiniciar SERIAL: 
 TRUNCATE TABLE professor RESTART IDENTITY; 
@@ -161,14 +161,14 @@ SELECT * FROM aluno ORDER BY nome, idade;
 Somar colunas (a idade com o salario):
 SELECT nomes, idade + salario FROM professor;
 
-Ver colunas tenham 1 ou outra coluna igual (aceita o símbolo de =, >, <, ! depois de OR):
+Ver colunas tenham 1 ou outra coluna igual (aceita símbolo de =, >, <, != depois de OR):
 SELECT nomes, sobrenomes FROM professor WHERE id=1 OR idades > 30;
 
-Ver colunas tenham 1 e outra coluna igual (aceita o símbolo de =, >, <, ! depois de AND):
-SELECT nomes, sobrenomes FROM professor WHERE nomes= “Marcelo” AND idades =< 16;
+Ver colunas tenham 1 e outra coluna igual (aceita símbolo de =, >, <, != depois de AND):
+SELECT nomes, sobrenomes FROM professor WHERE nomes= “Marcelo” AND idades <= 16;
 
 Ver algo entre certos valores (adicione NOT antes de BETWEEN para ser entre 0 a 6):
-SELCT * FROM aluno WHERE media BETWEEN 7 AND 10;
+SELECT * FROM aluno WHERE media BETWEEN 7 AND 10;
 
 Ver colunas que começam com uma letra específica (S) (trocar LIKE por SIMILAR TO):
 SELECT * FROM aluno WHERE nome LIKE ‘S%’;

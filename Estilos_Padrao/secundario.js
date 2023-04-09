@@ -5,23 +5,39 @@ const bolinhas = document.getElementsByClassName("circulo");
 
 // Elementos
 const opcoes = document.getElementById("opcoes");
+const botao = document.getElementById("btnAbrir");
+
+// Variáveis
+var pressionado = false;
 
 // Eventos
 for (let i = 0; i < conteudo.length; i++) {
   titulos[i].addEventListener("click", () => {
-    if (conteudo[i].offsetHeight == 0) 
-    abreSecao(i);
-
-    else 
-    fechaSecao(i);
+    if (conteudo[i].offsetHeight == 0) abreSecao(i);
+    else fechaSecao(i);
   });
 }
 
 opcoes.addEventListener("change", () => {
   for (let i = 0; i < opcoes.length; i++) {
-    if (opcoes.value.slice(1) == titulos[i].id) 
-    abreSecao(i);
+    if (opcoes.value.slice(1) == titulos[i].id) {
+      abreSecao(i);
+      break;
+    }
   }
+});
+
+botao.addEventListener("click", () => {
+  for (let i = 0; i < conteudo.length; i++) {
+    if (pressionado) {
+      fechaSecao(i);
+      botao.innerText = "Abrir Seções";
+    } else {
+      abreSecao(i);
+      botao.innerText = "Fechar Seções";
+    }
+  }
+  pressionado = !pressionado;
 });
 
 // Métodos

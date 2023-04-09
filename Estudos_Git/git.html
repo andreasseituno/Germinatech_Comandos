@@ -8,7 +8,7 @@
       name="description"
       content="Lista de Comados de Programação da Linguagem de 
     Programação: Git, a partir de um emulador Linux Shell para
-    comandos Git Bashlista criada por um estudante de curso técnico
+    comandos Git Bash, lista criada por um estudante de curso técnico
     'Germinatech'"
     />
 
@@ -105,7 +105,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="../Estudos_Html/html.html">
             <div>
               <img
                 src="../Imagens/icone_html.webp"
@@ -182,12 +182,17 @@
         Todos os Comandos de Git Bash que anotei durante minhas aulas da
         Germinatech
       </h2>
+
+      <div id="botoesContainer">
       <select name="opcoes" id="opcoes" onchange="location = this.value">
         <option value="#configuracoes">Configurações git</option>
         <option value="#arquivos">Arquivos e Pastas</option>
         <option value="#commits">Estados e Commits</option>
         <option value="#pull">Pull, Push e Branch</option>
       </select>
+
+      <button id="btnAbrir">Abrir Seções</button>
+      </div>
     </header>
 
     <main>
@@ -206,7 +211,7 @@
         <div class="conteudo">
           <p>
             <strong>Adicionar nome de usuário:</strong>
-            git config --global user.name “André”
+            git config --global user.name 'André'
           </p>
 
           <p>
@@ -306,7 +311,7 @@
 
           <p>
             <strong>Ver os status do Code:</strong>
-            code .status
+            code status
           </p>
 
           <p>

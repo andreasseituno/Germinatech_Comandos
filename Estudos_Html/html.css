@@ -1,0 +1,90 @@
+/* Elementos- Agrupadores */
+
+section {
+  width: 82.5%;
+}
+
+.conteudo div {
+  width: 97.5%;
+  display: flex;
+  flex-direction: row column;
+  flex-wrap: wrap;
+
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.185);
+  border-radius: 5px;
+  margin: 5px 3px;
+  padding: 3px;
+}
+
+/* Elementos- Texto */
+
+.conteudo p {
+  text-align: justify;
+  width: 100%;
+  min-height: 20px;
+}
+
+.conteudo a {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+}
+
+/* Classes */
+
+.tag p > code,
+.parametros a > code {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tag p > code::before,
+.parametros a > code::before {
+  content: "<";
+}
+
+.tag p > code::after,
+.parametros a > code::after {
+  content: ">";
+}
+
+.tag a > code {
+  font-family: unset;
+}
+
+.parametros p > code {
+  font-weight: bold;
+  color: rgb(0, 0, 229);
+}
+
+.parametros em {
+  color: rgb(229, 0, 0);
+  font-family: monospace;
+  font-style: normal;
+}
+
+.parametros em::before {
+  content: '= "';
+}
+
+.parametros em::after {
+  content: '":';
+}
+
+.parametros em#dupla::after {
+  content: '"';
+}
+
+/* Ids */
+
+#comentario {
+  color: rgb(101, 149, 84);
+}
+
+#menorMaior::after {
+  content: "&lt; &gt;";
+}
+
+#arroba::after {
+  content: "&copy;";
+}

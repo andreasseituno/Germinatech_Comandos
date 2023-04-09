@@ -104,7 +104,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="../Estudos_Html/html.html">
             <div>
               <img
                 src="../Imagens/icone_html.webp"
@@ -181,20 +181,25 @@
         Todos os Comandos de PgSql que anotei durante minhas aulas da
         Germinatech
       </h2>
-      <select name="opcoes" id="opcoes" onchange="location = this.value">
-        <option value="#docker">Docker e bancos</option>
-        <option value="#tabelas">Tabelas</option>
-        <option value="#colunas">Colunas</option>
-        <option value="#valores">Valores</option>
-        <option value="#chaves">Chaves e Serial</option>
-        <option value="#selects">Selects</option>
-        <option value="#fNumeros">Funções de Numbers</option>
-        <option value="#fString">Funções de Strings</option>
-        <option value="#fPessoal">Funções de Pessoais</option>
-        <option value="#privilegio">User e Role</option>
-        <option value="#view">Views</option>
-        <option value="#view">Grant, Revoke, Schema</option>
-      </select>
+
+      <div id="botoesContainer">
+        <select name="opcoes" id="opcoes" onchange="location = this.value">
+          <option value="#docker">Docker e bancos</option>
+          <option value="#tabelas">Tabelas</option>
+          <option value="#colunas">Colunas</option>
+          <option value="#valores">Valores</option>
+          <option value="#chaves">Chaves e Serial</option>
+          <option value="#selects">Selects</option>
+          <option value="#fNumeros">Funções de Numbers</option>
+          <option value="#fString">Funções de Strings</option>
+          <option value="#fPessoal">Funções de Pessoais</option>
+          <option value="#privilegio">User e Role</option>
+          <option value="#view">Views</option>
+          <option value="#view">Grant, Revoke, Schema</option>
+        </select>
+
+        <button id="btnAbrir">Abrir Seções</button>
+      </div>
     </header>
 
     <main>
@@ -287,7 +292,7 @@
             media REAL, <br />
             verdade BOOL, <br />
             data_mat DATE, <br />
-            hora_nascimento DATETIME);
+            hora_nascimento TIMESTAMP);
           </p>
 
           <p>
@@ -319,15 +324,27 @@
 
         <div class="conteudo">
           <p>
-            <strong>Adicionar coluna na tabela:</strong>
+            <strong>Adicionar coluna:</strong>
             ALTER TABLE professor <br />
             ADD COLUMN sobrenome VARCHAR (80);
           </p>
 
           <p>
-            <strong>Renomear uma coluna:</strong>
+            <strong>Apagar coluna:</strong>
+            ALTER TABLE professor <br />
+            DROP COLUMN sobrenome;
+          </p>
+
+          <p>
+            <strong>Renomear coluna:</strong>
             ALTER TABLE professor <br />
             RENAME data_contratacao TO contraste;
+          </p>
+
+          <p>
+            <strong>Renomear coluna temporariamente (aliás):</strong>
+            SELECT nomes AS professores <wbr />
+            FROM professor;
           </p>
 
           <p>
@@ -337,9 +354,8 @@
           </p>
 
           <p>
-            <strong>Renomear uma coluna temporariamente (aliás):</strong>
-            SELECT nomes AS professores <wbr />
-            FROM professor;
+            <strong>Verificar se é par ou ímpar:</strong>
+            SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
           </p>
 
           <p>
@@ -351,11 +367,6 @@
             WHEN media > 7 THEN 'Você passou, mas não foi 10' <br />
             ELSE 'Você não passou' <br />
             END AS mensagem FROM aluno;
-          </p>
-
-          <p>
-            <strong>Verificar se é par ou ímpar:</strong>
-            SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
           </p>
         </div>
       </section>
@@ -379,7 +390,7 @@
           </p>
 
           <p>
-            <strong>Colocar/inserir valores na tabela: </strong>
+            <strong>Colocar/inserir valores: </strong>
             INSERT INTO aluno (id, nome) <br />
             VALUES (1, 'André), (2, 'Ana');
           </p>
@@ -392,7 +403,7 @@
 
           <p>
             <strong>
-              Trocar os valores da tabela, (apenas no Rodrigo nesse caso):
+              Trocar os valores, (apenas no Rodrigo nesse caso):
             </strong>
             UPDATE professor <br />
             SET idade=30, salario=2000 <br />
@@ -400,7 +411,7 @@
           </p>
 
           <p>
-            <strong>Apagar todos os valores da tabela:</strong>
+            <strong>Apagar todos os valores:</strong>
             TRUNCATE TABLE professor;
           </p>
 
@@ -411,7 +422,7 @@
           </p>
 
           <p>
-            <strong>Colocar/inserir valores na tabela de outra tabela:</strong>
+            <strong>Colocar/inserir valores de outra tabela:</strong>
             INSERT INTO professor (cpf, nome, idade) <br />
             SELECT INTO aluno.cpf, aluno.nome, aluno.idade FROM aluno;
           </p>
@@ -470,7 +481,7 @@
             nota REAL, <br />
             PRIMARY KEY (id_aluno, id_professor), <br />
             FOREIGN KEY (id_aluno) REFERENCES aluno, <br />
-            FOREIGN KEY (id_professor) REFENCES professor);
+            FOREIGN KEY (id_professor) REFERENCES professor);
           </p>
         </div>
       </section>
@@ -500,18 +511,18 @@
 
           <p>
             <strong>
-              Ver colunas tenham 1 OU outra coluna igual (aceita o símbolo de =,
-              &gt;, &lt;, ! depois de OR):
+              Ver colunas tenham 1 OU outra coluna igual (aceita símbolo de =,
+              &gt;, &lt;, != depois de OR):
             </strong>
             SELECT nome, sobrenome FROM aluno WHERE id=1 OR idade > 16;
           </p>
 
           <p>
             <strong>
-              Ver colunas tenham 1 E outra coluna igual (aceita o símbolo de =,
-              &gt;, &lt;, ! depois de AND):
+              Ver colunas tenham 1 E outra coluna igual (aceita símbolo de =,
+              &gt;, &lt;, != depois de AND):
             </strong>
-            SELECT nome, sobrenome FROM aluno WHERE nome= “Ana” AND idade =&lt;
+            SELECT nome, sobrenome FROM aluno WHERE nome= 'Ana' AND idade &lt;=
             16;
           </p>
 
