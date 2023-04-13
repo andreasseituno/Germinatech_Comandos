@@ -20,7 +20,6 @@ main a {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
   flex-grow: 1;
 
-  min-width: 225px;
   width: 47.5%;
   margin: 2px;
 }
@@ -36,6 +35,10 @@ main a:nth-child(n) {
   background-position: center center;
 }
 
+main a:nth-child(1) {
+  background-image: url(../Imagens/imagem_html.webp);
+}
+
 main a:nth-child(2) {
   background-image: url(../Imagens/imagem_css.webp);
 }
@@ -46,8 +49,4 @@ main a:nth-child(3) {
 
 main a:nth-child(4) {
   background-image: url(../Imagens/imagem_git.webp);
-}
-
-main a:nth-child(1) {
-  background-image: url(../Imagens/imagem_html.webp);
 }
