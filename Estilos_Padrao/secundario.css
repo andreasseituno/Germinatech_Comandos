@@ -140,6 +140,7 @@ section p {
   padding: 10px 20px 25px;
 }
 
+
 section strong {
   color: rgba(0, 0, 0, 0.7);
   display: block;
@@ -186,6 +187,10 @@ a {
 }
 
 .esticado p {
+  width: 550px;
+}
+
+p.esticado{
   width: 550px;
 }
 

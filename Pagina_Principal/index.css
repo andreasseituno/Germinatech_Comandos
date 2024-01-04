@@ -20,7 +20,7 @@ main a {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
   flex-grow: 1;
 
-  width: 47.5%;
+  width: 30%;
   margin: 2px;
 }
 
@@ -49,4 +49,8 @@ main a:nth-child(3) {
 
 main a:nth-child(4) {
   background-image: url(../Imagens/imagem_git.webp);
+}
+
+main a:nth-child(5) {
+  background-image: url(../Imagens/imagem_sql.webp);
 }

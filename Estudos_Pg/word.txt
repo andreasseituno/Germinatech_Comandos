@@ -54,6 +54,9 @@ Renomear tabela:
 ALTER TABLE professor
 RENAME TO professores;
 
+Apagar tabela:
+DROP TABLE professor;
+
 
  
 Colunas:
@@ -66,12 +69,19 @@ Apagar coluna:
 ALTER TABLE professor
 DROP COLUMN sobrenome;
 
+Mudar o tipo da coluna (somente se compatível):
+ALTER TABLE professor
+ALTER COLUMN idade REAL;
+
 Renomear coluna:   
 ALTER TABLE professor
 RENAME data_contratacao TO contraste;
 
 Renomear coluna temporariamente (aliás):
 SELECT nomes AS professores FROM professor;
+
+Ver todas as colunas da tabela:  
+SELECT * FROM professor
 
 Adicionar um valor máximo para uma coluna:
 ALTER TABLE aluno

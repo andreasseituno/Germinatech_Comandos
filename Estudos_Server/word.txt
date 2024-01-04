@@ -1,0 +1,428 @@
+Tabelas e Banco de Dados:
+
+Criar banco de dados:
+CREATE DATABASE dbMercado
+
+Usar banco de dados:
+use dbMercado
+
+Apagar banco de dados:
+DROP DATABASE dbMercado
+	
+Criar tabela (adicione #, para ser uma tabela temporária):  
+CREATE TABLE tbCLIENTE 
+( nCdCliente DECIMAL(10,0) NOT NULL
+, cNmCliente VARCHAR(50)       NULL
+, dInclusao  DATETIME          NULL
+, iQtde      INT               NULL
+, cAtivo     CHAR(1)       NOT NULL
+)
+
+Renomear tabela (para tbCLIENTELA) (não recomendado pelo sistema): 
+EXEC sp_rename 'tbCLIENTE', 'tbCLIENTELA'
+
+Apagar tabela:
+DROP TABLE tbCLIENTE 
+
+
+
+Colunas:
+
+Adicionar coluna:  
+ALTER TABLE tbCLIENTE
+        ADD cTelefone VARCHAR (50)
+
+Apagar coluna:  
+ALTER TABLE tbCLIENTE
+DROP COLUMN cTelefone
+
+Mudar o tipo da coluna (somente se compatível):
+ALTER  TABLE tbCLIENTE
+ALTER COLUMN dInclusao DATE
+
+Renomear coluna (para cNmCliente) (não recomendado pelo sistema): 
+EXEC sp_rename 'tbCLIENTE.charNomeCliente', 'cNmCliente'
+
+Ver todas as colunas da tabela (* contra padronização, especificar colunas):  
+SELECT * FROM tbPRODUTO
+
+Ver colunas específicas:  
+SELECT tbCLIENTE.nCdCliente
+     , tbCLIENTE.cNmCliente 
+  FROM tbCLIENTE
+
+Renomear coluna temporariamente (aliás):
+SELECT Amigos = tbCLIENTE.cNmCliente 
+  FROM tbCLIENTE
+
+
+ 
+Valores:
+
+Colocar/inserir valores:  
+INSERT INTO tbCLIENTE (nCdCliente, dInclusao, cAtivo) 
+     VALUES (1, '20220101', '1')
+          , (2, '20220131', '0')
+
+Apagar todos os valores:
+TRUNCATE TABLE tbPRECO
+
+Trocar valores:  
+UPDATE tbPRECO
+   SET tbPRECO.nPreco          = 9.99
+     , tbPRECO.dInicioVigencia = '20200301'
+ WHERE tbPRECO.nCdProduto      = 4
+
+Deletar/apagar valores de linhas específicas:  
+DELETE FROM tbCLIENTE
+      WHERE tbCLIENTE.cNmCliente LIKE 'Izabela'
+
+Colocar/inserir valores de outra tabela: 
+INSERT INTO tbCLIENTE (nCdCliente, cNmCliente)
+     SELECT tbALUNO.nCdAluno
+          , tbALUNO.cNmAluno
+       FROM tbALUNO 
+
+
+
+Chaves e Retrições:
+
+Criar tabela com chave primária:
+CREATE TABLE tbALUNO
+( nCdAluno DECIMAL (10,0) NOT NULL
+, cNmAluno VARCHAR (50)       NULL
+, cCPF     VARCHAR(18)        NULL
+, CONSTRAINT PK_tbAluno PRIMARY KEY CLUSTERED (nCdAluno)
+)
+
+Criar tabela com chave estrangeira:
+CREATE TABLE tbPEDIDO
+( nCdCliente DECIMAL (10,0) NOT NULL
+, dPedido    DATE               NULL
+, CONSTRAINT FK_tbPedido_tbCliente FOREIGN KEY (nCdCliente) REFERENCES tbCliente (nCdCliente)
+)
+
+Criar tabela com 2 chaves primárias (PK) e 2 chaves estrangeiras (FK):  
+CREATE TABLE tbMAT
+( nCdAluno       DECIMAL (10,0) NOT NULL
+, nCdCurso       DECIMAL (10,0) NOT NULL
+, dMatricula     DATE               NULL
+, CONSTRAINT PK_tbMat PRIMARY KEY CLUSTERED (nCdAluno, nCdCurso)
+, CONSTRAINT FK_tbMat_tbAluno FOREIGN KEY (nCdAluno) REFERENCES tbALUNO (nCdAluno)
+, CONSTRAINT FK_tbMat_tbCurso FOREIGN KEY (nCdCurso) REFERENCES tbCURSO(nCdCurso)
+)
+
+Adicionar um valor máximo para uma coluna:
+ALTER TABLE tbITEMPEDIDO
+        ADD CONSTRAINT CK_tbItemPedido_iQtde CHECK (iQtde < 1000)
+
+
+Adicionar restrição de cada valor único (excetos NULL):
+CREATE UNIQUE INDEX UK_tbAluno_cCPF ON tbALUNO (cCPF) 
+              WHERE tbALUNO.cCPF IS NOT NULL
+
+Adicionar um valor padrão para inserção da coluna caso não mencionado (durante criação de tabela remover o FOR em diante, adicionar após a criação da coluna CONSTRAINT em diante):
+ALTER TABLE tbCLIENTE
+        ADD CONSTRAINT DF_tbCliente_cAtivo DEFAULT ('1') FOR cAtivo
+
+
+
+Querys (1) (Simples):
+
+Limitar quantas linhas aparecem:
+SELECT TOP (1)
+       tbALUNO.cNmAluno
+  FROM tbALUNO
+
+Fazer contas em colunas (Preço vezes a Quantidade):
+SELECT tbITEMPEDIDO.nPreco * tbITEMPEDIDO.iQtde 
+  FROM tbITEMPEDIDO
+
+Olhar valores de diferentes tabelas:
+SELECT tbPRODUTO.cNmProduto
+     , tbPRECO.nPreco 
+  FROM tbPRODUTO
+       INNER JOIN tbPRECO ON tbPRECO.nCdProduto = tbPRODUTO.nCdProduto
+
+Olhar todos os valores das tabelas a esquerda, e só os compatíveis da outra:
+SELECT tbPRODUTO.cNmProduto 
+     , tbPRECO.nPreco 
+  FROM tbPRODUTO 
+       LEFT JOIN tbITEMPEDIDO ON tbITEMPEDIDO.nCdProduto = tbPRODUTO.nCdProduto
+
+Ordenar por ordem alfabética ou crescente (add DESC dps de iQtde para o oposto):  
+SELECT tbITEMPEDIDO.iQtde
+  FROM tbITEMPEDIDO 
+ ORDER BY tbITEMPEDIDO.iQtde
+
+Ver os valores diferentes:
+SELECT DISTINCT 
+       tbPRODUTO.cUnidadeMedida
+  FROM tbPRODUTO
+ 
+
+
+Querys (2) (Where):
+
+Ver colunas que tenham 1 OU outra coluna igual (aceita símbolo de =, >, <, != ) :
+SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE
+ WHERE tbCLIENTE.nCdCliente = 1 
+    OR tbCLIENTE.dInclusao  = '20060919'
+
+Ver colunas tenham 1 E outra coluna igual (aceita símbolo de =, >, <, != ):
+SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE 
+ WHERE tbCLIENTE.cNmCliente = 'André Asseituno' 
+   AND tbCLIENTE.cAtivo     = '1'
+
+Ver algo entre certos valores (add NOT antes de BETWEEN) (Inclui 10 e o 200):
+SELECT tbITEMPEDIDO.nCdCliente
+  FROM tbITEMPEDIDO
+ WHERE tbITEMPEDIDO.iQtde BETWEEN 10 AND 200
+
+Ver colunas que começam com uma letra específica (A) (maiúsculas e minúsculas):
+SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE 
+ WHERE tbCLIENTE.cNmCliente LIKE 'A%'
+
+Ver linhas que estejam dentre os mencionados (substituí o OR=):
+SELECT tbPRODUTO.nCdProduto
+  FROM tbPRODUTO
+ WHERE tbPRODUTO.cUnidadeMedida IN ('1', '3')
+
+
+ 
+Querys (3) (Agregação):
+
+Ver o cliente com a menor e maior compra de itens, e a média de todos:
+SELECT Menor = MIN(tbCLIENTE.iQtde)
+     , Maior = MAX(tbCLIENTE.iQtde)
+     , Media = AVG(tbCLIENTE.iQtde)
+FROM tbCLIENTE	
+
+Contar quantos registros existem:
+SELECT COUNT(1)
+  FROM tbCLIENTE
+
+Somar toda a coluna:
+SELECT SUM(tbCLIENTE.iQtde)
+  FROM tbCLIENTE
+
+Combinar funções de agregação com colunas (média por aluno) (se add as colunas de curso, veria a média do aluno por curso):
+SELECT tbAVALIACAO.nCdAluno
+     , AVG(tbAVALIACAO.nNota)
+  FROM tbAVALIACAO
+ GROUP BY tbAVALIACAO.nCdAluno
+
+Adicionar restrição às funções de agregação:
+SELECT tbAVALIACAO.nCdAluno
+     , AVG(tbAVALIACAO.nNota)
+  FROM tbAVALIACAO
+ GROUP BY tbAVALIACAO.nCdAluno
+   HAVING AVG(tbAVALIACAO.nNota) >= 7
+
+
+ 
+Querys (4) (Avançado):
+
+Ver se (if/WHEN) algo acontece então (THEN) outra coisa acontece:
+SELECT Unidades = CASE WHEN tbPRODUTO.cUnidadeMedida = '1'
+                       THEN '1-Unidade'
+                       WHEN tbPRODUTO.cUnidadeMedida = '2'
+                       THEN '2-Quilo'
+                       ELSE '3-Metro'
+                   END
+  FROM tbPRODUTO
+
+Aparecer resultado somente se a condição não existe (tem mais de 1 linha):
+SELECT tbALUNO.nCdAluno
+     , tbALUNO.cNmAluno
+  FROM tbALUNO 
+ WHERE NOT EXISTS ( SELECT 1
+                      FROM tbAVALIACAO
+                     WHERE tbAVALIACAO.nCdAluno          = tbALUNO.nCdAluno
+                       AND MONTH(tbAVALIACAO.dAvaliacao) = 3 
+                  )
+
+Ver os resgistros em que condição pertença a algum item da coluna:
+SELECT tbALUNO.cNmAluno
+  FROM tbALUNO
+WHERE tbALUNO.cNmAluno = ANY ( SELECT tbALUNO.cNmResponsavel
+                                 FROM tbALUNO
+                             )
+
+Concatenar tabelas (uma abaixo da outra) (tiral ALL, para só valores distintos):
+SELECT nCdPessoa = tbCLIENTE.nCdCliente
+     , cNmPessoa = tbCLIENTE.cNmCliente
+  FROM tbCLIENTE
+ UNION ALL
+SELECT tbALUNO.nCdAluno
+     , tbALUNO.cNmAluno
+  FROM tbALUNO
+
+Ver específicos resgistros (2), para cada valor diferente da coluna:
+SELECT B.nCdProduto
+     , B.cUnidadeMedida
+  FROM ( SELECT DISTINCT
+                tbPRODUTO.cUnidadeMedida
+           FROM tbPRODUTO
+       ) A
+       CROSS APPLY ( SELECT TOP(2)
+                            tbPRODUTO.nCdProduto
+                          , tbPRODUTO.cUnidadeMedida
+                       FROM tbPRODUTO
+                      WHERE tbPRODUTO.cUnidadeMedida = A.cUnidadeMedida
+                   ) B
+
+
+ 
+Funções de String (1):
+
+Visualizar todas as letras minúsculas (UPPER para maiúsculas):
+SELECT LOWER('André Asseituno')
+
+Juntar valores:
+SELECT CONCAT('André', ' ', 'Asseituno', ' ', 'Mendes')
+
+Juntar valores, com algum valor entre eles:4
+SELECT CONCAT_WS(' ', 'André', 'Asseituno', 'Mendes')
+
+Remover espaços à esquerda e direita (adicionar antes L para só esquerda e R para direita):
+SELECT TRIM('     André Asseituno     ')
+
+Trocar caracteres [a] (maiúsculo e minúsculo) por outros [Z]:
+SELECT REPLACE('André Asseituno', 'a', 'Z')
+
+Ver os 6 caracteres mais a direita (LEFT para esquerda):
+SELECT RIGHT('000000' + '451', 6)
+
+Mostrar mensagem de erro:
+RAISERROR('Usuário sem acesso', 16, 1)
+
+Ver (5) caracteres, extraindo a partir de uma posição (7):
+SELECT SUBSTRING('André Asseituno', 7, 5)
+
+ 
+Funções  de String (2):
+
+Separar texto em linhas:
+SELECT T.value 
+  FROM STRING_SPLIT('12, 3, 177, 4511', ',') T
+
+Juntar linhas em texto (converter só quando ultrapassar o limite):
+SELECT STRING_AGG(CONVERT(VARCHAR(MAX), tbCLIENTE.nCdCliente), ',') 
+  FROM tbCLIENTE
+
+
+
+Funções de data:
+
+Obter parte específica da data dia (day), mês (month), e ano (year):
+SELECT MONTH(tbCLIENTE.dInclusao) 
+  FROM tbCLIENTE
+
+Diferença entre datas (trocar YEAR por MONTH, HOUR, DAY):
+SELECT DATEDIFF(YEAR, tbALUNO.dMatricula, GETDATE())
+  FROM tbALUNO
+
+Soma de data:
+SELECT DATEADD(YEAR, 1, '20220101')
+
+
+ 
+Funções de expressões:
+
+Criar variável (=1 como valor default, não obrigatório):
+DECLARE @nCdEmpresa DECIMAL(10,0) = 1
+
+Dar valor a variável (1):
+SET @nCdEmpresa = 177
+
+Dar valor a variável (2):
+SELECT @nCdEmpresa = 177
+
+Substituir valor nulo:
+SELECT ISNULL(@nCdEmpresa, 0)
+
+Mudar tipo de uma expressão (adicionar TRY_ para, converter só quando conseguir):
+SELECT CONVERT(VARCHAR(10), @nCdEmpresa)
+
+Analisar condição (se verdadeiro isso, se não, isto):
+SELECT IIF(@nCdEmpresa IS NULL, 0, @nCdEmpresa)
+
+Retorna a primeira expressão mencionada que não é nula:
+SELECT COALESCE(@nCdEmpresa, @nCdEmpresaTerceiro, @nCdEmpresaParceiro)
+
+Mudar datas/números e outros valores para outros padrões:
+SELECT FORMAT(@dMatricula, 'dd MMMM, yyyyy')
+
+
+
+View, Função e Cte:
+
+Salvar um Select na memória (Criar VIEW):
+CREATE OR ALTER VIEW VW_AlunoMatricula
+AS 
+  SELECT tbALUNO.nCdAluno
+       , tbMAT.dMatricula
+    FROM tbALUNO WITH(NOLOCK)
+         INNER JOIN tbMAT WITH(NOLOCK) ON tbMAT.nCdAluno = tbALUNO.nCdAluno
+
+Criar função:
+CREATE OR ALTER FUNCTION dbo.fnCalculaIdade 
+(@AdNascimento DATE)
+RETURNS INTEGER
+AS
+BEGIN
+  DECLARE @iIdade INTEGER,
+          @dAtual DATE = GETDATE ()
+      SET @iIdade = DATEDIFF (YEAR, @AdNascimento, @dAtual)
+   RETURN @iIdade
+END
+
+Criar cte (próximo comando precisa usá-la [Select]):
+;WITH cteAluno AS (
+                    SELECT tbALUNO.nCdAluno
+                         , tbMAT.dMatricula
+                      FROM tbALUNO WITH(NOLOCK)
+                           INNER JOIN tbMAT WITH(NOLOCK) ON tbMAT.nCdAluno = tbALUNO.nCdAluno
+                  )
+SELECT cteAluno.nCdAluno 
+  FROM cteAluno
+ 
+
+
+Procedures: 
+
+Criar Procedure:
+CREATE OR ALTER PROCEDURE dbo.SP_ProcedureData
+(@AdataInicial DATE)
+AS
+BEGIN
+  SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+  SET NOCOUNT ON
+
+  SELECT * 
+    FROM tbAVALIACAO
+   WHERE tbAVALIACAO.dAvaliacao > @AdataInicial
+END
+
+Criar Procedure Dinâmica:
+CREATE OR ALTER PROCEDURE dbo.SP_SelecionaTabela
+(@AcNmTabela VARCHAR(80))
+AS
+BEGIN
+  SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+  SET NOCOUNT ON
+
+  DECLARE @cScript NVARCHAR(MAX) = ' '
+  SET @cScript = ' SELECT * FROM ' + @AcNmTabela
+  EXECUTE dbo.sp_ExecuteSQL @cScript
+END
+
+Rodar Procedure:
+EXEC SP_ProcedureData '20000101'
+
+Apagar Procedure:
+DROP PROCEDURE SP_ProcedureData

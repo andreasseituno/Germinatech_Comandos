@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lista de Comados de Programação da
+    Linguagem de Banco de Dados: PostgreSql, lista criada por um estudante de
+    curso técnico 'Germinatech'"
+    />
+    <title>SQL PRÁTICA</title>
+    <link
+      rel="shortcut icon"
+      href="../Imagens/icone_sql.webp"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="stylesheet" href="server.css" />
+
+    <script src="../Estilos_Padrao/secundario.js" defer></script>
+    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo">
+      <header id="principal">
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
+      </header>
+
+      <aside>
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <hr style="margin-top: -1px" />
+
+        <h3>Acessar</h3>
+
+        <nav>
+          <a href="../Pagina_Principal/index.html">
+            <div>
+              <img
+                src="../Imagens/icone_home.webp"
+                alt="Casinha"
+                class="icone"
+              />
+              Início
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/andreasseituno/Germinatech_Comandos/blob/main/README.md"
+          >
+            <div>
+              <img
+                src="../Imagens/icone_info.webp"
+                alt="logo saber mais"
+                class="icone"
+              />
+              Saiba Mais
+            </div>
+          </a>
+
+          <a href="../Estudos_Html/html.html">
+            <div>
+              <img
+                src="../Imagens/icone_html.webp"
+                alt="Logo Html"
+                class="icone"
+              />
+              Html Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Css/css.html">
+            <div>
+              <img
+                src="../Imagens/icone_css.webp"
+                alt="Logo Css"
+                class="icone"
+              />
+              Css Prática
+            </div>
+          </a>
+
+          <a href="#">
+            <div>
+              <img
+                src="../Imagens/icone_ub.webp"
+                alt="Logo Ubuntu"
+                class="icone"
+              />Ub Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Pg/postgre.html">
+            <div>
+              <img
+                src="../Imagens/icone_pg.webp"
+                alt="Logo PostgreSql"
+                rel="next"
+                class="icone"
+              />
+              Pg Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Git/git.html">
+            <div>
+              <img
+                src="../Imagens/icone_git.webp"
+                alt="Logo Git"
+                class="icone"
+              />
+              Git Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Server/server.html">
+            <div>
+              <img
+                src="../Imagens/icone_sql.webp"
+                alt="Logo Banco de Dados"
+                class="icone"
+              />
+              Server Prática
+            </div>
+          </a>
+        </nav>
+      </aside>
+    </div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Comandos SqlServer</h1>
+      <h2>
+        Todos os Comandos de SqlServer que anotei durante meu trabalho na JBS
+      </h2>
+
+      <div id="botoesContainer">
+        <select name="opcoes" id="opcoes" onchange="location = this.value">
+          <option value="#tabelas">Tabelas e BD</option>
+          <option value="#colunas">Colunas</option>
+          <option value="#valores">Valores</option>
+          <option value="#chaves">Chaves e Retrições</option>
+          <option value="#querys1">Querys (1) (Simples)</option>
+          <option value="#querys2">Querys (2) (Where)</option>
+          <option value="#querys3">Querys (3) (Agregação)</option>
+          <option value="#querys4">Querys (4) (Avançado)</option>
+          <option value="#fstring">Funções de String</option>
+          <option value="#fdata">Funções de data</option>
+          <option value="#fexpressao">Funções expressões</option>
+          <option value="#view">View, Função e Cte</option>
+          <option value="#proc">Procedures</option>
+        </select>
+
+        <button id="btnAbrir">Abrir Seções</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <button id="tabelas">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Tabelas e Banco de Dados:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Criar banco de dados:</strong>
+            <span class="indentado">CREATE DATABASE dbMercado</span>
+          </p>
+
+          <p>
+            <strong>Usar banco de dados:</strong>
+            <span class="indentado">use dbMercado</span>
+          </p>
+
+          <p>
+            <strong>
+              Criar tabela (adicione #, para ser uma tabela temporária):
+            </strong>
+            <span class="indentado">CREATE TABLE tbCLIENTE
+( nCdCliente DECIMAL(10,0) NOT NULL
+, cNmCliente VARCHAR(50)       NULL
+, dInclusao  DATETIME          NULL
+, iQtde      INT               NULL
+, cAtivo     CHAR(1)       NOT NULL
+)</span>
+          </p>
+
+          <p>
+            <strong>
+              Renomear tabela (para tbCLIENTELA) (não recomendado pelo sistema):
+            </strong>
+            <span class="indentado">EXEC sp_rename 'tbCLIENTE', 'tbCLIENTELA'</span>
+          </p>
+
+          <p>
+            <strong>Apagar tabela:</strong>
+            <span class="indentado">DROP TABLE tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>Apagar banco de dados:</strong>
+            <span class="indentado">DROP DATABASE dbMercado</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="colunas">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Colunas:
+          </h3>
+        </button>
+        <div class="conteudo">
+          <p>
+            <strong>Adicionar coluna:</strong>
+            <span class="indentado">ALTER TABLE tbCLIENTE 
+        ADD cTelefone VARCHAR (50)</span>
+          </p>
+
+          <p>
+            <strong>Apagar coluna:</strong>
+            <span class="indentado">ALTER TABLE tbCLIENTE 
+DROP COLUMN cTelefone</span>
+          </p>
+
+          <p>
+            <strong>Mudar o tipo da coluna (somente se compatível):</strong>
+            <span class="indentado">ALTER  TABLE tbCLIENTE 
+ALTER COLUMN dInclusao DATE</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver todas as colunas da tabela (* contra padronização, especificar
+              colunas):
+            </strong>
+            <span class="indentado">SELECT * FROM tbPRODUTO</span>
+          </p>
+
+          <p>
+            <strong>Ver colunas específicas:</strong>
+            <span class="indentado">SELECT tbCLIENTE.<wbr>nCdClient
+     , tbCLIENTE.<wbr>cNmCliente
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>Renomear coluna temporariamente (aliás):</strong>
+            <span class="indentado">SELECT Amigos = tbCLIENTE.<wbr>cNmCliente
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>
+              Renomear coluna (para cNmCliente) (não recomendado pelo sistema):
+            </strong>
+            <span class="indentado">EXEC sp_rename 'tbCLIENTE.<wbr>charNomeCliente', 'cNmCliente'</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="valores">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Valores:
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>Colocar/inserir valores:</strong>
+            <span class="indentado">INSERT INTO tbCLIENTE (nCdCliente, dInclusao, cAtivo) 
+     VALUES (1, '20220101', '1') 
+          , (2, '20220131', '0')</span>
+        </p>
+
+          <p>
+            <strong>Apagar todos os valores:</strong>
+            <span class="indentado">TRUNCATE TABLE tbPRECO</span>
+          </p>
+          <p>
+            <strong>Trocar valores:</strong>
+            <span class="indentado">UPDATE tbPRECO 
+  SET tbPRECO.<wbr>nPreco          = 9.99 
+    , tbPRECO.<wbr>dInicioVigencia = '20200301' 
+WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
+          </p>
+
+          <p>
+            <strong>Deletar/apagar valores de linhas específicas:</strong>
+            <span class="indentado">DELETE FROM tbCLIENTE 
+      WHERE tbCLIENTE.<wbr>cNmCliente LIKE 'Izabela'</span>
+          </p>
+
+          <p>
+            <strong>Colocar/inserir valores de outra tabela:</strong>
+            <span class="indentado">INSERT INTO tbCLIENTE (nCdCliente, cNmCliente) 
+     SELECT tbALUNO.nCdAluno 
+          , tbALUNO.cNmAluno 
+       FROM tbALUNO</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="chaves">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Chaves e Retrições:
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>Criar tabela com chave primária:</strong>
+            <span class="indentado">CREATE TABLE tbALUNO
+( nCdAluno DECIMAL (10,0) NOT NULL
+, cNmAluno VARCHAR (50)       NULL
+, cCPF     VARCHAR(18)        NULL
+, CONSTRAINT PK_tbAluno PRIMARY KEY CLUSTERED (nCdAluno)
+)</span>
+          </p>
+
+          <p>
+            <strong>Criar tabela com chave estrangeira:</strong>
+            <span class="indentado">CREATE TABLE tbPEDIDO
+( nCdCliente DECIMAL (10,0) NOT NULL
+, dPedido    DATE               NULL
+, CONSTRAINT FK_tbPedido_<wbr>tbCliente FOREIGN KEY (nCdCliente) REFERENCES tbCliente (nCdCliente)
+)</span>
+          </p>
+
+          <p>
+            <strong>
+              Criar tabela com 2 chaves primárias (PK) e 2 chaves estrangeiras
+              (FK):
+            </strong>
+            <span class="indentado">CREATE TABLE tbMAT
+( nCdAluno   DECIMAL (10,0) NOT NULL
+, nCdCurso   DECIMAL (10,0) NOT NULL
+, dMatricula DATE               NULL
+, CONSTRAINT PK_tbMat PRIMARY KEY CLUSTERED (nCdAluno, nCdCurso)
+, CONSTRAINT FK_tbMat_tbAluno FOREIGN KEY (nCdAluno) REFERENCES tbALUNO (nCdAluno)
+, CONSTRAINT FK_tbMat_tbCurso FOREIGN KEY (nCdCurso) REFERENCES tbCURSO(nCdCurso)
+)</span>
+          </p>
+
+          <p>
+            <strong>Adicionar um valor máximo para uma coluna:</strong>
+            <span class="indentado">ALTER TABLE tbITEMPEDIDO
+        ADD CONSTRAINT CK_tbItemPedido<wbr>_iQtde CHECK (iQtde &lt; 1000)</span>
+          </p>
+
+          <p>
+            <strong>
+              Adicionar restrição de cada valor único (excetos NULL):
+            </strong>
+            <span class="indentado">CREATE UNIQUE INDEX UK_tbAluno_cCPF ON tbALUNO (cCPF) WHERE tbALUNO.cCPF IS NOT NULL</span>
+          </p>
+
+          <p>
+            <strong>
+              Adicionar um valor padrão para inserção da coluna caso não
+              mencionado (durante criação de tabela remover o FOR em diante,
+              adicionar após a criação da coluna CONSTRAINT em diante):
+            </strong>
+            <span class="indentado">ALTER TABLE tbCLIENTE
+        ADD CONSTRAINT DF_tbCliente_<wbr>cAtivo DEFAULT ('1') FOR cAtivo</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="querys1">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Querys (1) (Simples):
+          </h3>
+        </button>
+        <div class="conteudo">
+          <p>
+            <strong>Limitar quantas linhas aparecem:</strong>
+            <span class="indentado">SELECT TOP (1)
+       tbALUNO.cNmAluno
+  FROM tbALUNO</span>
+          </p>
+
+          <p>
+            <strong>Fazer contas em colunas (Preço vezes a Quantidade):</strong>
+            <span class="indentado">SELECT tbITEMPEDIDO.<wbr>nPreco * tbITEMPEDIDO.<wbr>iQtde 
+  FROM tbITEMPEDIDO</span>
+          </p>
+
+          <p>
+            <strong>
+              Ordenar por ordem alfabética ou crescente (add DESC dps de iQtde
+              para o oposto):
+            </strong>
+            <span class="indentado">SELECT tbITEMPEDIDO.<wbr>iQtde
+  FROM tbITEMPEDIDO 
+ ORDER BY tbITEMPEDIDO.<wbr>iQtde</span>
+          </p>
+
+          <p>
+            <strong>Ver os valores diferentes:</strong>
+            <span class="indentado">SELECT DISTINCT 
+       tbPRODUTO.<wbr>cUnidadeMedida
+  FROM tbPRODUTO</span>
+          </p>
+
+          <p class="esticado">
+            <strong>Olhar valores de diferentes tabelas:</strong>
+            <span class="indentado">SELECT tbPRODUTO.<wbr>cNmProduto
+     , tbPRECO.<wbr>nPreco 
+  FROM tbPRODUTO
+       INNER JOIN tbPRECO ON tbPRECO.<wbr>nCdProduto = tbPRODUTO.<wbr>nCdProduto</span>
+          </p>
+
+          <p class="esticado">
+            <strong>
+              Olhar todos os valores das tabelas a esquerda, e só os compatíveis
+              da outra:
+            </strong>
+            <span class="indentado">SELECT tbPRODUTO.cNmProduto 
+     , tbPRECO.nPreco 
+  FROM tbPRODUTO 
+       LEFT JOIN tbITEMPEDIDO ON tbITEMPEDIDO.nCdProduto = tbPRODUTO.nCdProduto</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="querys2">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Querys (2) (Where):
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>
+              Ver colunas que tenham 1 OU outra coluna igual (aceita símbolo de
+              =, &gt;, &lt;, != ) :
+            </strong>
+            <span class="indentado">SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE
+ WHERE tbCLIENTE.nCdCliente = 1 
+    OR tbCLIENTE.dInclusao  = '20060919'</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver colunas tenham 1 E outra coluna igual (aceita símbolo de =,
+              &gt;, &lt;, != ):
+            </strong>
+            <span class="indentado">SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE 
+ WHERE tbCLIENTE.cNmCliente = 'André Asseituno' 
+   AND tbCLIENTE.cAtivo     = '1'</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver algo entre certos valores (add NOT antes de BETWEEN) (Inclui
+              10 e o 200):
+            </strong>
+            <span class="indentado">SELECT tbITEMPEDIDO.nCdCliente
+  FROM tbITEMPEDIDO
+ WHERE tbITEMPEDIDO.iQtde BETWEEN 10 AND 200</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver colunas que começam com uma letra específica (A) (maiúsculas e
+              minúsculas):
+            </strong>
+            <span class="indentado">SELECT tbCLIENTE.nCdCliente
+  FROM tbCLIENTE 
+ WHERE tbCLIENTE.cNmCliente LIKE 'A%'</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver linhas que estejam dentre os mencionados (substituí o OR=):
+            </strong>
+            <span class="indentado">SELECT tbPRODUTO.nCdProduto
+  FROM tbPRODUTO
+ WHERE tbPRODUTO.cUnidadeMedida IN ('1', '3')</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="querys3">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Querys (3) (Agregação):
+          </h3>
+        </button>
+        <div class="conteudo">
+          <p>
+            <strong>Contar quantos registros existem:</strong>
+            <span class="indentado">SELECT COUNT(1)
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>Somar toda a coluna:</strong>
+            <span class="indentado">SELECT SUM(tbCLIENTE.iQtde)
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver o cliente com a menor e maior compra de itens, e a média de
+              todos:
+            </strong>
+            <span class="indentado">SELECT Menor = MIN(tbCLIENTE.iQtde)
+     , Maior = MAX(tbCLIENTE.iQtde)
+     , Media = AVG(tbCLIENTE.iQtde)
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>
+              Combinar funções de agregação com colunas (média por aluno) (se
+              add as colunas de curso, veria a média do aluno por
+              curso):
+            </strong>
+              <span class="indentado">SELECT tbAVALIACAO.nCdAluno
+     , AVG(tbAVALIACAO.nNota)
+  FROM tbAVALIACAO
+ GROUP BY tbAVALIACAO.nCdAluno</span>
+          </p>
+
+          <p>
+            <strong>Adicionar restrição às funções de agregação:</strong>
+            <span class="indentado">SELECT tbAVALIACAO.nCdAluno
+     , AVG(tbAVALIACAO.nNota)
+  FROM tbAVALIACAO
+ GROUP BY tbAVALIACAO.nCdAluno
+   HAVING AVG(tbAVALIACAO.nNota) >= 7</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="querys4">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Querys (4) (Avançado):
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>
+              Ver se (if/WHEN) algo acontece então (THEN) outra coisa acontece:
+            </strong>
+            <span class="indentado">SELECT Unidades = CASE WHEN tbPRODUTO.cUnidadeMedida = '1'
+                       THEN '1-Unidade'
+                       WHEN tbPRODUTO.cUnidadeMedida = '2'
+                       THEN '2-Quilo'
+                       ELSE '3-Metro'
+                   END
+  FROM tbPRODUTO</span>
+          </p>
+
+          <p>
+            <strong>
+              Aparecer resultado somente se a condição não existe (tem mais de 1
+              linha):
+            </strong>
+            <span class="indentado">SELECT tbALUNO.nCdAluno
+     , tbALUNO.cNmAluno
+  FROM tbALUNO 
+ WHERE NOT EXISTS ( SELECT 1
+                      FROM tbAVALIACAO
+                     WHERE tbAVALIACAO.nCdAluno          = tbALUNO.nCdAluno
+                       AND MONTH(tbAVALIACAO.dAvaliacao) = 3 
+                  )</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver os resgistros em que condição pertença a algum item da coluna:
+            </strong>
+            <span class="indentado">SELECT tbALUNO.cNmAluno
+  FROM tbALUNO
+ WHERE tbALUNO.cNmAluno = ANY ( SELECT tbALUNO.cNmResponsavel
+                                  FROM tbALUNO
+                              )</span>
+          </p>
+
+          <p>
+            <strong>
+              Concatenar tabelas (uma abaixo da outra) (tiral ALL, para só
+              valores distintos):
+            </strong>
+            <span class="indentado">SELECT nCdPessoa = tbCLIENTE.nCdCliente
+     , cNmPessoa = tbCLIENTE.cNmCliente
+  FROM tbCLIENTE
+ UNION ALL
+SELECT tbALUNO.nCdAluno
+     , tbALUNO.cNmAluno
+  FROM tbALUNO</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver específicos resgistros (2), para cada valor diferente da
+              coluna:
+            </strong>
+            <span class="indentado">SELECT B.nCdProduto
+     , B.cUnidadeMedida
+  FROM ( SELECT DISTINCT
+                tbPRODUTO.cUnidadeMedida
+           FROM tbPRODUTO
+       ) A
+       CROSS APPLY ( SELECT TOP(2)
+                            tbPRODUTO.nCdProduto
+                          , tbPRODUTO.cUnidadeMedida
+                       FROM tbPRODUTO
+                      WHERE tbPRODUTO.cUnidadeMedida = A.cUnidadeMedida
+                   ) B</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fstring">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de String (1):
+          </h3>
+        </button>
+        <div class="conteudo">
+          <p>
+            <strong>
+              Visualizar todas as letras minúsculas (UPPER para maiúsculas):
+            </strong>
+            <span class="indentado">SELECT LOWER('André Asseituno')</span>
+          </p>
+
+          <p>
+            <strong>
+              Remover espaços à esquerda e direita (adicionar antes L para só
+              esquerda e R para direita):
+            </strong>
+            <span class="indentado">SELECT TRIM('  André Asseituno  ')</span>
+          </p>
+
+          <p>
+            <strong>Juntar valores:</strong>
+            <span class="indentado">SELECT CONCAT('André', ' ', 'Asseituno', ' ', 'Mendes')</span>
+          </p>
+
+          <p>
+            <strong>Juntar valores, com algum valor entre eles:</strong>
+            <span class="indentado">SELECT CONCAT_WS(' ', 'André', 'Asseituno', 'Mendes')</span>
+          </p>
+
+          <p>
+            <strong>
+              Trocar caracteres [a] (maiúsculo e minúsculo) por outros [Z]:
+            </strong>
+            <span class="indentado">SELECT REPLACE('André Asseituno', 'a', 'Z')</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver os 6 caracteres mais a direita (LEFT para esquerda):
+            </strong>
+            <span class="indentado">SELECT RIGHT('000000' + '451', 6)</span>
+          </p>
+
+          <p>
+            <strong>Mostrar mensagem de erro:</strong>
+            <span class="indentado">RAISERROR('Sem acesso', 16, 1)</span>
+          </p>
+
+          <p>
+            <strong>
+              Ver (5) caracteres, extraindo a partir de uma posição (7):
+            </strong>
+            <span class="indentado">SELECT SUBSTRING('André Asseituno', 7, 5)</span>
+          </p>
+
+          <p class="esticado">
+            <strong>Separar texto em linhas:</strong>
+            <span class="indentado">SELECT T.value 
+  FROM STRING_SPLIT('12, 3, 177, 4511', ',') T</span>
+          </p>
+
+          <p class="esticado">
+            <strong>
+              Juntar linhas em texto (converter só quando ultrapassar o limite):
+            </strong>
+            <span class="indentado">SELECT STRING_AGG(CONVERT(VARCHAR(MAX), tbCLIENTE.nCdCliente), ',')
+  FROM tbCLIENTE</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fdata">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de data:
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>
+              Obter parte específica da data dia (day), mês (month), e ano
+              (year):
+            </strong>
+            <span class="indentado">SELECT MONTH(tbCLIENTE.dInclusao) 
+  FROM tbCLIENTE</span>
+          </p>
+
+          <p>
+            <strong>
+              Diferença entre datas (trocar YEAR por MONTH, HOUR, DAY):
+            </strong>
+            <span class="indentado">SELECT DATEDIFF(YEAR, tbALUNO.dMatricula, GETDATE()) 
+  FROM tbALUNO</span>
+          </p>
+
+          <p>
+            <strong>Soma de data:</strong>
+            <span class="indentado">SELECT DATEADD(YEAR, 1, '20220101')</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fexpressao">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Funções de expressões:
+          </h3>
+        </button>
+        <div class="conteudo">
+          <p>
+            <strong>
+              Criar variável (=1 como valor default, não obrigatório):
+            </strong>
+            <span class="indentado">DECLARE @nCdEmpresa DECIMAL(10,0) = 1</span>
+          </p>
+
+          <p>
+            <strong>Substituir valor nulo:</strong>
+            <span class="indentado">SELECT ISNULL(@nCdEmpresa, 0)</span>
+          </p>
+
+          <p>
+            <strong>Dar valor a variável (1):</strong>
+            <span class="indentado">SET @nCdEmpresa = 177</span>
+          </p>
+
+          <p>
+            <strong>Dar valor a variável (2):</strong>
+            <span class="indentado">SELECT @nCdEmpresa = 177</span>
+          </p>
+
+          <p>
+            <strong>
+              Mudar tipo de uma expressão (adicionar TRY_ para, converter só
+              quando conseguir):
+            </strong>
+            <span class="indentado">SELECT CONVERT(VARCHAR(10), @nCdEmpresa)</span>
+          </p>
+
+          <p>
+            <strong>
+              Analisar condição (se verdadeiro isso, se não, isto):
+            </strong>
+            <span class="indentado">SELECT IIF(@nCdEmpresa IS NULL, 0, @nCdEmpresa)</span>
+          </p>
+
+          <p>
+            <strong>
+              Retorna a primeira expressão mencionada que não é nula:
+            </strong>
+            <span class="indentado">SELECT COALESCE(@nCdEmpresa, @nCdEmpresaTerceiro, @nCdEmpresaParceiro)</span>
+          </p>
+
+          <p>
+            <strong>
+              Mudar datas/números e outros valores para outros padrões:
+            </strong>
+            <span class="indentado">SELECT FORMAT(@dMatricula, 'dd MMMM, yyyyy')</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="view">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            View, Função e Cte:
+          </h3>
+        </button>
+        <div class="conteudo esticado">
+          <p>
+            <strong>Salvar um Select na memória (Criar VIEW):</strong>
+            <span class="indentado">CREATE OR ALTER VIEW VW_AlunoMatricula
+AS 
+  SELECT tbALUNO.nCdAluno
+       , tbMAT.dMatricula
+    FROM tbALUNO WITH(NOLOCK)
+         INNER JOIN tbMAT WITH(NOLOCK) ON tbMAT.nCdAluno = tbALUNO.nCdAluno</span>
+          </p>
+
+          <p>
+            <strong>Criar função:</strong>
+            <span class="indentado">CREATE OR ALTER FUNCTION dbo.fnCalculaIdade 
+(@AdNascimento DATE)
+RETURNS INTEGER
+AS
+BEGIN
+  DECLARE @iIdade INTEGER,
+          @dAtual DATE = GETDATE ()
+      SET @iIdade = DATEDIFF (YEAR, @AdNascimento, @dAtual)
+   RETURN @iIdade
+END</span>
+          </p>
+
+          <p>
+            <strong>
+              Criar cte (próximo comando precisa usá-la [Select]):
+            </strong>
+            <span class="indentado">;WITH cteAluno AS (
+  SELECT tbALUNO.nCdAluno
+       , tbMAT.dMatricula
+    FROM tbALUNO WITH(NOLOCK)
+         INNER JOIN tbMAT WITH(NOLOCK) ON tbMAT.nCdAluno = tbALUNO.nCdAluno
+                  )
+SELECT cteAluno.nCdAluno 
+  FROM cteAluno</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="proc">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Procedures:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p class="esticado">
+            <strong>Criar Procedure:</strong>
+            <span class="indentado">CREATE OR ALTER PROCEDURE dbo.SP_ProcedureData
+(@AdataInicial DATE)
+AS
+BEGIN
+  SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+  SET NOCOUNT ON
+
+  SELECT * 
+    FROM tbAVALIACAO
+   WHERE tbAVALIACAO.dAvaliacao > @AdataInicial
+END</span>
+          </p>
+
+          <p class="esticado">
+            <strong>Criar Procedure Dinâmica:</strong>
+            <span class="indentado">CREATE OR ALTER PROCEDURE dbo.SP_SelecionaTabela
+(@AcNmTabela VARCHAR(80))
+AS
+BEGIN
+  SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+  SET NOCOUNT ON
+
+  DECLARE @cScript NVARCHAR(MAX) = ' '
+  SET @cScript = ' SELECT * FROM ' + @AcNmTabela
+  EXECUTE dbo.sp_ExecuteSQL @cScript
+END</span>
+          </p>
+
+          <p>
+            <strong>Rodar Procedure:</strong>
+            <span class="indentado">EXEC SP_ProcedureData '20000101'</span>
+          </p>
+
+          <p>
+            <strong>Apagar Procedure:</strong>
+            <span class="indentado">DROP PROCEDURE SP_ProcedureData</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Realizado inteiramente por
+        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
+      </p>
+    </footer>
+  </body>
+</html>

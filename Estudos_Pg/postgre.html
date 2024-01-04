@@ -159,7 +159,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="../Estudos_Server/server.html">
             <div>
               <img
                 src="../Imagens/icone_sql.webp"
@@ -217,7 +217,7 @@
 
         <div class="conteudo">
           <p>
-            <strong>Iniciar o pg (deixar pg no verde):</strong>
+            <strong>Iniciar o container pg (deixar pg no verde):</strong>
             docker start pg
           </p>
 
@@ -307,6 +307,11 @@
             ALTER TABLE professor <br />
             RENAME TO professores;
           </p>
+
+          <p>
+            <strong>Apagar tabela:</strong>
+            DROP TABLE professor;
+          </p>
         </div>
       </section>
 
@@ -348,9 +353,20 @@
           </p>
 
           <p>
+            <strong>Mudar o tipo da coluna (somente se compatível):</strong>
+            ALTER TABLE professor <br />
+            ALTER COLUMN idade REAL;
+          </p>
+
+          <p>
             <strong>Adicionar um valor máximo para uma coluna:</strong>
             ALTER TABLE aluno <br />
             ADD CHECK (media &lt; 10);
+          </p>
+
+          <p>
+            <strong>Ver todas as colunas da tabela:</strong>
+            SELECT * FROM professor
           </p>
 
           <p>
@@ -384,11 +400,6 @@
         </button>
 
         <div class="conteudo">
-          <p>
-            <strong>Verificar todos os valores da tabela: </strong>
-            SELECT * FROM aluno;
-          </p>
-
           <p>
             <strong>Colocar/inserir valores: </strong>
             INSERT INTO aluno (id, nome) <br />
@@ -881,6 +892,11 @@
                 Revogar privilégio às tabelas de um schema para 1 usuário:
               </strong>
               REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
+            </p>
+
+            <p>
+              <strong>Visualizar as permissões de cada usuário</strong>
+              SELECT * FROM information_schema.table_privileges
             </p>
           </div>
 
