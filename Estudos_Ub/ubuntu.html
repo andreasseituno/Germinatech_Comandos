@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lista de Comados da interface Shell do Sistema Operacional Linux com Ubuntu, lista criada por um estudante de
+        curso técnico 'Germinatech'"
+    />
+    <title>UB PRÁTICA</title>
+    <link
+      rel="shortcut icon"
+      href="../Imagens/icone_ub.webp"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+
+    <script src="../Estilos_Padrao/secundario.js" defer></script>
+    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo">
+      <header id="principal">
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
+      </header>
+
+      <aside>
+        <div class="containerLogo">
+          <button>
+            <img
+              src="../Imagens/icone_menu.webp"
+              alt="icone menu"
+              class="iconMenu"
+            />
+          </button>
+          <a href="https://github.com/andreasseituno">
+            <img
+              src="../Imagens/Andre_GitHub.webp"
+              alt="Logo GitHub"
+              rel="author"
+              class="logo"
+            />
+          </a>
+          <h2>
+            André <br />
+            Asseituno
+          </h2>
+        </div>
+
+        <hr style="margin-top: -1px" />
+
+        <h3>Acessar</h3>
+
+        <nav>
+          <a href="../Pagina_Principal/index.html">
+            <div>
+              <img
+                src="../Imagens/icone_home.webp"
+                alt="Casinha"
+                class="icone"
+              />
+              Início
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/andreasseituno/Germinatech_Comandos/blob/main/README.md"
+          >
+            <div>
+              <img
+                src="../Imagens/icone_info.webp"
+                alt="logo saber mais"
+                class="icone"
+              />
+              Saiba Mais
+            </div>
+          </a>
+
+          <a href="../Estudos_Html/html.html">
+            <div>
+              <img
+                src="../Imagens/icone_html.webp"
+                alt="Logo Html"
+                class="icone"
+              />
+              Html Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Css/css.html">
+            <div>
+              <img
+                src="../Imagens/icone_css.webp"
+                alt="Logo Css"
+                class="icone"
+              />
+              Css Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Ub/ubuntu.html">
+            <div>
+              <img
+                src="../Imagens/icone_ub.webp"
+                alt="Logo Ubuntu"
+                class="icone"
+              />Ub Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Pg/postgre.html">
+            <div>
+              <img
+                src="../Imagens/icone_pg.webp"
+                alt="Logo PostgreSql"
+                rel="next"
+                class="icone"
+              />
+              Pg Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Git/git.html">
+            <div>
+              <img
+                src="../Imagens/icone_git.webp"
+                alt="Logo Git"
+                class="icone"
+              />
+              Git Prática
+            </div>
+          </a>
+
+          <a href="../Estudos_Server/server.html">
+            <div>
+              <img
+                src="../Imagens/icone_sql.webp"
+                alt="Logo Banco de Dados"
+                class="icone"
+              />
+              Server Prática
+            </div>
+          </a>
+        </nav>
+      </aside>
+    </div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Comandos Shell</h1>
+      <h2>
+        Todos os Comandos do Shell que anotei durante minhas aulas da
+        Germinatech
+      </h2>
+
+      <div id="botoesContainer">
+        <select name="opcoes" id="opcoes" onchange="location = this.value">
+          <option value="#docker">Docker configuração</option>
+          <option value="#arquivos">Arquivos e diretórios</option>
+          <option value="#editar">Editar arqs/pastas</option>
+          <option value="#operadores">Operadores</option>
+          <option value="#cats">Leitura de Arquivos</option>
+          <option value="#usuarios">Usuários e Grupos</option>
+          <option value="#python">Python</option>
+          <option value="#processos">Processos</option>
+          <option value="#variaveis">Variáveis ambiente</option>
+          <option value="#grep">Grep</option>
+          <option value="#awk">Awk</option>
+        </select>
+
+        <button id="btnAbrir">Abrir Seções</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <button id="docker">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Docker configurações:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Criar novo container (fora do root):</strong>
+            docker pull ubuntu && docker run --name containerzinho -it ubuntu
+          </p>
+
+          <p>
+            <strong>Iniciar o container ub (deixar ub no verde):</strong>
+            docker start ub
+          </p>
+
+          <p>
+            <strong>Executar a instância (como entrar no root):</strong>
+            docker exec -it ub bash
+          </p>
+
+          <p>
+            <strong>Ver imagens do docker:</strong>
+            docker images
+          </p>
+
+          <p>
+            <strong>Ver containers do docker:</strong>
+            docker ps
+          </p>
+
+          <p>
+            <strong>Ver usuário (root):</strong>
+            whoami
+          </p>
+
+          <p>
+            <strong>Ver nome da máquina (a36c69721192):</strong>
+            hostname
+          </p>
+
+          <p>
+            <strong>Ver diretório (/):</strong>
+            pwd
+          </p>
+
+          <p>
+            <strong>
+              Ver data (adicione +% depois letra para ser específico, Y= ano, m=
+              mês, d=data, H= hora):
+            </strong>
+            date
+          </p>
+
+          <p>
+            <strong>
+              Printar mensagem de texto (colocar -e depois de echo para
+              habilitar o \n e o \t):
+            </strong>
+            echo 'Hello World'
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="arquivos">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Arquivos e pastas/diretórios:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Acessar diretório de trabalho (home):</strong>
+            cd ~
+          </p>
+
+          <p>
+            <strong>
+              Ver todos os diretórios/arquivos (espaço e nome do caminho):
+            </strong>
+            ls -l
+          </p>
+
+          <p>
+            <strong>Criar diretório:</strong>
+            mkdir pasta1
+          </p>
+
+          <p>
+            <strong>Entrar no diretório:</strong>
+            cd pasta1
+          </p>
+
+          <p>
+            <strong>Voltar 1 diretório:</strong>
+            cd ..
+          </p>
+
+          <p>
+            <strong>
+              Entrar no caminho específico (voltar 2 vezes e entrar em 2
+              pastas):
+            </strong>
+            cd ../../pasta1/pasta2
+          </p>
+
+          <p>
+            <strong>Criar arquivo vazio:</strong>
+            touch arq1.txt
+          </p>
+
+          <p>
+            <strong>
+              Criar arquivo cheio (instale o <a href="#python">nano</a> ou vá
+              para <a href="#cats">cats</a>):
+            </strong>
+            nano teste.py
+          </p>
+
+          <p>
+            <strong>Executar um arquivo:</strong>
+            bash mensagem.sh
+          </p>
+
+          <p>
+            <strong>Encontrar/localizar onde existe o arquivo:</strong>
+            find / -name arq1.txt
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="editar">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Editar arquivos e diretórios:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Copiar o arquivo (e jogá-lo dentro da pasta1):</strong>
+            cp ./arquivo.txt ./pasta1/
+          </p>
+
+          <p>
+            <strong>Mover o arquivo (e jogá-lo dentro da pasta2):</strong>
+            mv ./arquivo.txt ./pasta2
+          </p>
+
+          <p>
+            <strong>Apagar/remover um arquivo:</strong>
+            rm ./arquivo.txt
+          </p>
+
+          <p>
+            <strong>
+              Apagar/remover o diretório e todos os arquivos dentro:
+            </strong>
+            rm -r ./pasta
+          </p>
+
+          <p>
+            <strong>Apagar/remover diretório vazio:</strong>
+            rmdir pasta
+          </p>
+
+          <p>
+            <strong>Renomear arquivo ou diretório:</strong>
+            mv aquivi.txt arquivo.txt
+          </p>
+
+          <p>
+            <strong>
+              Alterar permissão do arquivo/diretório (7777 é permissão total):
+            </strong>
+            chmod 0777 arq1.txt
+          </p>
+
+          <p>
+            <strong>
+              Transportar um arquivo da sua máquina para o docker:
+            </strong>
+            docker cp "C:\Users\alunotemp\Downloads\mercado.csv" ub:/home
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="operadores">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Operadores:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Executar vários comandos (;):</strong>
+            ls -l; cd fndajdbas; pwd
+          </p>
+
+          <p>
+            <strong>
+              Executar vários comandos se o anterior der certo (&&):
+            </strong>
+            ls -l && cd aasd && pwd
+          </p>
+
+          <p>
+            <strong>Executar comando se o anterior der errado (||):</strong>
+            cd pasta1 || cd pasta2 || ls -l
+          </p>
+
+          <p>
+            <strong>
+              Usar o resultado do comando anterior para o próximo comando (|):
+            </strong>
+            cat -n arquivo4.txt | grep "Ana"
+          </p>
+
+          <p>
+            <strong>Agrupar comandos (()):</strong>
+            (cd principal || cd teste) && ls -l
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="cats">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Leitura de Arquivos (Cats e outros):
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Criar arquivo cheio (em seguida escreva linhas de texto, terminar
+              com Ctrl C):
+            </strong>
+            cat > arq1.txt
+          </p>
+
+          <p>
+            <strong>Ver os conteúdos dentro do arquivo:</strong>
+            cat arquivo.txt
+          </p>
+
+          <p>
+            <strong>
+              Inserir outro conteúdo dentro do arquivo (adicionar no final):
+            </strong>
+            cat >> arq1.txt
+          </p>
+
+          <p>
+            <strong>
+              Adicionar textos de arquivos em outro arquivo (concatenar):
+            </strong>
+            cat arq1.txt arq2.txt > arq3.txt
+          </p>
+
+          <p>
+            <strong>Ordenar um arquivo (será criado o ordenado.txt):</strong>
+            sort arq1.txt > ordenado.txt
+          </p>
+
+          <p>
+            <strong>
+              Contar linhas (trocar -l para -w para palavras, -c para
+              caracteres):
+            </strong>
+            wc -l arq1.txt
+          </p>
+
+          <p>
+            <strong>Ver os primeiros (4) itens do arquivo:</strong>
+            head -4 arq1.txt
+          </p>
+
+          <p>
+            <strong>Ver os últimos (4) itens do arquivo:</strong>
+            tail -4 arq1.txt
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="usuarios">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Usuários e Grupos:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p class="subtitulo">Usuário</p>
+          <p class="subtitulo">Grupo</p>
+
+          <p>
+            <strong>
+              Ver todos os usuários (trocar passwd por shadow para mais detalhes
+              de cada usuário):
+            </strong>
+            cat /etc/passwd
+          </p>
+
+          <p>
+            <strong>
+              Ver todos os grupos (trocar group por gshadow para informações de
+              criptografia):
+            </strong>
+            cat /etc/group
+          </p>
+
+          <p>
+            <strong>Criar usuário:</strong>
+            adduser user1
+          </p>
+
+          <p>
+            <strong>Criar grupo:</strong>
+            groupadd germinare
+          </p>
+
+          <p>
+            <strong>Excluir/deletar usuário:</strong>
+            userdel user1
+          </p>
+
+          <p>
+            <strong>Excluir/deletar grupo:</strong>
+            groupdel germinare
+          </p>
+
+          <p>
+            <strong>Entrar no usuário (logout para sair):</strong>
+            login user1
+          </p>
+
+          <p>
+            <strong>Adicionar usuário no grupo:</strong>
+            usermod user1 -G germinare
+          </p>
+
+          <p><strong>Alterar senha do usuário:</strong> passwd user1</p>
+        </div>
+      </section>
+
+      <section>
+        <button id="python">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Python em linux:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Instalar o Python e Nano:</strong>
+            apt-get update && apt-get install nano && apt-get install python3
+          </p>
+
+          <p>
+            <strong>Ver versão do python:</strong>
+            python3 --version
+          </p>
+
+          <p>
+            <strong>Entrar no modo interativo do python:</strong>
+            python3
+          </p>
+
+          <p>
+            <strong>Sair do modo interativo (voltar pro root):</strong>
+            exit()
+          </p>
+
+          <p>
+            <strong>Executar programa python:</strong>
+            python3 teste.py
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="processos">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Processos:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver o dispositivo conectado:</strong>
+            tty
+          </p>
+
+          <p>
+            <strong>
+              Verificar o jobs (processos ainda rodando) em execução:
+            </strong>
+            jobs
+          </p>
+
+          <p>
+            <strong>Transformar o job em primeiro plano (foreground):</strong>
+            fg 1
+          </p>
+
+          <p>
+            <strong>Transformar o job em segundo plano (background):</strong>
+            bg 1
+          </p>
+
+          <p>
+            <strong>
+              Ver o ID dos processos da máquina (abrir arquivos com nano e rodar
+              em 2° terminal):
+            </strong>
+            pidof nano
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="variaveis">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Variáveis de ambiente:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Ver onde o usuário/diretório está localizado (diretório padrão do
+              usuário):
+            </strong>
+            echo $HOME
+          </p>
+
+          <p>
+            <strong>
+              Ver os diretórios como fonte pesquisa (diretórios de acesso):
+            </strong>
+            echo $PATH
+          </p>
+
+          <p>
+            <strong>Ver o ambiente shell sendo utilizado (bash):</strong>
+            echo $SHELL
+          </p>
+
+          <p>
+            <strong>Listar todas as variáveis de ambiente:</strong>
+            env
+          </p>
+
+          <p>
+            <strong>Listar comandos recentes:</strong>
+            history
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="grep">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Grep:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Encontrar texto no arquivo (quais linhas tem Ana): grep
+              arquivo4.txt
+            </strong>
+            'Ana'
+          </p>
+
+          <p>
+            <strong>
+              Encontrar texto que não tem algo (quais não são Ana):
+            </strong>
+            grep arquivo4.txt '^Ana'
+          </p>
+
+          <p>
+            <strong>Encontrar letras no arquivo:</strong>
+            grep arq1.txt '[aeiouAEIOU]'
+          </p>
+
+          <p>
+            <strong>Encontrar texto que contenham 2 opções de letras:</strong>
+            grep '[cC]arlos' atividade.txt
+          </p>
+
+          <p>
+            <strong>Encontrar linhas com 5 letras ou mais:</strong>
+            grep '.....' teste.txt
+          </p>
+
+          <p>
+            <strong>
+              Encontrar linhas com 5 letras ou mais e que a segunda letra seja
+              n:
+            </strong>
+            grep '.n...' teste.txt
+          </p>
+
+          <p>
+            <strong>Ver linhas com pelo menos 15 caracteres:</strong>
+            egrep '.{15}$' atividade1.txt
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="awk">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Awk:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver a primeira e a terceira palavra da linha:</strong>
+            awk '{print $1, $3}' teste.txt
+          </p>
+
+          <p>
+            <strong>Ver a última palavra da linha:</strong>
+            awk '{print $NF}' teste.txt
+          </p>
+
+          <p>
+            <strong>
+              Ver intervalos mas substituindo o espaço (' ') por outro caracter:
+            </strong>
+            awk -F ':' '{print $1}' teste.txt
+          </p>
+
+          <p>
+            <strong>Adicionar caracter entre as palavras:</strong>
+            awk -F ':' '{print $1"\t"$3"\t"$5}' /etc/passwd
+          </p>
+
+          <p>
+            <strong>
+              Encontrar texto pela palavra (quais linhas a primeira palavra é
+              Ana) (!= para diferente):
+            </strong>
+            awk '($1=="Ana")' arquivo4.txt
+          </p>
+
+          <p>
+            <strong>
+              Ver linhas com primeira palavra maior que 5 caracteres:
+            </strong>
+            awk 'length($1) > 5' teste.txt
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Realizado inteiramente por
+        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
+      </p>
+    </footer>
+  </body>
+</html>

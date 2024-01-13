@@ -1,0 +1,278 @@
+Docker configurações:
+
+Criar novo container (fora do root):
+docker pull ubuntu && docker run --name containerzinho -it ubuntu
+
+Iniciar o container ub (deixar ub no verde):  
+docker start ub
+
+Executar a instância (como entrar no root):
+docker exec -it ub bash
+
+Ver imagens do docker:
+docker images
+
+Ver containers do docker:
+docker ps
+
+Ver usuário (root):
+whoami
+
+Ver nome da máquina (a36c69721192):
+hostname
+
+Ver diretório (/):
+pwd
+
+Ver data (adicione +% depois letra para ser específico, Y= ano, m= mês, d=data, H= hora):
+date
+
+Printar mensagem de texto (colocar -e depois de echo para habilitar o \n e o \t):
+echo 'Hello World'
+ 
+
+
+Arquivos e pastas/diretórios:
+
+Acessar diretório de trabalho (home):
+cd ~
+
+Ver todos os diretórios/arquivos (espaço e nome do caminho): 
+ls -l
+
+Criar diretório:
+mkdir pasta1
+
+Entrar no diretório:
+cd pasta1
+
+Voltar 1 diretório:
+cd ..
+
+Entrar no caminho específico (voltar 2 vezes e entrar em 2 pastas):
+cd ../../pasta1/pasta2
+
+Criar arquivo vazio:
+touch arq1.txt
+
+Criar arquivo cheio (instale o nano ou vá para cats):
+nano teste.py
+
+Executar um arquivo:
+bash mensagem.sh
+
+Encontrar/localizar onde existe o arquivo:
+find / -name arq1.txt
+
+
+ 
+Editar arquivos e diretórios:
+
+Copiar o arquivo (e jogá-lo dentro da pasta1):
+cp ./arquivo.txt ./pasta1/
+
+Mover o arquivo (e jogá-lo dentro da pasta2):
+mv ./arquivo.txt ./pasta2
+
+Apagar/remover um arquivo:
+rm ./arquivo.txt
+
+Apagar/remover o diretório e todos os arquivos dentro:
+rm -r ./pasta
+
+Apagar/remover diretório vazio:
+rmdir pasta
+
+Renomear arquivo ou diretório:
+mv aquivi.txt arquivo.txt
+
+Alterar permissão do arquivo/diretório (7777 é permissão total):
+chmod 0777 arq1.txt
+
+Transportar um arquivo da sua máquina para o docker:
+docker cp "C:\Users\alunotemp\Downloads\mercado.csv" ub:/home
+
+
+ 
+Operadores:
+
+Executar vários comandos (;):
+ls -l; cd fndajdbas; pwd
+
+Executar vários comandos se o anterior der certo (&&):
+ls -l && cd aasd && pwd
+
+Executar comando se o anterior der errado (||):
+cd pasta1 || cd pasta2 || ls -l
+
+Usar o resultado do comando anterior para o próximo comando (|): 
+cat -n arquivo4.txt | grep "Ana"
+
+Agrupar comandos (()):
+(cd principal || cd teste) && ls -l
+
+
+ 
+Leitura de Arquivos (Cats e outros):
+
+Criar arquivo cheio (em seguida escreva linhas de texto, terminar com Ctrl C):
+cat > arq1.txt
+
+Ver os conteúdos dentro do arquivo:
+cat arquivo.txt
+
+Inserir outro conteúdo dentro do arquivo (adicionar no final):
+cat >> arq1.txt
+
+Adicionar textos de arquivos em outro arquivo (concatenar):
+cat arq1.txt arq2.txt > arq3.txt
+
+Ordenar um arquivo (será criado o ordenado.txt):
+sort arq1.txt > ordenado.txt
+
+Ver os primeiros (4) itens do arquivo:
+head -4 arq1.txt
+
+Ver os últimos (4) itens do arquivo:
+tail -4 arq1.txt
+
+Contar linhas (trocar -l para -w para palavras, -c para caracteres):
+wc -l arq1.txt
+
+
+ 
+Usuários e Grupos:
+
+Ver todos os usuários (trocar passwd por shadow para mais detalhes de cada usuário):
+cat /etc/passwd
+
+Criar usuário:
+adduser user1
+
+Excluir/deletar usuário:
+userdel user1
+
+Entrar no usuário:
+login user1
+
+Sair do usuário (voltar ao root):
+logout
+
+Alterar senha:
+passwd user1
+------------------------------------------------------------------------------------------------------------------------------
+Ver todos os grupos (trocar group por gshadow para informações de criptografia):
+cat /etc/group
+
+Criar grupo:
+groupadd germinare
+
+Excluir/deletar grupo:
+groupdel germinare
+
+Adicionar usuário no grupo:
+usermod user1 -G germinare
+ 
+
+
+Python em linux:
+
+Instalar o Python e Nano:
+apt-get update && apt-get install nano && apt-get install python3
+
+Ver versão do python:
+python3 --version
+
+Entrar no modo interativo do python:
+python3
+
+Sair do modo interativo (voltar pro root):
+exit()
+
+Executar programa python:
+python3 teste.py
+
+
+ 
+Processos:
+
+Ver o dispositivo conectado:
+tty
+
+Ver o ID dos processos da máquina (abrir arquivos com nano e rodar em 2° terminal):
+pidof nano
+
+Verificar o jobs (processos ainda rodando) em execução:
+jobs
+
+Transformar o job em primeiro plano (foreground):
+fg 1
+
+Transformar o job em segundo plano (background):
+bg 1
+
+
+ 
+Variáveis de ambiente:
+
+Ver onde o usuário/diretório está localizado (diretório padrão do usuário):
+echo $HOME
+
+Ver os diretórios como fonte pesquisa (diretórios de acesso):
+echo $PATH
+
+Ver o ambiente shell sendo utilizado (bash):
+echo $SHELL
+
+Listar todas as variáveis de ambiente:
+env
+
+Listar comandos recentes:
+history
+
+
+ 
+Grep:
+
+Encontrar texto no arquivo (quais linhas tem Ana):
+grep arquivo4.txt 'Ana'
+
+Encontrar texto que não tem algo (quais não são Ana): 
+grep arquivo4.txt '^Ana'
+
+Encontrar letras no arquivo:
+grep arq1.txt '[aeiouAEIOU]'
+
+Encontrar texto que contenham 2 opções de letras:
+grep '[cC]arlos' atividade.txt
+
+Encontrar linhas com 5 letras ou mais:
+grep '.....' teste.txt
+
+Encontrar linhas com 5 letras ou mais e que a segunda letra seja n:
+grep '.n...' teste.txt
+
+Ver linhas com pelo menos 15 caracteres:
+egrep '.{15}$' atividade1.txt
+
+
+ 
+Awk:
+
+Ver a primeira e a terceira palavra da linha:
+awk '{print $1, $3}' teste.txt
+
+Ver a última palavra da linha:
+awk '{print $NF}' teste.txt
+
+Ver intervalos mas substituindo o espaço (' ') por outro caracter:
+awk -F ':' '{print $1}' teste.txt
+
+Adicionar caracter entre as palavras:
+awk -F ':' '{print $1"\t"$3"\t"$5}' /etc/passwd
+
+Encontrar texto pela palavra (quais linhas a primeira palavra é Ana) (!= para diferente):
+awk '($1=="Ana")' arquivo4.txt
+
+Ver linhas com primeira palavra maior que 5 caracteres:
+awk 'length($1) > 5' teste.txt

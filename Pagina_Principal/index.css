@@ -44,13 +44,17 @@ main a:nth-child(2) {
 }
 
 main a:nth-child(3) {
-  background-image: url(../Imagens/imagem_postgre.webp);
+  background-image: url(../Imagens/imagem_ubuntu.webp);
 }
 
 main a:nth-child(4) {
-  background-image: url(../Imagens/imagem_git.webp);
+  background-image: url(../Imagens/imagem_postgre.webp);
 }
 
 main a:nth-child(5) {
+  background-image: url(../Imagens/imagem_git.webp);
+}
+
+main a:nth-child(6) {
   background-image: url(../Imagens/imagem_sql.webp);
 }
