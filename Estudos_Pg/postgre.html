@@ -193,9 +193,11 @@
           <option value="#fNumeros">Funções de Numbers</option>
           <option value="#fString">Funções de Strings</option>
           <option value="#fPessoal">Funções de Pessoais</option>
-          <option value="#privilegio">User e Role</option>
-          <option value="#view">Views</option>
-          <option value="#view">Grant, Revoke, Schema</option>
+          <option value="#user">Privilégios (1)</option>
+          <option value="#grant">Privilégios (2)</option>
+          <option value="#view">View e Trigger</option>
+          <option value="#procedure">Procedure</option>
+          <option value="#json">Json</option>
         </select>
 
         <button id="btnAbrir">Abrir Seções</button>
@@ -762,7 +764,7 @@
       </section>
 
       <section>
-        <button id="privilegio">
+        <button id="user">
           <h3>
             <img
               src="../Imagens/circulo1.webp"
@@ -831,6 +833,76 @@
       </section>
 
       <section>
+        <button id="grant">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Privilégios (Grant e Revoke e Schema):
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Permitir um usuário acessar o banco:</strong>
+            GRANT USAGE ON SCHEMA administrativo TO funcionario;
+          </p>
+
+          <p>
+            <strong>Ver todos os Schemas (do banco):</strong>
+            SELECT schema_name FROM information_schema.<wbr />schemata;
+          </p>
+
+          <p>
+            <strong>
+              Garantir privilégios à um usuário (estagiario) (trocar o update,
+              selects por ALL, para todos):
+            </strong>
+            GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
+          </p>
+
+          <p>
+            <strong>
+              Revogar privilégios à um usuário (estagiario) (trocar o update,
+              select por ALL, para todos):
+            </strong>
+            REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
+          </p>
+
+          <p>
+            <strong>Criar Schema:</strong>
+            CREATE SCHEMA administrativo;
+          </p>
+
+          <p>
+            <strong>Criar Tabela dentro do Schema (administrativo):</strong>
+            CREATE TABLE administrativo.<wbr />funcionario (cod INT);
+          </p>
+
+          <p>
+            <strong>
+              Garantir privilégio às tabelas de um schema para 1 usuário:
+            </strong>
+            GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
+          </p>
+
+          <p>
+            <strong>
+              Revogar privilégio às tabelas de um schema para 1 usuário:
+            </strong>
+            REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
+          </p>
+
+          <p>
+            <strong>Visualizar as permissões de cada usuário</strong>
+            SELECT * FROM information_schema.table_privileges
+          </p>
+        </div>
+      </section>
+
+      <section>
         <button id="view">
           <h3>
             <img
@@ -838,79 +910,151 @@
               alt="icone de circulo com seta"
               class="circulo"
             />
-            Privilégios (Grant e Revoke e Schema) e Views:
+            View e Trigger:
           </h3>
         </button>
 
         <div class="conteudo">
-          <div class="separador">
-            <p>
-              <strong>Permitir um usuário acessar o banco:</strong>
-              GRANT USAGE ON SCHEMA administrativo TO funcionario;
-            </p>
+          <p>
+            <strong>Ver todas as Views:</strong>
+            \d+
+          </p>
 
-            <p>
-              <strong>Ver todos os Schemas (do banco):</strong>
-              SELECT schema_name FROM information_schema.<wbr />schemata;
-            </p>
+          <p>
+            <strong>Criar View:</strong>
+            CREATE VIEW vw_aluno15 AS <br />
+            SELECT * FROM aluno WHERE idade = 15;
+          </p>
 
-            <p>
-              <strong>
-                Garantir privilégios à um usuário (estagiario) (trocar o update,
-                selects por ALL, para todos):
-              </strong>
-              GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
-            </p>
+          <p>
+            <strong>Criar função de trigger:</strong>
+            CREATE OR REPLACE FUNCTION data_cadastro() <br />
+            RETURNS TRIGGER AS $$ <br />
+            BEGIN <br />
+            NEW.data_cadastro = now(); <br />
+            RETURN NEW; <br />
+            END; <br />
+            $$ language 'plpgsql'; <br />
+          </p>
 
-            <p>
-              <strong>
-                Revogar privilégios à um usuário (estagiario) (trocar o update,
-                select por ALL, para todos):
-              </strong>
-              REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
-            </p>
+          <p>
+            <strong>Criar trigger:</strong>
+            CREATE TRIGGER data_cadastro_novoCliente <br />
+            BEFORE INSERT ON cliente <br />
+            FOR EACH ROW <br />
+            EXECUTE PROCEDURE data_cadastro();
+          </p>
 
-            <p>
-              <strong>Criar Schema:</strong>
-              CREATE SCHEMA administrativo;
-            </p>
+          <p>
+            <strong>Apagar trigger:</strong>
+            DROP TRIGGER data_cadastro_novoCliente ON cliente;
+          </p>
+        </div>
+      </section>
 
-            <p>
-              <strong>Criar Tabela dentro do Schema (administrativo):</strong>
-              CREATE TABLE administrativo.<wbr />funcionario (cod INT);
-            </p>
+      <section>
+        <button id="procedure">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Procedure:
+          </h3>
+        </button>
 
-            <p>
-              <strong>
-                Garantir privilégio às tabelas de um schema para 1 usuário:
-              </strong>
-              GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
-            </p>
+        <div class="conteudo">
+          <p>
+            <strong>Criar Procedure Simples:</strong>
+            CREATE or REPLACE PROCEDURE limpaAluno() <br />
+            language 'plpgsql' <br />
+            AS $$ BEGIN <br />
+            TRUNCATE TABLE aluno; <br />
+            COMMIT; END; $$; <br />
+          </p>
 
-            <p>
-              <strong>
-                Revogar privilégio às tabelas de um schema para 1 usuário:
-              </strong>
-              REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
-            </p>
+          <p>
+            <strong>Criar Procedure Complexa:</strong>
+            CREATE OR REPLACE PROCEDURE limpaAluno() <br />
+            language 'plpgsql' AS $$ <br />
+            DECLARE <br />
+            menor_media INT; <br />
+            maior_media INT; <br />
+            BEGIN <br />
+            SELECT MIN(media) FROM aluno INTO menor_media; <br />
+            SELECT MAX(media) FROM aluno INTO maior_media; <br />
+            <br />
+            IF menor_media &lt; 0 or maior_media &gt; 10 THEN <br />
+            TRUNCATE TABLE aluno; <br />
+            <br />
+            ELSE <br />
+            RAISE INFO 'Tudo certo na tabela Aluno'; <br />
+            END IF; <br />
+            COMMIT; END; $$; <br />
+          </p>
 
-            <p>
-              <strong>Visualizar as permissões de cada usuário</strong>
-              SELECT * FROM information_schema.table_privileges
-            </p>
-          </div>
+          <p>
+            <strong>Realizar comandos da Procedure:</strong>
+            CALL limpaAluno();
+          </p>
 
-          <div class="separador">
-            <p>
-              <strong>Ver todas as Views:</strong>
-              \d+
-            </p>
+          <p>
+            <strong>Apagar Procedure:</strong>
+            DROP PROCEDURE limpaAluno();
+          </p>
+        </div>
+      </section>
 
-            <p>
-              <strong>Criar View:</strong>
-              CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;
-            </p>
-          </div>
+      <section>
+        <button id="json">
+          <h3>
+            <img
+              src="../Imagens/circulo1.webp"
+              alt="icone de circulo com seta"
+              class="circulo"
+            />
+            Json:
+          </h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Selecionar um item da coluna json (2 setas para ser texto):
+            </strong>
+            SELECT informacoes_adicionais-&gt; 'idade' FROM pessoa;
+          </p>
+
+          <p>
+            <strong>Ver valores de lista que precisam ter estes intens:</strong>
+            SELECT * FROM pessoas WHERE hobbies @&gt; '[“programacao”,
+            “leitura”]'';
+          </p>
+
+          <p>
+            <strong>
+              Ver valores de lista que só tem algum destes itens mencionados:
+            </strong>
+            SELECT * FROM pessoa WHERE hobbies &lt;@ '[“leitura”, “programação”,
+            “dança”]';
+          </p>
+
+          <p>
+            <strong>Ver as chaves da coluna:</strong>
+            SELECT DISTINCT jsonb_object_keys(pedido) FROM compras;
+          </p>
+
+          <p>
+            <strong>Ver chave e valor (tupla) da coluna:</strong>
+            SELECT jsonb_each(pedido) FROM compras;
+          </p>
+
+          <p>
+            <strong>Ver tipo do valor da chave:</strong>
+            SELECT DISTINCT jsonb_typeof (pedido-&gt;'produtos'-&gt;'bebidas')
+            FROM compras;
+          </p>
         </div>
       </section>
     </main>

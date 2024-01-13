@@ -316,7 +316,7 @@ DROP ROLE aluno;
  
 
  
-Privilégios (Grant e Revoke e Schema) e Views:
+Privilégios (Grant e Revoke e Schema):
 
 Permitir um usuário acessar o banco:
 GRANT USAGE ON SCHEMA administrativo TO funcionario;
@@ -341,9 +341,89 @@ GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
 
 Revogar privilégio às tabelas de um schema para 1 usuário:
 REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+View e Trigger:
+
 Ver todas as Views:
 \d+
 
 Criar View:
-CREATE VIEW vw_aluno15 AS SELECT * FROM aluno WHERE idade = 15;
+CREATE VIEW vw_aluno15 AS
+SELECT * FROM aluno WHERE idade = 15;
+
+Criar função de trigger:
+CREATE OR REPLACE FUNCTION data_cadastro() 
+RETURNS TRIGGER AS $$
+BEGIN
+	NEW.data_cadastro = now();
+	RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+Criar trigger:
+CREATE TRIGGER data_cadastro_novoCliente
+    BEFORE INSERT ON cliente
+    FOR EACH ROW
+    EXECUTE PROCEDURE data_cadastro();
+
+Apagar trigger:
+DROP TRIGGER data_cadastro_novoCliente ON cliente;
+
+
+
+Procedure:
+
+Criar Procedure Simples:
+CREATE or REPLACE PROCEDURE limpaAluno()
+language 'plpgsql' 
+AS $$ BEGIN
+  TRUNCATE TABLE aluno;
+COMMIT; END; $$;
+
+Realizar comandos da Procedure:
+CALL limpaAluno();
+
+Apagar Procedure:
+DROP PROCEDURE limpaAluno();
+
+Criar Procedure Complexa:
+CREATE OR REPLACE PROCEDURE limpaAluno()
+language 'plpgsql' AS $$
+DECLARE
+	menor_media INT;
+	maior_media INT;
+BEGIN
+  SELECT MIN(media) FROM aluno INTO menor_media;
+  SELECT MAX(media) FROM aluno INTO maior_media;
+  
+    IF menor_media < 0 or maior_media > 10 THEN
+    TRUNCATE TABLE aluno;
+  
+    ELSE
+    RAISE INFO 'Tudo certo na tabela Aluno';	
+    END IF;
+COMMIT; END; $$; 
+
+
+
+Json:
+
+Selecionar um item da coluna json (2 setas para ser texto):
+SELECT informacoes_adicionais-> ‘idade’ FROM pessoa;
+
+Ver valores de lista que precisam ter estes intens:
+SELECT * FROM pessoas WHERE hobbies @> ‘[“programacao”, “leitura”]’;
+
+Ver valores de lista que só tem algum destes itens mencionados:
+SELECT * FROM pessoa WHERE hobbies <@ ‘[“leitura”, “programação”, “dança”]’;
+
+Ver as chaves da coluna:
+SELECT DISTINCT jsonb_object_keys(pedido) FROM compras;
+
+Ver chave e valor (tupla) da coluna:
+SELECT jsonb_each(pedido) FROM compras;
+
+Ver tipo do valor da chave:
+SELECT DISTINCT jsonb_typeof (pedido->’produtos’->’bebidas’) FROM compras;

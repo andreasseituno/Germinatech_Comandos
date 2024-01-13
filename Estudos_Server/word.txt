@@ -393,7 +393,7 @@ SELECT cteAluno.nCdAluno
  
 
 
-Procedures: 
+Procedure: 
 
 Criar Procedure:
 CREATE OR ALTER PROCEDURE dbo.SP_ProcedureData
