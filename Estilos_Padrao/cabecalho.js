@@ -3,7 +3,7 @@ const header = document.createElement("header");
 const aside = document.createElement("aside");
 const cabecalhoFixo = document.getElementById("cabecalhoFixo");
 
-criaCabecalho()
+criaCabecalho();
 
 // Listas
 const botoes = document.querySelectorAll(".containerLogo button");
@@ -41,7 +41,31 @@ for (let i = 0; i < botoes.length; i++) {
 // Métodos
 function criaCabecalho() {
   header.id = "principal";
-  header.innerHTML = window.headerDinamico;
+  header.innerHTML = `
+<div class="containerLogo">
+<button>
+  <img
+    src="../Imagens/icone_menu.webp"
+    alt="icone menu"
+    class="iconMenu"
+  />
+</button>
+<a href="https://github.com/andreasseituno">
+  <img
+    src="../Imagens/Andre_GitHub.webp"
+    alt="Logo GitHub"
+    rel="author"
+    class="logo"
+  />
+</a>
+<h2>
+  André <br />
+  Asseituno
+</h2>
+</div>
+
+<h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
+`;
   aside.innerHTML = window.cabecalhoDinamico;
 
   cabecalhoFixo.appendChild(header);
