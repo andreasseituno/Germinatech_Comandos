@@ -41,31 +41,7 @@ for (let i = 0; i < botoes.length; i++) {
 // Métodos
 function criaCabecalho() {
   header.id = "principal";
-  header.innerHTML = `
-<div class="containerLogo">
-<button>
-  <img
-    src="../Imagens/icone_menu.webp"
-    alt="icone menu"
-    class="iconMenu"
-  />
-</button>
-<a href="https://github.com/andreasseituno">
-  <img
-    src="../Imagens/Andre_GitHub.webp"
-    alt="Logo GitHub"
-    rel="author"
-    class="logo"
-  />
-</a>
-<h2>
-  André <br />
-  Asseituno
-</h2>
-</div>
-
-<h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
-`;
+  header.innerHTML = window.headerDinamico;
   aside.innerHTML = window.cabecalhoDinamico;
 
   cabecalhoFixo.appendChild(header);
