@@ -17,13 +17,23 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
-    <link rel="stylesheet" href="postgre.css" />
+    <style>
+      section p {
+        min-height: 100px;
+      }
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+      section strong {
+        margin-bottom: 8px;
+      }
+    </style>
+
+<link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+<link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+<link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
+<script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+<script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+<script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -38,7 +48,12 @@
       </h2>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
           <option value="#docker">Docker e bancos</option>
           <option value="#tabelas">Tabelas</option>
           <option value="#colunas">Colunas</option>
@@ -62,14 +77,8 @@
     <main>
       <section>
         <button id="docker">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Docker e bancos:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Docker e bancos:</h3>
         </button>
 
         <div class="conteudo">
@@ -117,14 +126,8 @@
 
       <section>
         <button>
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tabelas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tabelas:</h3>
         </button>
 
         <div class="conteudo">
@@ -174,14 +177,8 @@
 
       <section>
         <button id="colunas">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Colunas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Colunas:</h3>
         </button>
 
         <div class="conteudo">
@@ -246,14 +243,8 @@
 
       <section>
         <button id="valores">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Valores:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Valores:</h3>
         </button>
 
         <div class="conteudo">
@@ -299,14 +290,8 @@
 
       <section>
         <button id="chaves">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Chaves e Serial:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Chaves e Serial:</h3>
         </button>
 
         <div class="conteudo">
@@ -356,14 +341,8 @@
 
       <section>
         <button id="selects">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Editar Selects:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Editar Selects:</h3>
         </button>
 
         <div class="conteudo">
@@ -441,14 +420,8 @@
 
       <section>
         <button id="fNumeros">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de Numbers:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de Numbers:</h3>
         </button>
 
         <div class="conteudo">
@@ -512,14 +485,8 @@
 
       <section>
         <button id="fString">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de Strings:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de Strings:</h3>
         </button>
 
         <div class="conteudo">
@@ -566,14 +533,8 @@
 
       <section>
         <button id="fPessoal">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de Pessoais:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de Pessoais:</h3>
         </button>
 
         <div class="conteudo">
@@ -620,14 +581,8 @@
 
       <section>
         <button id="user">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Privilégios (User e Role):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Privilégios (User e Role):</h3>
         </button>
 
         <div class="conteudo">
@@ -689,14 +644,8 @@
 
       <section>
         <button id="grant">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Privilégios (Grant e Revoke e Schema):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Privilégios (Grant e Revoke e Schema):</h3>
         </button>
 
         <div class="conteudo">
@@ -759,14 +708,8 @@
 
       <section>
         <button id="view">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            View e Trigger:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>View e Trigger:</h3>
         </button>
 
         <div class="conteudo">
@@ -809,14 +752,8 @@
 
       <section>
         <button id="procedure">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Procedure:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Procedure:</h3>
         </button>
 
         <div class="conteudo">
@@ -863,14 +800,8 @@
 
       <section>
         <button id="json">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Json:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Json:</h3>
         </button>
 
         <div class="conteudo">
@@ -914,11 +845,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>

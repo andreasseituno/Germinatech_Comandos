@@ -42,7 +42,7 @@ for (let i = 0; i < botoes.length; i++) {
 function criaCabecalho() {
   header.id = "principal";
   header.innerHTML = window.headerDinamico;
-  aside.innerHTML = window.cabecalhoDinamico;
+  aside.innerHTML = window.asideDinamico;
 
   cabecalhoFixo.appendChild(header);
   cabecalhoFixo.appendChild(aside);
@@ -68,7 +68,7 @@ function abreAside() {
 }
 
 function fechaAside() {
-  aside.style.marginLeft = "-400px";
+  aside.style.marginLeft = "-384px";
   aside.style.visibility = "hidden";
   aside.style.transition = "margin .25s ease 0s, visibility 0s ease .2501s";
   fechado = true;

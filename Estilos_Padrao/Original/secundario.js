@@ -1,7 +1,13 @@
+// Gerando Footer
+const conteudoFooter = document.createElement("div");
+const footer = document.getElementsByTagName("footer")[0];
+
+criaRodape();
+
 // Listas
 const titulos = document.querySelectorAll("section button");
 const conteudo = document.getElementsByClassName("conteudo");
-const bolinhas = document.getElementsByClassName("circulo");
+const bolinhas = document.querySelectorAll("button > img");
 
 // Elementos
 const opcoes = document.getElementById("opcoes");
@@ -41,6 +47,11 @@ botao.addEventListener("click", () => {
 });
 
 // Métodos
+function criaRodape() {
+  conteudoFooter.innerHTML = window.footerDinamico;
+  footer.appendChild(conteudoFooter);
+}
+
 function abreSecao(n) {
   conteudo[n].style.height = "auto";
   bolinhas[n].setAttribute("src", "../Imagens/circulo2.webp");

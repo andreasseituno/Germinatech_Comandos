@@ -19,12 +19,13 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -39,7 +40,12 @@
       </h2>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
           <option value="#configuracoes">Configurações git</option>
           <option value="#arquivos">Arquivos e Pastas</option>
           <option value="#commits">Estados e Commits</option>
@@ -53,14 +59,8 @@
     <main>
       <section>
         <button id="configuracoes">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Configurações git:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Configurações git:</h3>
         </button>
 
         <div class="conteudo">
@@ -90,7 +90,7 @@
           </p>
 
           <p>
-            <strong>Trocar nome da branch master (para main):</strong>
+            <strong>Trocar nome da branch :</strong>
             git branch -M main
           </p>
         </div>
@@ -98,14 +98,8 @@
 
       <section>
         <button id="arquivos">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Arquivos e Pastas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Arquivos e Pastas:</h3>
         </button>
 
         <div class="conteudo">
@@ -148,14 +142,8 @@
 
       <section>
         <button id="commits">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Estados e Commits:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Estados e Commits:</h3>
         </button>
 
         <div class="conteudo">
@@ -201,14 +189,8 @@
 
       <section>
         <button id="pull">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Pull, Push e Branches:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Pull, Push e Branches:</h3>
         </button>
 
         <div class="conteudo">
@@ -253,11 +235,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>

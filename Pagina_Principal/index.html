@@ -21,26 +21,116 @@
     <title>Home</title>
     <link
       rel="shortcut icon"
-      href="../Imagens/Andre_GitHub.webp"
+      href="../Imagens/Andre_GitHub_1.webp"
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="preload" as="image" href="../Imagens/imagem_html.webp" />
+    <link rel="preload" as="image" href="../Imagens/imagem_css.webp" />
+    <link rel="preload" as="image" href="../Imagens/imagem_ubuntu.webp" />
+    <link rel="preload" as="image" href="../Imagens/imagem_postgre.webp" />
+    <link rel="preload" as="image" href="../Imagens/imagem_git.webp" />
+    <link rel="preload" as="image" href="../Imagens/imagem_sql.webp" />
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+    <style>
+      /* Elementos- Agrupadores */
+
+      body {
+        background-color: var(--corBegePrincipal);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        height: calc(100vh - max(80px, 14vmin + 16px));
+      }
+
+      /* Elementos- Texto */
+
+      main a {
+        box-shadow: 1px 2px 5px var(--corSombraPreta);
+        flex-grow: 1;
+
+        min-width: 150px;
+        width: 30%;
+        min-height: 100px;
+        margin: 2px;
+      }
+
+      main a:hover {
+        background-color: var(--corBegeSelecao);
+        transition-duration: 0.85s;
+      }
+
+      main a:nth-child(n) {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+
+      main a:nth-child(1) {
+        background-image: url(../Imagens/imagem_html.webp);
+      }
+
+      main a:nth-child(2) {
+        background-image: url(../Imagens/imagem_css.webp);
+      }
+
+      main a:nth-child(3) {
+        background-image: url(../Imagens/imagem_ubuntu.webp);
+      }
+
+      main a:nth-child(4) {
+        background-image: url(../Imagens/imagem_postgre.webp);
+      }
+
+      main a:nth-child(5) {
+        background-image: url(../Imagens/imagem_git.webp);
+      }
+
+      main a:nth-child(6) {
+        background-image: url(../Imagens/imagem_sql.webp);
+      }
+    </style>
+
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
 
+    <header id="falso"></header>
+
     <main>
-      <a href="../Estudos_Html/html.html" aria-label="Página Html"></a>
-      <a href="../Estudos_Css/css.html" aria-label="Página Css"></a>
-      <a href="../Estudos_Ub/ubuntu.html" aria-label="Página Ubuntu"></a>
-      <a href="../Estudos_Pg/postgre.html" aria-label="Página Postgres"></a>
-      <a href="../Estudos_Git/git.html" aria-label="Página Git"></a>
-      <a href="../Estudos_Server/server.html" aria-label="Página SqlServer"></a>
+      <a
+        rel="next"
+        href="../Estudos_Html/html.html"
+        aria-label="Página Html"
+      ></a>
+      <a rel="next" href="../Estudos_Css/css.html" aria-label="Página Css"></a>
+      <a
+        rel="next"
+        href="../Estudos_Ub/ubuntu.html"
+        aria-label="Página Ubuntu"
+      ></a>
+      <a
+        rel="next"
+        href="../Estudos_Pg/postgre.html"
+        aria-label="Página Postgres"
+      ></a>
+      <a rel="next" href="../Estudos_Git/git.html" aria-label="Página Git"></a>
+      <a
+        rel="next"
+        href="../Estudos_Server/server.html"
+        aria-label="Página SqlServer"
+      ></a>
     </main>
   </body>
 </html>

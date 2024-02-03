@@ -17,13 +17,35 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
-    <link rel="stylesheet" href="server.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&display=swap');
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+      section {
+        width: 88%;
+      }
+
+      section p {
+        min-height: 120px;
+      }
+
+      section strong {
+        margin-bottom: 8px;
+      }
+
+      .indentado {
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        font-family: 'Roboto Mono', monospace;
+      }
+    </style>
+
+<link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+<link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+<link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
+<script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+<script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+<script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -37,7 +59,12 @@
       </h2>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <select 
+        name="opcoes" 
+        id="opcoes" 
+        aria-label="Seleção das seções da página" 
+        onchange="location = this.value"
+        >
           <option value="#tabelas">Tabelas e BD</option>
           <option value="#colunas">Colunas</option>
           <option value="#valores">Valores</option>
@@ -60,14 +87,8 @@
     <main>
       <section>
         <button id="tabelas">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tabelas e Banco de Dados:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tabelas e Banco de Dados:</h3>
         </button>
 
         <div class="conteudo">
@@ -115,14 +136,8 @@
 
       <section>
         <button id="colunas">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Colunas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Colunas:</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -153,7 +168,7 @@ ALTER COLUMN dInclusao DATE</span>
 
           <p>
             <strong>Ver colunas específicas:</strong>
-            <span class="indentado">SELECT tbCLIENTE.<wbr>nCdClient
+            <span class="indentado">SELECT tbCLIENTE.<wbr>nCdCliente
      , tbCLIENTE.<wbr>cNmCliente
   FROM tbCLIENTE</span>
           </p>
@@ -175,14 +190,8 @@ ALTER COLUMN dInclusao DATE</span>
 
       <section>
         <button id="valores">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Valores:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Valores:</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -222,14 +231,8 @@ WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
 
       <section>
         <button id="chaves">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Chaves e Retrições:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Chaves e Retrições:</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -293,14 +296,8 @@ WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
 
       <section>
         <button id="querys1">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Querys (1) (Simples):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Querys (1) (Simples):</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -356,14 +353,8 @@ WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
 
       <section>
         <button id="querys2">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Querys (2) (Where):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Querys (2) (Where):</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -421,14 +412,8 @@ WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
 
       <section>
         <button id="querys3">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Querys (3) (Agregação):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Querys (3) (Agregação):</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -479,14 +464,8 @@ WHERE tbPRECO.<wbr>nCdProduto      = 4</span>
 
       <section>
         <button id="querys4">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Querys (4) (Avançado):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Querys (4) (Avançado):</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -565,14 +544,8 @@ SELECT tbALUNO.nCdAluno
 
       <section>
         <button id="fstring">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de String (1):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de String (1):</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -644,14 +617,8 @@ SELECT tbALUNO.nCdAluno
 
       <section>
         <button id="fdata">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de data:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de data:</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -680,14 +647,8 @@ SELECT tbALUNO.nCdAluno
 
       <section>
         <button id="fexpressao">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Funções de expressões:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Funções de expressões:</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -745,14 +706,8 @@ SELECT tbALUNO.nCdAluno
 
       <section>
         <button id="view">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            View, Função e Cte:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>View, Função e Cte:</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -797,14 +752,8 @@ SELECT cteAluno.nCdAluno
 
       <section>
         <button id="proc">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Procedure:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Procedure:</h3>
         </button>
 
         <div class="conteudo">
@@ -851,11 +800,6 @@ END</span>
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>

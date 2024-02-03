@@ -1,5 +1,4 @@
-window.headerDinamico = 
-`
+window.headerDinamico = `
 <div class="containerLogo">
 <button>
   <img
@@ -8,9 +7,9 @@ window.headerDinamico =
     class="iconMenu"
   />
 </button>
-<a href="https://github.com/andreasseituno">
+<a rel="author" href="https://github.com/andreasseituno">
   <img
-    src="../Imagens/Andre_GitHub.webp"
+    src="../Imagens/Andre_GitHub_2.webp"
     alt="Logo GitHub"
     rel="author"
     class="logo"
@@ -23,10 +22,9 @@ window.headerDinamico =
 </div>
 
 <h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
-`
+`;
 
-window.cabecalhoDinamico =
-`
+window.asideDinamico = `
 <div class="containerLogo">
 <button>
   <img
@@ -37,7 +35,7 @@ window.cabecalhoDinamico =
 </button>
 <a href="https://github.com/andreasseituno">
   <img
-    src="../Imagens/Andre_GitHub.webp"
+    src="../Imagens/Andre_GitHub_2.webp"
     alt="Logo GitHub"
     rel="author"
     class="logo"
@@ -60,12 +58,14 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_home.webp"
       alt="Casinha"
       class="icone"
+      loading="lazy"
     />
     Início
   </div>
 </a>
 
 <a
+  rel="external"
   href="https://github.com/andreasseituno/Germinatech_Comandos/blob/main/README.md"
 >
   <div>
@@ -73,6 +73,8 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_info.webp"
       alt="logo saber mais"
       class="icone"
+      id="info"
+      loading="lazy"
     />
     Saiba Mais
   </div>
@@ -84,6 +86,7 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_html.webp"
       alt="Logo Html"
       class="icone"
+      loading="lazy"
     />
     Html Prática
   </div>
@@ -95,6 +98,7 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_css.webp"
       alt="Logo Css"
       class="icone"
+      loading="lazy"
     />
     Css Prática
   </div>
@@ -106,6 +110,7 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_ub.webp"
       alt="Logo Ubuntu"
       class="icone"
+      loading="lazy"
     />Ub Prática
   </div>
 </a>
@@ -117,6 +122,7 @@ window.cabecalhoDinamico =
       alt="Logo PostgreSql"
       rel="next"
       class="icone"
+      loading="lazy"
     />
     Pg Prática
   </div>
@@ -128,6 +134,7 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_git.webp"
       alt="Logo Git"
       class="icone"
+      loading="lazy"
     />
     Git Prática
   </div>
@@ -139,9 +146,17 @@ window.cabecalhoDinamico =
       src="../Imagens/icone_sql.webp"
       alt="Logo Banco de Dados"
       class="icone"
+      loading="lazy"
     />
     Server Prática
   </div>
 </a>
 </nav>
-`
+`;
+
+window.footerDinamico = `
+<p>
+Realizado inteiramente por
+<a rel="author" href="https://github.com/andreasseituno">&copy; André Asseituno</a>
+</p>
+`;

@@ -16,12 +16,13 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -36,7 +37,12 @@
       </h2>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
           <option value="#docker">Docker configuração</option>
           <option value="#arquivos">Arquivos e diretórios</option>
           <option value="#editar">Editar arqs/pastas</option>
@@ -57,14 +63,8 @@
     <main>
       <section>
         <button id="docker">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Docker configurações:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Docker configurações:</h3>
         </button>
 
         <div class="conteudo">
@@ -128,14 +128,8 @@
 
       <section>
         <button id="arquivos">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Arquivos e pastas/diretórios:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Arquivos e pastas/diretórios:</h3>
         </button>
 
         <div class="conteudo">
@@ -201,14 +195,8 @@
 
       <section>
         <button id="editar">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Editar arquivos e diretórios:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Editar arquivos e diretórios:</h3>
         </button>
 
         <div class="conteudo">
@@ -262,14 +250,8 @@
 
       <section>
         <button id="operadores">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Operadores:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Operadores:</h3>
         </button>
 
         <div class="conteudo">
@@ -306,14 +288,8 @@
 
       <section>
         <button id="cats">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Leitura de Arquivos (Cats e outros):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Leitura de Arquivos (Cats e outros):</h3>
         </button>
 
         <div class="conteudo">
@@ -371,14 +347,8 @@
 
       <section>
         <button id="usuarios">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Usuários e Grupos:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Usuários e Grupos:</h3>
         </button>
 
         <div class="conteudo">
@@ -437,14 +407,8 @@
 
       <section>
         <button id="python">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Python em linux:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Python em linux:</h3>
         </button>
 
         <div class="conteudo">
@@ -477,14 +441,8 @@
 
       <section>
         <button id="processos">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Processos:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Processos:</h3>
         </button>
 
         <div class="conteudo">
@@ -522,14 +480,8 @@
 
       <section>
         <button id="variaveis">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Variáveis de ambiente:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Variáveis de ambiente:</h3>
         </button>
 
         <div class="conteudo">
@@ -567,14 +519,8 @@
 
       <section>
         <button id="grep">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Grep:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Grep:</h3>
         </button>
 
         <div class="conteudo">
@@ -625,14 +571,8 @@
 
       <section>
         <button id="awk">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Awk:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Awk:</h3>
         </button>
 
         <div class="conteudo">
@@ -676,11 +616,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>

@@ -19,13 +19,105 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
-    <link rel="stylesheet" href="html.css" />
+    <style>
+      /* Elementos- Agrupadores */
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+      section {
+        width: 86%;
+      }
+
+      .conteudo div {
+        width: 97.5%;
+        display: flex;
+        flex-direction: row column;
+        flex-wrap: wrap;
+
+        border: 1px solid var(--corBordaPreta);
+        box-shadow: 1px 2px 4px var(--corSombraPreta);
+        border-radius: 4px;
+        margin: 6px auto;
+      }
+
+      /* Elementos- Texto */
+
+      .conteudo p {
+        text-align: justify;
+        width: 100%;
+        min-height: 24px;
+      }
+
+      .conteudo a {
+        text-shadow: 1px 1px 3px var(--corSombraPreta);
+        font-style: italic;
+      }
+
+      /* Classes */
+
+      .tag p > code,
+      .parametros a > code {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .tag p > code::before,
+      .parametros a > code::before {
+        content: "<";
+      }
+
+      .tag p > code::after,
+      .parametros a > code::after {
+        content: ">";
+      }
+
+      .tag a > code {
+        font-family: unset;
+      }
+
+      .parametros p > code {
+        font-weight: bold;
+        color: rgb(0, 0, 229);
+      }
+
+      .parametros em {
+        color: rgb(229, 0, 0);
+        font-family: monospace;
+        font-style: normal;
+      }
+
+      .parametros em::before {
+        content: '= "';
+      }
+
+      .parametros em::after {
+        content: '":';
+      }
+
+      .parametros em#dupla::after {
+        content: '"';
+      }
+
+      /* Ids */
+
+      #comentario {
+        color: rgb(101, 149, 84);
+      }
+
+      #menorMaior::after {
+        content: "&lt; &gt;";
+      }
+
+      #arroba::after {
+        content: "&copy;";
+      }
+    </style>
+
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
     <script src="./html.js" defer></script>
   </head>
   <body>
@@ -47,7 +139,12 @@
       </hgroup>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location = this.value">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
           <option value="#tags1">Tags (1)</option>
           <option value="#tags2">Tags (2)</option>
           <option value="#tags3">Tags (3)</option>
@@ -59,7 +156,7 @@
           <option value="#param1">Parâmetros (1)</option>
           <option value="#param2">Parâmetros (2)</option>
           <option value="#param3">Parâmetros (3)</option>
-          <option value="#info">Extra</option>
+          <option value="#extra">Extra</option>
         </select>
 
         <button id="btnAbrir">Abrir Seções</button>
@@ -69,14 +166,8 @@
     <main>
       <section>
         <button id="tags1">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para body (1):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para body (1):</h3>
         </button>
 
         <div class="conteudo tag">
@@ -148,14 +239,8 @@
 
       <section>
         <button id="tags2">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para body (2):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para body (2):</h3>
         </button>
 
         <div class="conteudo tag">
@@ -231,14 +316,8 @@
 
       <section>
         <button id="tags3">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para body (3):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para body (3):</h3>
         </button>
 
         <div class="conteudo tag">
@@ -338,14 +417,8 @@
 
       <section>
         <button id="tags4">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para body (4):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para body (4):</h3>
         </button>
 
         <div class="conteudo tag">
@@ -427,15 +500,10 @@
 
       <section>
         <button id="tagsFormulario">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para formulários:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para formulários:</h3>
         </button>
+
         <div class="conteudo tag">
           <div>
             <p>
@@ -478,7 +546,7 @@
             <p>
               <code>optgroup</code> seção de &lt;option&gt;
               <code>optgroup</code> (add o param
-              <a href="#paramFormulario"><code>label</code></a
+              <a href="#paramFormulario"> <code>label</code></a
               >)
             </p>
           </div>
@@ -525,14 +593,8 @@
 
       <section>
         <button id="paramFormulario">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Parâmetros para formulários:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Parâmetros para formulários:</h3>
         </button>
 
         <div class="conteudo parametros">
@@ -696,15 +758,10 @@
 
       <section>
         <button id="tabela">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags e Parâmetros para tabelas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags e Parâmetros para tabelas:</h3>
         </button>
+
         <div class="conteudo">
           <div class="tag">
             <div>
@@ -796,14 +853,8 @@
 
       <section>
         <button id="head">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Tags para head:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Tags para head:</h3>
         </button>
 
         <div class="conteudo tag">
@@ -888,16 +939,11 @@
           </div>
         </div>
       </section>
+
       <section>
         <button id="param1">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Parâmetros/atributos (1):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Parâmetros/atributos (1):</h3>
         </button>
 
         <div class="conteudo parametros">
@@ -982,14 +1028,8 @@
 
       <section>
         <button id="param2">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Parâmetros/atributos (2):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Parâmetros/atributos (2):</h3>
         </button>
 
         <div class="conteudo parametros">
@@ -1114,14 +1154,8 @@
 
       <section>
         <button id="param3">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Parâmetros/atributos (3):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Parâmetros/atributos (3):</h3>
         </button>
 
         <div class="conteudo parametros">
@@ -1191,15 +1225,9 @@
       </section>
 
       <section>
-        <button id="info">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Informações importantes:
-          </h3>
+        <button id="extra">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Informações importantes:</h3>
         </button>
 
         <div class="conteudo padrao">
@@ -1256,11 +1284,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>

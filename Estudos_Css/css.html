@@ -18,12 +18,13 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos_Padrao/secundario.css" />
-    <link rel="stylesheet" href="../Estilos_Padrao/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
 
-    <script src="../Estilos_Padrao/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos_Padrao/secundario.js" defer></script>
-    <script src="../Estilos_Padrao/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -37,7 +38,12 @@
       </h2>
 
       <div id="botoesContainer">
-        <select name="opcoes" id="opcoes" onchange="location=this.value">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location=this.value"
+        >
           <option value="#text">Texto (text)</option>
           <option value="#font">Texto (font)</option>
           <option value="#cor">Cor</option>
@@ -56,14 +62,8 @@
     <main>
       <section>
         <button id="text">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Texto (text):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Texto (text):</h3>
         </button>
 
         <div class="conteudo">
@@ -105,14 +105,8 @@
 
       <section>
         <button id="font">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Texto (font e outros):
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Texto (font e outros):</h3>
         </button>
 
         <div class="conteudo">
@@ -150,14 +144,8 @@
 
       <section>
         <button id="cor">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Cor:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Cor:</h3>
         </button>
 
         <div class="conteudo">
@@ -192,14 +180,8 @@
 
       <section>
         <button id="borda">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Borda:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Borda:</h3>
         </button>
 
         <div class="conteudo">
@@ -234,14 +216,8 @@
 
       <section>
         <button id="caixas">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Editar caixas:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Editar caixas:</h3>
         </button>
 
         <div class="conteudo">
@@ -307,14 +283,8 @@
 
       <section>
         <button id="position">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Position e FlexBox:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Position e FlexBox:</h3>
         </button>
 
         <div class="conteudo">
@@ -380,14 +350,8 @@
 
       <section>
         <button id="pseudo">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Pseudo-classes(:) e Pseudo-elementos(::) e Transição:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Pseudo-classes(:) e Pseudo-elementos(::) e Transição:</h3>
         </button>
 
         <div class="conteudo">
@@ -457,14 +421,8 @@
 
       <section>
         <button id="imagem">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Imagens de fundo:
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Imagens de fundo:</h3>
         </button>
 
         <div class="conteudo">
@@ -507,14 +465,8 @@
 
       <section>
         <button id="shorthands">
-          <h3>
-            <img
-              src="../Imagens/circulo1.webp"
-              alt="icone de circulo com seta"
-              class="circulo"
-            />
-            Shorthands
-          </h3>
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Shorthands</h3>
         </button>
 
         <div class="conteudo esticado">
@@ -566,11 +518,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        Realizado inteiramente por
-        <a href="https://github.com/andreasseituno">&copy; André Asseituno</a>
-      </p>
-    </footer>
+    <footer></footer>
   </body>
 </html>
