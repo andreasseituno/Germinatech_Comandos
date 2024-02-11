@@ -1,0 +1,159 @@
+Docker e Containers:
+
+Se conectar ao usuário:
+docker login
+
+Se desconectar do usuário:
+docker logout
+
+Visualizar containers rodando:
+docker ps
+
+Criar container (-d rodar em Segundo plano, -it interagir com elemento):
+docker run --name pythonX -d -it python bash
+
+Criar container com porta:
+docker run --name pg -d -P -it postgres bash
+
+Criar container com porta definida (8000= porta local, 8080 = porta origem):
+docker run --name web -p 8000:8080 -d nginx:latest
+
+Executar container (executar a instância, como entrar no root):  
+docker exec -it pythonX bash
+
+Iniciar container (deixar no verde):  
+docker start pythonX
+
+Interromper container (deixar no cinza):
+docker stop pythonX
+
+Remover container:
+docker rm pythonX --force
+ 
+
+
+Imagens:
+
+Visualizar imagens:
+docker images
+
+Baixar imagem:
+docker pull python	
+
+Criar imagem a partir de um container:
+docker commit pythonX minhaimagem 
+
+Postar imagem no docker hub:
+docker tag minhaimagem andreasseituno/minhaimagem:1.0 && 
+docker push andreasseituno/minhaimagem:1.0
+
+
+ 
+Dockerfile e Docker-compose (Comandos):
+
+Executar um dockerfile:
+docker build . -t minhaimagem:1.0
+
+Criar uma imagem pelo docker-compose.yml:
+docker-compose build
+
+Criar uma imagem pelo docker-compose.yaml:
+docker-compose -f docker-compose.yaml
+
+Publicar imagem no DockerHub pelo docker-compose:
+docker-compose push
+
+Criar os containers pelo docker-compose:
+docker-compose up -d
+
+Rodar docker-compose com nomenclatura:
+docker-compose -p meuscontainers up -d
+
+ 
+
+Criação Dockerfile (notepad):
+
+Imagem usada do documento:
+FROM ubuntu:latest
+
+Local em que o dockerfile vai rodar, a partir da onde foi criado:
+WORKDIR /code
+
+Informações para categorizar a imagem:
+LABEL maintainer="andreasseituno@gmail.com" \ license="MIT"
+
+Criar variável de ambiente:
+ENV POSTGRES_PASSWORD="1234"
+
+Selecionar arquivos em uma pasta, para usar eles adiante:
+COPY requirements.txt
+
+Entrar em um local para trabalhar com arquivos:
+USER root
+
+Rodar um comando durante construção de imagem:
+RUN apt-get update
+
+Rodar um comando durante construção do container:
+CMD ["python", "app.py"]
+
+Rodar um comando depois da construção do container:
+ENTRYPOINT ["python", "app.py"]
+
+Selecionar a porta padrão:
+EXPOSE 8080 8081 
+
+
+
+Criação Docker-compose (notepad):
+
+version: versão do docker-compose
+services: (agrupador de containers)
+  xxxx: nome do seu passo (container)
+    container_name: nome do container que vai ser criado
+    image: imagem em que está se trabalhando
+      build: (local em que vai ler os dockerfile)
+        context: caminho dockerfile
+        dockerfile: nome dockerfile
+      depends_on:
+      - nome do passo (container) adiante que precisa ser executado antes
+      command: execução de um comando
+      ports:
+      - "": numero da porta
+      volumes:
+      - : pasta em que está compartilhando (pasta local:pasta do servidor)
+      enviroment: (agrupador de variáveis de ambiente)
+        POSTGRES_PASSWORD: "" senha do pgadmin
+      networks:
+      - nome da rede em que o container vai pertencer
+networks:
+	<nome da rede>:
+
+
+
+Exemplo de docker-compose (não funcional):
+version: '3'
+services:
+  web:
+    container_name: pythonweb
+    build:
+      context: .
+      dockerfile: dockerfilePython
+    depends_on:
+      - db
+    command: python app.py
+    ports:
+      - "8080:80"
+    volumes:
+      - ./local_folder:/app
+    networks:
+      - net
+  bd:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "1234"
+    networks:
+      - net
+
+networks:
+  net:

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lista de Comados da interface do CMD com comandos de Docker, lista criada por um estudante de
+        curso técnico 'Germinatech'"
+    />
+    <title>DOCKER PRÁTICA</title>
+    <link
+      rel="shortcut icon"
+      href="../Imagens/icone_docker.webp"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
+    <style>
+      code {
+        font-family: unset;
+        font-weight: bold;
+      }
+    </style>
+
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo"></div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Comandos Docker</h1>
+      <h2>
+        Todos os Comandos Docker no CMD que anotei durante minhas aulas da
+        Germinatech
+      </h2>
+
+      <div id="botoesContainer">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
+          <option value="#containers">Docker e Containers</option>
+          <option value="#imagens">Imagens</option>
+          <option value="#comandos">Dockerfile/Compose</option>
+          <option value="#dockerfile">Criação Dockerfile</option>
+          <option value="#dockercompose">Docker-compose</option>
+        </select>
+
+        <button id="btnAbrir">Abrir Seções</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <button id="containers">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Docker e Containers:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Se conectar ao usuário:</strong>
+            docker login
+          </p>
+
+          <p>
+            <strong>Se desconectar do usuário:</strong>
+            docker logout
+          </p>
+
+          <p>
+            <strong>Visualizar containers rodando:</strong>
+            docker ps
+          </p>
+
+          <p>
+            <strong>
+              Criar container (-d rodar em Segundo plano, -it interagir com
+              elemento):
+            </strong>
+            docker run --name pythonX -d -it python bash
+          </p>
+
+          <p>
+            <strong>Criar container com porta:</strong>
+            docker run --name pg -d -P -it postgres bash
+          </p>
+
+          <p>
+            <strong>
+              Criar container com porta definida (8000= porta local, 8080 =
+              porta origem):
+            </strong>
+            docker run --name web -p 8000:8080 -d nginx:latest
+          </p>
+
+          <p>
+            <strong> Executar a instância (entrar no root): </strong>
+            docker exec -it pythonX bash
+          </p>
+
+          <p>
+            <strong>Remover container:</strong>
+            docker rm pythonX --force
+          </p>
+
+          <p>
+            <strong>Iniciar container (deixar no verde):</strong>
+            docker start pythonX
+          </p>
+
+          <p>
+            <strong>Interromper container (deixar no cinza):</strong>
+            docker stop pythonX
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="imagens">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Imagens:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Visualizar imagens:</strong>
+            docker images
+          </p>
+
+          <p>
+            <strong>Baixar imagem:</strong>
+            docker pull python
+          </p>
+
+          <p>
+            <strong>Criar imagem a partir de um container:</strong>
+            docker commit pythonX minhaimagem
+          </p>
+
+          <p>
+            <strong>Postar imagem no docker hub:</strong>
+            docker tag minhaimagem andreasseituno/minhaimagem:1.0 && docker push
+            andreasseituno/minhaimagem:1.0
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="comandos">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Dockerfile e Docker-compose (Comandos):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Criar uma imagem pelo docker-compose.yml:</strong>
+            docker-compose build
+          </p>
+
+          <p>
+            <strong>Criar uma imagem pelo docker-compose.yaml:</strong>
+            docker-compose -f docker-compose.yaml
+          </p>
+
+          <p>
+            <strong>Executar um dockerfile:</strong>
+            docker build . -t minhaimagem:1.0
+          </p>
+
+          <p>
+            <strong>Publicar imagem no DockerHub pelo docker-compose:</strong>
+            docker-compose push
+          </p>
+
+          <p>
+            <strong>Criar os containers pelo docker-compose:</strong>
+            docker-compose up -d
+          </p>
+
+          <p>
+            <strong>Rodar docker-compose com nomenclatura:</strong>
+            docker-compose -p meuscontainers up -d
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="dockerfile">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Criação Dockerfile (notepad):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Imagem usada do documento:</strong>
+            <code>FROM</code> ubuntu:latest
+          </p>
+
+          <p>
+            <strong>
+              Local em que o dockerfile vai rodar, a partir da onde foi criado:
+            </strong>
+            <code>WORKDIR</code> /code
+          </p>
+
+          <p>
+            <strong>Informações para categorizar a imagem:</strong>
+            <code>LABEL</code> maintainer="andreasseituno@gmail.com" \
+            license="MIT"
+          </p>
+
+          <p>
+            <strong>Criar variável de ambiente:</strong>
+            <code>ENV</code> POSTGRES_PASSWORD="1234"
+          </p>
+
+          <p>
+            <strong>
+              Selecionar arquivos em uma pasta, para usar eles adiante:
+            </strong>
+            <code>COPY</code> requirements.txt
+          </p>
+
+          <p>
+            <strong>Entrar em um local para trabalhar com arquivos:</strong>
+            <code>USER</code> root
+          </p>
+
+          <p>
+            <strong>Rodar um comando durante construção de imagem:</strong>
+            <code>RUN</code> apt-get update
+          </p>
+
+          <p>
+            <strong>Selecionar a porta padrão:</strong>
+            <code>EXPOSE</code> 8080 8081
+          </p>
+
+          <p>
+            <strong>Rodar um comando durante construção do container:</strong>
+            <code>CMD</code> ["python", "app.py"]
+          </p>
+
+          <p>
+            <strong>Rodar um comando depois da construção do container:</strong>
+            <code>ENTRYPOINT</code> ["python", "app.py"]
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="dockercompose">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Criação Docker-compose (notepad):</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Explicação:</strong>
+            <span class="indentado"><code>version</code>: versão do docker-compose
+<code>services</code>: (agrupador de containers)
+  <code>xxxx</code>: nome do seu passo (container)
+    <code>container_name</code>: nome do container que vai ser criado
+    <code>image</code>: imagem em que está se trabalhando
+      <code>build</code>: (local em que vai ler os dockerfile)
+        <code>context</code>: caminho dockerfile
+        <code>dockerfile</code>: nome dockerfile
+      <code>depends_on</code>:
+      - nome do passo (container) adiante que precisa ser executado antes
+      <code>command</code>: execução de um comando
+      <code>ports</code>:
+      - "": numero da porta
+      <code>volumes</code>:
+      - : pasta em que está compartilhando (pasta local:pasta do servidor)
+      <code>enviroment</code>: (agrupador de variáveis de ambiente)
+        <code>POSTGRES_PASSWORD</code>: "" senha do pgadmin
+      <code>networks</code>:
+      - nome da rede em que o container vai pertencer
+<code>networks</code>:
+  &lt;nome da rede&gt;:</span>
+          </p>
+
+          <p>
+            <strong>Exemplo (não funcional):</strong>
+            <span class="indentado"><code>version</code>: '3'
+<code>services</code>:
+  <code>web</code>:
+    <code>container_name</code>: pythonweb
+    <code>build</code>:
+      <code>context</code>: .
+      <code>dockerfile</code>: dockerfilePython
+    <code>depends_on</code>:
+      - db
+    <code>command</code>: python app.py
+    <code>ports</code>:
+      - "8080:80"
+    <code>volumes</code>:
+      - ./local_folder:/app
+    <code>networks</code>:
+      - net
+  <code>bd</code>:
+    <code>image</code>: postgres
+    <code>environment</code>:
+      <code>POSTGRES_PASSWORD</code>: "1234"
+    <code>networks</code>:
+      - net
+<code>networks</code>:
+  net:</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

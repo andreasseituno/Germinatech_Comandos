@@ -17,6 +17,10 @@
       type="image/x-icon"
     />
 
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&display=swap');
 
@@ -31,21 +35,11 @@
       section strong {
         margin-bottom: 8px;
       }
-
-      .indentado {
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
-        font-family: 'Roboto Mono', monospace;
-      }
     </style>
 
-<link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
-<link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
-<link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
-
-<script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
-<script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
-<script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
   </head>
   <body>
     <div id="cabecalhoFixo"></div>
@@ -65,7 +59,7 @@
         aria-label="Seleção das seções da página" 
         onchange="location = this.value"
         >
-          <option value="#tabelas">Tabelas e BD</option>
+          <option value="#tabelas">Tabelas e Bancos</option>
           <option value="#colunas">Colunas</option>
           <option value="#valores">Valores</option>
           <option value="#chaves">Chaves e Retrições</option>
@@ -88,7 +82,7 @@
       <section>
         <button id="tabelas">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
-          <h3>Tabelas e Banco de Dados:</h3>
+          <h3>Tabelas e Bancos:</h3>
         </button>
 
         <div class="conteudo">
@@ -545,7 +539,7 @@ SELECT tbALUNO.nCdAluno
       <section>
         <button id="fstring">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
-          <h3>Funções de String (1):</h3>
+          <h3>Funções de String:</h3>
         </button>
         <div class="conteudo">
           <p>
@@ -618,7 +612,7 @@ SELECT tbALUNO.nCdAluno
       <section>
         <button id="fdata">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
-          <h3>Funções de data:</h3>
+          <h3>Funções de Data:</h3>
         </button>
         <div class="conteudo esticado">
           <p>
@@ -648,7 +642,7 @@ SELECT tbALUNO.nCdAluno
       <section>
         <button id="fexpressao">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
-          <h3>Funções de expressões:</h3>
+          <h3>Funções de Expressões:</h3>
         </button>
         <div class="conteudo">
           <p>

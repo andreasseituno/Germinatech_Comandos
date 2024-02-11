@@ -7,7 +7,7 @@ criaRodape();
 // Listas
 const titulos = document.querySelectorAll("section button");
 const conteudo = document.getElementsByClassName("conteudo");
-const bolinhas = document.querySelectorAll("button > img");
+const bolinhas = document.querySelectorAll("section img");
 
 // Elementos
 const opcoes = document.getElementById("opcoes");

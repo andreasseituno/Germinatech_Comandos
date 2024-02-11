@@ -151,6 +151,18 @@ window.asideDinamico = `
     Server Prática
   </div>
 </a>
+
+<a href="../Estudos_Docker/docker.html">
+  <div>
+    <img
+      src="../Imagens/icone_docker.webp"
+      alt="Logo Docker"
+      class="icone"
+      loading="lazy"
+    />
+    Docker Prática
+  </div>
+</a>
 </nav>
 `;
 

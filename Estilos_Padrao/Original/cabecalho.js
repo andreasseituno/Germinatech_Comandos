@@ -24,6 +24,10 @@ window.addEventListener("scroll", () => {
   scrollPos = document.body.getBoundingClientRect().top;
 });
 
+window.addEventListener("keyup", function (event) {
+  if (event.key == "Escape") fechaAside();
+});
+
 window.addEventListener("click", (e) => {
   var clicouForaAside = !aside.contains(e.target);
   var clicouForaCabecalho = !header.contains(e.target);
