@@ -163,6 +163,18 @@ window.asideDinamico = `
     Docker Prática
   </div>
 </a>
+
+<a href="../Estudos_Mobile/mobile.html">
+  <div>
+    <img
+      src="../Imagens/icone_android.webp"
+      alt="Logo Android Studio"
+      class="icone"
+      loading="lazy"
+    />
+    Mobile Prática
+  </div>
+</a>
 </nav>
 `;
 

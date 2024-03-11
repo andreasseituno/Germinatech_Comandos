@@ -1,0 +1,435 @@
+Informações Importantes:
+1. Arquivos de mídia em app  res  drawable
+2. Ícones em app  res  mipmap
+3. Componentes da tela em app  res  layout  <arq>.xml
+4. Classes ou Activities em app  java  com.example.<arq> 
+5. Quando vermelho, Hover, clicar na sugestão. Geralmente import de classe
+6. Quando vermelho, abrir o arquivo Xml, salvar (Ctrl + S) 
+
+Resolvendo Problemas do Android Studio:
+1. Reiniciando o Dispositivo
+        a. Emulator no Aside da direita
+        b. X do dispositivo do Emulator
+        c. Abrir Device Manager no lado direito
+        d. Selecionar o dispositivo, 3 pontinhos, Cold Boot Now
+2. Limpando e Recompilando o projeto
+        a. Ctrl + Shift + A, Digite e Selecione Clean Project
+        b. Ctrl + Shift + A, Digite e Selecione Rebuild Project
+3. Limpando o Cache do Dispositivo
+        a. Clicar no botão multitarefas, no canto inferior esquerdo do celular
+        b. Fechar todas as abas
+4. Reparar a IDE
+        a. Ctrl + Shift + A, Digite e Selecione, Repair IDE
+        b. Rescan Project Indexes no pop-up que aparecerá
+5. Sincronizar com Gradle 
+        a. Ctrl + Shift + O (Sync Project with Gradle Files)
+
+
+ 
+Adicionar Ícone ao App:
+1. Acessar app  res  mipmap
+        a. Botão direito, New  Image Asset
+                 i. Modificar Path para o caminho da imagem
+                ii. Next, Finish
+
+Adicionar Imagem: 
+1. Adicionar arquivo de mídia
+2. Adicionar componente ImageView
+3. Selecionar a imagem
+        a. Ou se já tiver um ImageView existente, alterar atributo srcCompat para @drawable/<nomeDaPastaSeHouver>/<nomeDoArquivo>
+
+Adicionar gif (mesmo processo para links):
+1. Adicionar Imagem
+2. Acessar Gradle Scripts  build.gradle (Module:app)  localizar dependencies
+a. implementation 'com.github.bumptech.glide:glide:4.15.1'
+3. Ctrl + Shift + O (Sync Project with Gradle Files)
+4. Acessar código da tela, no evento onCreate:
+        a. Glide.with(this).load(R.drawable.gif).centerCrop().into(img);
+                 i. "R.drawable.gif" o caminho do gif
+                ii. "img" o seu ImageView
+        
+
+
+Adicionar Evento de Click:
+1. Adicionar componente para comportamento (Button)
+        a. Adicionar Nome do Evento no atributo onClick
+2. Entrar no Code do Xml
+        a. Localizar onClick, hover, clicar em sugestão Create
+3. Entrar código da tela
+        a. Localizar Nome do Evento
+        b. Tudo entre as chaves {} será realizado quando realizar o clique do componente
+
+Escrever Mensagem quando Click:
+1. Adicionar Evento de Click
+        a. Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
+                i.  "mensagem" uma String
+
+Abrir Activity quando Click:
+1. Adicionar Evento de Click
+        a. startActivity(new Intent(this, MainActivity.class));
+                i. "MainActivity" o nome da Activity que vai abrir
+ 
+
+
+Selecionar qual Activity é a primeira a abrir:
+1. Acessar app  manifest  AndroidManifest.xml  localizar android:exported="true"
+        a. Na linha acima, substituir o nome da Activity em android:name (inicia em .)
+        b. Adicionar a Activity substituída no lugar da antiga (agora principal)
+
+Adicionar Splash Screen:
+1. Criar Activity de Splash Screen
+2. Selecionar qual Activity é a primeira a abrir (Nova Criada)
+3.  Acessar código da tela
+        a. No evento onCreate:
+                i. Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            carregar();
+                            finish();
+                        }
+                    }, tempoTela);
+                        1.  "carregar()" a ação de AbrirActivity
+                        2.  "tempoTela" a duração em milissegundos da SplashScreen
+
+
+Transportar Dados entre Telas:
+1. Adicionar Evento de Click
+        a. Bundle bundle = new Bundle();
+            bundle.putString(nomeDado, informacao);
+
+            Intent intent = new Intent(this, MainActivity2.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+                  i. "putString" o tipo da informacao, pode ser "putInt" etc.
+                 ii. "nomeDado" uma String da chave que representa a informação
+                iii. "informacao" o dado
+                 iv. "MainActivity2" o nome da tela destino
+2. No código da tela destino, no evento onCreate:
+        a. Bundle bundle = getIntent().getExtras();
+            String variavel = bundle.getString(nomeDado);
+                i. "nomeDado" uma String da chave da informação
+
+
+
+ 
+Adicionar uma página Web:
+1. Adicionar o componente WebView
+2. Acessar app  manifest  AndroidManifest.xml  dentro da tag <manifest>
+        a. <uses-permission android:name="android.permission.INTERNET"/>
+3. Acessar código da tela
+        a. Acima do evento onCreate:
+                i. WebView web;
+        b. No evento onCreate:
+                i. web = (WebView) findViewById(R.id.web);
+
+                    web.getSettings().setJavaScriptEnabled(true);
+                    web.setWebViewClient(new WebViewClient());
+
+                    web.loadUrl(link);
+                        1. "R.id.web" o <R.id> + <id do componente do WebView>
+                        2. "link" uma String do caminho url da página
+        c. Abaixo do evento onCreate:
+                i. @Override
+                    public boolean onKeyDown(int keyCode, KeyEvent event){
+                        if (keyCode == KeyEvent.KEYCODE_BACK && web.canGoBack()){
+                            web.goBack();
+                            return true;
+                        }
+                        return super.onKeyDown(keyCode, event);
+                    }
+
+
+
+Adicionar uma lista:
+1. Adicionar componente ListView
+2. Acessar código da tela
+        a. Acima do evento onCreate:
+                i. ArrayAdapter<String> adapter;
+        b. No evento onCreate:
+                i. ListView lista = findViewById(R.id.listinha);
+                    int tipoLayout= android.R.layout.simple_list_item_1;
+                    adapter = new ArrayAdapter<String>(this, tipoLayout, dados);
+                    lista.setAdapter(adapter);
+                        1. "listinha" o id do ListView
+                        2. "dados" uma String[] com nome dos conteúdos
+
+Adicionar Evento de Click nos itens da lista:
+1. Adicionar uma lista
+2. No código da tela, abaixo da criação da lista:
+        a. lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int posVetor, long l){
+                    String conteudo = adapterView.getItemAtPosition(posVetor).toString();
+                    clicaLista();
+                }
+            });
+                i. "clicaLista()" as ações que acontecem durante o clique
+
+Adicionar uma lista Personalizada:
+1. Adicionar o componente ListView
+2. Acessar app  res  layout
+        a. Botão direito, New  Layout Resource File
+                i. Em File Name, um nome para o layout da lista, OK
+3. Personalizar o xml criado, representa cada item da lista
+4. Criar classe para a construção do adapter:
+        a. public class Adapter extends BaseAdapter {
+                Context context;
+                String[] dados1;
+                int[] dados2;
+                LayoutInflater inflater;
+
+                public Adapter (Context context, String[] dados1, int[] dados2){
+                    this.context = context;
+                    this.dados1 = dados1;
+                    this.dados2 = dados2;
+                    this.inflater = (LayoutInflater.from(context));
+                }
+
+                @Override
+                public int getCount() {
+                    return dados1.length;
+                }
+
+                @Override
+                public Object getItem(int position) {
+                    return null;
+                }
+
+                @Override
+                public long getItemId(int position) {
+                    return 0;
+                }
+
+                @Override
+                public View getView(int i, View view, ViewGroup parent) {
+                    view =  inflater.inflate(R.layout.item, null);
+                    TextView dado1 = view.findViewById(R.id.texto1);
+                    ImageView dado2 = view.findViewById(R.id.img1);
+
+                    dado1.setText(dados1[i]);
+                    dado2.setImageResource(dados2[i]);
+
+                    return view;
+                }
+            }
+                  i. "Adapter" o nome da sua classe
+                 ii. "dados1", "dados2".... vetores dos tipos correspondentes aos valores que serão preenchidos nos seus componentes
+                iii."TextView", "ImageView".. tipos dos componentes que "dados1", "dados2".... vão preencher
+                iv. "item" o id do layout
+                v. "texto1" e "img1" os ids dos componentes escolhidos 
+5. No evento onCreate:
+        a. ListView lista = findViewById(R.id.listinha);
+                Adapter adapter = new Adapter(this, dados1, dados2);
+                lista.setAdapter(adapter);
+                 i. "listinha" o id do ListView
+                ii. "dados1, "dados2"... vetores (nesse caso String[] e int[]) 
+
+
+
+Se Conectar ao SQLite:
+1. Criar classe DatabaseHelper
+        a. public class DatabaseHelper extends SQLiteOpenHelper {
+                public DatabaseHelper(Context context, String nomeDatabase) {
+                    super(context, nomeDatabase, null, 1);
+                }
+
+                @Override
+                public void onCreate(SQLiteDatabase db) {
+
+                }
+
+                @Override
+                public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+                }
+            }
+2. Criar classe DAO
+        a. public class DAO {
+                private DatabaseHelper dbHelper;
+                private Context context;
+                private SQLiteDatabase database;
+
+                public DAO(Context context){
+                    this.context = context;
+                }
+
+                public void open(){
+                    dbHelper = new DatabaseHelper(context, nomeDatabase);
+                    database = dbHelper.getWritableDatabase();
+                }
+
+                public void close(){
+                    database.close();
+                    dbHelper.close();
+                }
+            }
+                i. "nomeDatabase", uma String do nome do database
+3. Acessar código da tela, no evento onCreate:
+        a. DAO dao = new DAO(this);
+            dao.open();
+        b. Rodar App
+        c. Acessar Device File Explorer (canto inferior direito), data  data  com.example.<nomeDoProjeto>  databases  arquivo 1
+                i. Botão direito, Save As
+                        1. Selecionar Local do Arquivo
+                                a. Abrir com SQLite
+
+
+
+Exemplo de Uso de Tabela no SQLite:
+1. Se Conectar ao SQLite
+2. Acessar classe DatabaseHelper, 
+        a. No evento onCreate(SQLiteDatabase db):
+                i. db.execSQL(
+                        "CREATE TABLE tbExemplo" +
+                            "(id INTEGER primary key autoincrement," + 
+                            "colExemplo TEXT)"
+                    );
+            b. No evento onUpgrade:
+                i. db.execSQL("DROP TABLE IF EXISTS tbExemplo");
+                onCreate(db);
+        
+
+
+Criar ActionBar customizada:
+1. Acessar app  res  values  themes  themes.xml
+        a. Localizar NoActionBar e remover
+2. Selecionar app  res, botão direito, New, Android Resource File, em File name nomear sua ActionBar em Resource type  selecionar Menu, OK
+3. Acessar app  res  menu  <seuArquivoCriado>.xml
+        a. Adicionar componente Menu Item dentro do componente Menu
+                i. Acessar atributo showsAction, always, Apply
+4. Acessar código da tela
+        a. @Override
+            public boolean onCreateOptionsMenu(Menu menu) {
+                getMenuInflater().inflate(R.menu.form_menu, menu);
+                return super.onCreateOptionsMenu(menu);
+            }
+                i. "form_menu" o nome do seu layout de menu
+
+Adicionar Evento de Click na ActionBar customizada:
+1. Criar ActionBar customizada
+2. Acessar código da tela
+        a. @Override
+            public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.itmMenuSalva r){
+                    acionar();
+                }
+                return super.onOptionsItemSelected(item);
+            }
+                 i. "itmMenuSalvar" o id do seu item
+                ii. "acionar()" as ações que acontecem durante o clique
+
+ 
+Criar Fragmentos:
+1. Acessar app  java  com.example.<arq>
+        a. botão direito, New, Fragment, Fragment (Blank), nomear seu fragmento, Finish
+2. Adicionar componente emissor (Button) e o FrameLayout (receptor)
+3. Adicionar Evento de onClick no componente emissor
+        a. BlankFragment fragment = new BlankFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frmLytTela, fragment);
+            transaction.commit();
+                 i. "BlankFragment()" o nome do seu fragmento
+                ii. "frmLytTela" o id do seu FrameLayout
+
+Publicar projeto em Cloud:
+1. Ctrl + Shift + A, Digite e Selecione Build APK(S)
+2. Pop-up direito, clicar em sugestão locate
+3. Acessar https://appetize.io/upload
+4. Clicar Select file
+5. No caminho do locate, na pasta debug, selecionar arquivo app-debug.apk
+6. Cadastrar e-mail, Generate Links
+7. Acessar e-mail e acessar o link
+ 
+
+
+Conectar ao Banco de Dados Firebase:
+1. Acessar Código da Tela
+        a. Copiar nome do package 
+2. Adicionar projeto Firebase em https://console.firebase.google.com/
+        a. Adicionar projeto
+        b. Nomear projeto, Continuar
+        c. Desativar o Google Analytics neste projeto
+        d. Criar projeto, (Aguarde), Continuar
+        e. Com o projeto já selecionado (automaticamente), Clicar em ícone do Android
+                  i. Colar nome do package
+                 ii. Registrar App
+                iii.Fazer o download de google-services.json
+                 iv. Próxima, Próxima, Continuar no console
+3. Adicionar o seu arquivo de google-services.json em app
+4. Acessar Gradle Scripts   build.gradle (Project: )  [primeiro item vem do projeto]
+        a. plugins {
+                id 'com.android.application' version '8.1.1' apply false
+                id 'com.google.gms.google-services' version '4.3.15' apply false
+            }
+5. Acessar Gradle Scripts   build.gradle (Module: app)
+        a. plugins {
+                id 'com.android.application'
+                id 'com.google.gms.google-services'
+            }
+        b. Adicionar em dependencies:
+                i. implementation platform('com.google.firebase:firebase-bom:32.3.1')
+6. Ctrl + Shift + O (Sincronizar projeto com gradlle)
+7. Tools (9° item superior direito), Firebase
+        a. (Scroll pra cima)Realtime DatabaseGet started with Realtime Database [java]
+                i. Add the Realtime Database SDK to your app,
+                       1. Accept Changes
+8. Acessar projeto em https://console.firebase.google.com/ 
+        a. Aside Esquerdo, Criação, Realtime Database, Criar banco de dados
+                i. Próxima, Ativar
+                        1. Regras (Semi-superior, semi-esquerdo)
+                        2. {
+                            "rules": {
+                                ".read": true,
+                                ".write": true
+                                }
+                            }
+                        3. Publicar
+
+
+ 
+Autenticar E-mail no Firebase:
+1. Acessar https://console.firebase.google.com/
+        a. Selecionar projeto, Aside Esquerdo, Criação, Authentication, Vamos começar, E-mail/senha, Ativar (só o primeiro), Salvar
+2. Acessar Android Studio
+        a. Tools (9° item superior direito), Firebase
+        b. Authentication  Authenticate using a custom authentication system [java]
+                 i. Connect to Firebase
+                        1. Selecionar projeto, (Aguarde) Conectar
+                ii. Add the Firebase Authentication SDK to your app
+                        1. Accept Changes
+3. Acessar Código da tela (Cadastro)
+        a. FirebaseAuth auth = FirebaseAuth.getInstance();
+            auth.createUserWithEmailAndPassword(email, senha)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+                                    msgSucesso();
+                                }else{
+                                    msgErro();
+                                }
+                            }
+                        });
+                  i. "email" uma String do E-mail do usuário
+                 ii. "senha" uma String da senha do usuário
+                iii. "msgSucesso()" as ações que acontecem após criar usuário
+                 iv. "msgErro()" as ações que acontecem após falhar em criar usuário
+4. Acessar Código da tela (Login)
+        a. FirebaseAuth autenticacao = FirebaseAuth.getInstance();
+                autenticacao.signInWithEmailAndPassword(email, senha)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
+                                        acessarLogin();
+                                } else {
+                                        msgErro();
+                                }
+                                }
+                        });
+                  i. "email" uma String do E-mail do usuário
+                 ii. "senha" uma String da senha do usuário
+                iii."acessarLogin()" as ações que acontecem após logar usuário
+                 iv. "msgErro()" as ações que acontecem após falhar em logar usuário

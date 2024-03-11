@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Passo a passo de como desenvolver aplicações móveis pelo Android Studio (Java), tutorial criado por um
+    estudante de curso técnico 'Germinatech'"
+    />
+
+    <title>MOBILE PRÁTICA</title>
+
+    <link rel="shortcut icon" href="../Imagens/icone_android.webp" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
+    <style>
+      code {
+        background-color: var(--corAzulClaroTerciario);
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      section a {
+        font-style: italic;
+        text-decoration: underline;
+      }
+
+      .termoExterno {
+        font-weight: bold;
+      }
+
+      .citacao::after,
+      .citacao::before {
+        content: '"';
+      }
+    </style>
+
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Original/secundario.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo"></div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Como fazer - Mobile (Android Studio)</h1>
+      <h2>
+        Passo a passo de como fazer várias implementações com o Android Studio
+      </h2>
+      <h3>
+        Todo o conteúdo foi criado baseado na linguagem Java, com a linguagem de
+        configuração de compilação Groovy DSL (build.gradle) a partir do Android
+        Studio Giraffe, certifique dessas configurações para garantir a
+        implementação correta do seu código
+      </h3>
+
+      <div id="botoesContainer">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
+          <option value="#geral">Geral</option>
+          <option value="#midia">Mídia</option>
+          <option value="#click">Click</option>
+          <option value="#telas">Activities</option>
+          <option value="#web">Web</option>
+          <option value="#sqlite">SQLite</option>
+          <option value="#actionbar">ActionBar</option>
+          <option value="#fragmento">Fragmentos/Cloud</option>
+          <option value="#firebase">Firebase</option>
+          <option value="#teste">Firebase</option>
+        </select>
+
+        <button id="btnAbrir"></button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <button id="geral">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Geral:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Informações Importantes:</strong>
+            <span class="indentado">1. Arquivos de mídia em <span class="termoExterno">app</span> &rArr; <span class="termoExterno">res</span> &rArr; <span class="termoExterno">drawable</span> 
+2. Ícones em <span class="termoExterno">app</span> &rArr; <span class="termoExterno">res</span> &rArr; <span class="termoExterno">mipmap</span>
+3. Componentes da tela em <span class="termoExterno">app</span> &rArr; <span class="termoExterno">res</span> &rArr; <span class="termoExterno">layout</span> &rArr; <span class="termoExterno">&lt;arq&gt;.xml</span>
+4. Classes ou Activities em <span class="termoExterno">app</span> &rArr; <span class="termoExterno">java</span> &rArr; <span class="termoExterno">com.example.&lt;arq&gt;</span>
+5. Quando vermelho, Hover, clicar na sugestão. Geralmente import de classe
+6. Quando vermelho, abrir o arquivo Xml, salvar (Ctrl + S)</span>
+          </p>
+          <p>
+            <strong>Resolvendo Problemas do Android Studio:</strong>
+            <span class="indentado">1. Reiniciando o Dispositivo
+    a. <span class="termoExterno">Emulator</span> no Aside da direita
+    b. X do dispositivo do Emulator
+    c. Abrir <span class="termoExterno">Device Manager</span> no lado direito
+    d. Selecionar o dispositivo, 3 pontinhos, <span class="termoExterno">Cold Boot Now</span>
+2. Limpando e Recompilando o projeto
+    a. Ctrl + Shift + A, Digite e Selecione <span class="termoExterno">Clean Project</span>
+    b. Ctrl + Shift + A, Digite e Selecione <span class="termoExterno">Rebuild Project</span>
+3. Limpando o Cache do Dispositivo
+    a. Clicar no botão multitarefas, no canto inferior esquerdo do celular
+    b. Fechar todas as abas
+4. Reparar a IDE
+    a. Ctrl + Shift + A, Digite e Selecione, <span class="termoExterno">Repair IDE</span>
+    b. <span class="termoExterno">Rescan Project Indexes</span> no pop-up que aparecerá
+5. Sincronizar com Gradle 
+    a. Ctrl + Shift + O (<span class="termoExterno">Sync Project with Gradle Files</span>)</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="midia">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Arquivos de mídia:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Adicionar Ícone ao App:</strong>
+            <span class="indentado">1. Acessar <span class="termoExterno">app</span> &rArr; <span class="termoExterno">res</span> &rArr; <span class="termoExterno">mipmap</span>
+    a. Botão direito, <span class="termoExterno">New</span> &rArr; <span class="termoExterno">Image Asset</span>
+       i. Modificar <span class="termoExterno">Path</span> para o caminho da imagem
+      ii. <span class="termoExterno">Next</span>, <span class="termoExterno">Finish</span></span>
+          </p>
+
+          <p>
+            <strong>Adicionar Imagem:</strong>
+            <span class="indentado">1. Adicionar arquivo de mídia
+2. Adicionar componente <span class="termoExterno">ImageView</span>
+3. Selecionar a imagem
+    a. Ou se já tiver um <span class="termoExterno">ImageView</span> existente, alterar atributo <span class="termoExterno">srcCompat</span> para @drawable/&lt;nomeDaPastaSeHouver&gt;/&lt;nomeDoArquivo&gt;</span>
+          </p>
+
+          <p>
+            <strong>Adicionar gif (mesmo processo para links):</strong>
+            <span class="indentado">1. <a href="#midia">Adicionar Imagem</a>
+2. Acessar <span class="termoExterno">Gradle Scripts</span> &rArr; <span class="termoExterno">build.gradle (Module:app)</span> &rArr; localizar <span class="termoExterno">dependencies</span>
+    a. <code>implementation 'com.github.bumptech.glide:glide:4.15.1'</code>
+3. Ctrl + Shift + O (<span class="termoExterno">Sync Project with Gradle Files</span>)
+4. Acessar código da tela, no evento <span class="termoExterno">onCreate</span>:
+    a. <code>Glide.with(this).load(R.drawable.gif).centerCrop().into(img);</code>
+         i. <span class="citacao">R.drawable.gif</span> o caminho do gif
+        ii. <span class="citacao">img</span> o seu ImageView</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="click">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Click:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Adicionar Evento de Click:</strong>
+            <span class="indentado">1. Adicionar componente para comportamento (Button)
+    a. Adicionar Nome do Evento no atributo <span class="termoExterno">onClick</span>
+2. Entrar no Code do Xml
+    a. Localizar <span class="termoExterno">onClick</span>, hover, clicar em sugestão <span class="termoExterno">Create</span>
+3. Entrar código da tela
+    a. Localizar Nome do Evento
+    b. Tudo entre as chaves {} será realizado quando realizar o clique do componente</span>
+          </p>
+
+          <p>
+            <strong>Escrever Mensagem quando Click:</strong>
+            <span class="indentado">1. <a href="#click">Adicionar Evento de Click</a>
+    a. <code>Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();</code>
+        i. <span class="citacao">mensagem</span> uma String</span>
+          </p>
+
+          <p>
+            <strong>Abrir Activity quando Click:</strong>
+            <span class="indentado">1. <a href="#click">Adicionar Evento de Click</a>
+    a. <code>startActivity(new Intent(this, MainActivity.class));</code>
+        i. <span class="citacao">MainActivity</span> o nome da Activity que vai abrir</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="telas">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Activities:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Selecionar qual Activity é a primeira a abrir:</strong>
+            <span class="indentado">1. Acessar <span class="termoExterno">app</span> &rArr; <span class="termoExterno">manifest</span> &rArr; <span class="termoExterno">AndroidManifest.xml</span> &rArr; localizar <span class="termoExterno">android:exported="true"</span>
+    a. Na linha acima, substituir o nome da Activity em <span class="termoExterno">android:name</span> (inicia em .)
+    b. Adicionar a Activity substituída no lugar da antiga (agora principal)</span>
+          </p>
+
+          <p>
+            <strong>Adicionar Splash Screen:</strong>
+            <span class="indentado">1. Criar Activity de Splash Screen
+2. <a href="#telas">Selecionar qual Activity é a primeira a abrir</a> (Nova Criada)
+3.  Acessar código da tela
+    a. No evento <span class="termoExterno">onCreate</span>:
+        i. <code>Handler handler = new Handler();
+handler.postDelayed(new Runnable() {
+    @Override
+    public void run() {
+        carregar();
+        finish();
+  }
+}, tempoTela);</code>
+            1. <span class="citacao">carregar()</span> a ação de AbrirActivity
+            2. <span class="citacao">tempoTela</span> a duração em milissegundos da SplashScreen</span>
+          </p>
+
+          <p>
+            <strong>Transportar Dados entre Telas:</strong>
+            <span class="indentado">1. <a href="#click">Adicionar Evento de Click</a>
+    a. <code>Bundle bundle = new Bundle();
+bundle.putString(nomeDado, informacao);
+
+Intent intent = new Intent(this, MainActivity2.class);
+intent.putExtras(bundle);
+startActivity(intent);</code>
+          i. <span class="citacao">putString</span> o tipo da informacao, pode ser "putInt" etc.
+         ii. <span class="citacao">nomeDado</span> uma String da chave que representa a informação
+        iii. <span class="citacao">informacao</span> o dado
+         iv. <span class="citacao">MainActivity2</span> o nome da tela destino
+2. No código da tela destino, no evento <span class="termoExterno">onCreate</span>:
+    a. <code>Bundle bundle = getIntent().getExtras();
+String variavel = bundle.getString(nomeDado);</code>
+        i. <span class="citacao">nomeDado</span> uma String da chave da informação</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="web">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Web:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Adicionar uma página Web:</strong>
+            <span class="indentado">1. Adicionar o componente <span class="termoExterno">WebView</span>
+2. Acessar <span class="termoExterno">app</span> &rArr; <span class="termoExterno">manifest</span> &rArr; <span class="termoExterno">AndroidManifest.xml</span> &rArr; dentro da tag <span class="termoExterno">&lt;manifest&gt;</span>
+    a. <code>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</code>
+3. Acessar código da tela
+    a. Acima do evento <span class="termoExterno">onCreate</span>:
+        i. <code>WebView web;</code>
+    b. No evento <span class="termoExterno">onCreate</span>:
+        i. <code>web = (WebView) findViewById(R.id.web);
+web.getSettings().setJavaScriptEnabled(true);
+web.setWebViewClient(new WebViewClient());
+web.loadUrl(link);</code>
+              1. <span class="citacao">R.id.web</span> o &lt;R.id&gt; + &lt;id do componente do WebView&gt;
+              2. <span class="citacao">link</span> uma String do caminho url da página
+    c. Abaixo do evento <span class="termoExterno">onCreate</span>:
+        i. <code>@Override
+public boolean onKeyDown(int keyCode, KeyEvent event){
+    if (keyCode == KeyEvent.KEYCODE_BACK && web.canGoBack()){
+        web.goBack();
+        return true;
+    }
+    return super.onKeyDown(keyCode, event);
+}</code></span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="lista">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Listas:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Adicionar uma lista:</strong>
+            <span class="indentado">1. Adicionar componente <span class="termoExterno">ListView</span>
+2. Acessar código da tela
+    a. Acima do evento <span class="termoExterno">onCreate</span>:
+        i. <code>ArrayAdapter&lt;String&gt; adapter;</code>
+    b. No evento <span class="termoExterno">onCreate</span>:
+        i. <code>ListView lista = findViewById(R.id.listinha);
+int tipoLayout= android.R.layout.simple_list_item_1;
+adapter = new ArrayAdapter&lt;String&gt;(this, tipoLayout, dados);
+lista.setAdapter(adapter);</code>
+            1. <span class="citacao">listinha</span> o id do ListView
+            2. <span class="citacao">dados</span> uma String[] com nome dos conteúdos</span>
+          </p>
+
+          <p>
+            <strong>Adicionar Evento de Click nos itens da lista:</strong>
+            <span class="indentado">1. <a href="#lista">Adicionar uma lista</a>
+2. No código da tela, abaixo da criação da lista:
+    a. <code>lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override
+    public void onItemClick(AdapterView&lt;?&gt; adapterView, View view, int posVetor, long l){
+        String conteudo = adapterView.getItemAtPosition(posVetor).toString();
+        clicaLista();
+    }
+});</code>
+        i. <span class="citacao">clicaLista()</span> as ações que acontecem durante o clique</span>
+          </p>
+
+          <p>
+            <strong>Adicionar uma lista Personalizada:</strong>
+            <span class="indentado">1. Adicionar o componente <span class="termoExterno">ListView</span>
+2. Acessar <span class="termoExterno">app</span> &rAarr; <span class="termoExterno">res</span> &rAarr; <span class="termoExterno">layout</span>
+    a. Botão direito, <span class="termoExterno">New</span> &rArr; <span class="termoExterno">Layout Resource File</span>
+        i. Em <span class="termoExterno">File Name</span>, um nome para o layout da lista, <span class="termoExterno">OK</span>
+3. Personalizar o xml criado, representa cada item da lista
+4. Criar classe para a construção do adapter:
+    a. <code>public class Adapter extends BaseAdapter {
+    Context context;
+    String[] dados1;
+    int[] dados2;
+    LayoutInflater inflater;
+    public Adapter (Context context, String[] dados1, int[] dados2){
+        this.context = context;
+        this.dados1 = dados1;
+        this.dados2 = dados2;
+        this.inflater = (LayoutInflater.from(context));
+    }
+    @Override
+    public int getCount() {
+        return dados1.length;
+    }
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+    @Override
+    public View getView(int i, View view, ViewGroup parent) {
+        view =  inflater.inflate(R.layout.item, null);
+        TextView dado1 = view.findViewById(R.id.texto1);
+        ImageView dado2 = view.findViewById(R.id.img1);
+        dado1.setText(dados1[i]);
+        dado2.setImageResource(dados2[i]);
+        return view;
+    }
+}</code>
+         i. <span class="citacao">Adapter</span> o nome da sua classe
+        ii. <span class="citacao">dados1</span>, <span class="citacao">dados2</span>.... vetores dos tipos correspondentes aos valores que serão preenchidos nos seus componentes
+       iii. <span class="citacao">TextView</span>, <span class="citacao">ImageView</span>.. tipos dos componentes que <span class="citacao">dados1</span>, <span class="citacao">dados2</span>.... vão preencher
+        iv. <span class="citacao">item</span> o id do layout
+         v. <span class="citacao">texto1</span> e <span class="citacao">img1</span> os ids dos componentes escolhidos 
+5. No evento <span class="termoExterno">onCreate</span>:
+    a. <code>ListView lista = findViewById(R.id.listinha);
+Adapter adapter = new Adapter(this, dados1, dados2);
+lista.setAdapter(adapter);</code>
+         i. <span class="citacao">listinha</span> o id do ListView
+        ii. <span class="citacao">dados1</span>, <span class="citacao">dados2</span>... vetores (nesse caso String[] e int[])</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="sqlite">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>SQLite:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Se Conectar ao SQLite:</strong>
+            <span class="indentado">1. Criar classe DatabaseHelper
+    a. <code>public class DatabaseHelper extends SQLiteOpenHelper {
+    public DatabaseHelper(Context context, String nomeDatabase) {
+        super(context, nomeDatabase, null, 1);
+    }
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+    }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    }
+}</code>
+2. Criar classe DAO
+    a. <code>public class DAO {
+    private DatabaseHelper dbHelper;
+    private Context context;
+    private SQLiteDatabase database;
+    public DAO(Context context){
+        this.context = context;
+    }
+    public void open(){
+        dbHelper = new DatabaseHelper(context, nomeDatabase);
+        database = dbHelper.getWritableDatabase();
+    }
+    public void close(){
+        database.close();
+        dbHelper.close();
+    }
+}</code>
+        i. <span class="citacao">nomeDatabase</span>, uma String do nome do database
+3. Acessar código da tela, no evento <span class="termoExterno">onCreate</span>:
+    a. <code>DAO dao = new DAO(this);
+dao.open();</code>
+    b. Rodar App
+    c. Acessar <span class="termoExterno">Device File Explorer</span> (canto inferior direito), <span class="termoExterno">data</span> &rArr; <span class="termoExterno">data</span> &rArr; <span class="termoExterno">com.example.&lt;nomeDoProjeto&gt;</span> &rArr; <span class="termoExterno">databases</span> &rArr; arquivo 1
+        i. Botão direito, <span class="termoExterno">Save As</span>
+            1. Selecionar Local do Arquivo
+                a. Abrir com SQLite</span>
+          </p>
+
+          <p>
+            <strong>Exemplo de Uso de Tabela no SQLite:</strong>
+            <span class="indentado">1. <a href="#sqlite">Se Conectar ao SQLite</a>
+2. Acessar classe DatabaseHelper, 
+    a. No evento <span class="termoExterno">onCreate(SQLiteDatabase db)</span>:
+        i. <code>db.execSQL(
+    "CREATE TABLE tbExemplo" +
+        "(id INTEGER primary key autoincrement," +
+        "colExemplo TEXT)"
+);</code>
+    b. No evento <span class="termoExterno">onUpgrade</span>:
+        i. <code>db.execSQL("DROP TABLE IF EXISTS tbExemplo");
+onCreate(db);</code></span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="actionbar">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>ActionBar customizada:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Criar ActionBar customizada:</strong>
+            <span class="indentado">1. Acessar <span class="termoExterno">app</span> &rAarr; <span class="termoExterno">res</span> &rAarr; <span class="termoExterno">values</span> &rAarr; <span class="termoExterno">themes</span> &rAarr; <span class="termoExterno">themes.xml</span>
+    a. Localizar <span class="termoExterno">NoActionBar</span> e remover
+2. Selecionar <span class="termoExterno">app</span> &rAarr; <span class="termoExterno">res</span>, botão direito, <span class="termoExterno">New</span>, <span class="termoExterno">Android Resource File</span>, em <span class="termoExterno">File name</span> nomear sua ActionBar em <span class="termoExterno">Resource type</span>, selecionar <span class="termoExterno">Menu</span>, <span class="termoExterno">OK</span>
+3. Acessar <span class="termoExterno">app</span> &rAarr; <span class="termoExterno">res</span> &rAarr; <span class="termoExterno">menu</span> &rAarr; &lt;seuArquivoCriado&gt;.xml
+    a. Adicionar componente <span class="termoExterno">Menu Item</span> dentro do componente <span class="termoExterno">Menu</span>
+        i. Acessar atributo <span class="termoExterno">showsAction</span>, <span class="termoExterno">always</span>, <span class="termoExterno">Apply</span>
+4. Acessar código da tela
+    a. <code>@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.form_menu, menu);
+    return super.onCreateOptionsMenu(menu);
+}</code>
+        i. <span class="citacao">form_menu</span> o nome do seu layout de menu</span>
+          </p>
+
+          <p>
+            <strong>Adicionar Evento de Click na ActionBar customizada:</strong>
+            <span class="indentado">1. <a href="#actionbar">Criar ActionBar customizada</a>
+2. Acessar código da tela
+    a. <code>@Override
+public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    int itemId = item.getItemId();
+    if (itemId == R.id.itmMenuSalva r){
+        acionar();
+    }
+    return super.onOptionsItemSelected(item);
+}</code>
+         i. <span class="citacao">itmMenuSalvar</span> o id do seu item
+        ii. <span class="citacao">acionar()</span> as ações que acontecem durante o clique</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="fragmento">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Fragmentos e Cloud:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Criar Fragmentos:</strong>
+            <span class="indentado">1. Acessar <span class="termoExterno">app</span> &rAarr; <span class="termoExterno">java</span> &rAarr; <span class="termoExterno">com.example.&lt;arq&gt;</span>
+    a. Botão direito, <span class="termoExterno">New</span>, <span class="termoExterno">Fragment</span>, <span class="termoExterno">Fragment (Blank)</span>, nomear seu fragmento, <span class="termoExterno">Finish</span>
+2. Adicionar componente emissor (<span class="termoExterno">Button</span>) e o <span class="termoExterno">FrameLayout</span> (receptor)
+3. <a href="#click">Adicionar Evento de onClick</a> no componente emissor
+    a. <code>BlankFragment fragment = new BlankFragment();
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+transaction.replace(R.id.frmLytTela, fragment);
+transaction.commit();</code>
+         i. <span class="citacao">BlankFragment()</span> o nome do seu fragmento
+        ii. <span class="citacao">frmLytTela</span> o id do seu FrameLayout</span>
+          </p>
+
+          <p>
+            <strong>Publicar projeto em Cloud:</strong>
+            <span class="indentado">1. Ctrl + Shift + A, Digite e Selecione <span class="termoExterno">Build APK(S)</span>
+2. Pop-up direito, clicar em sugestão <span class="termoExterno">locate</span>
+3. Acessar <a href="https://appetize.io/upload">https://appetize.io/upload</a>
+4. Clicar <span class="termoExterno">Select file</span>
+5. No caminho do <span class="termoExterno">locate</span>, na pasta <span class="termoExterno">debug</span>, selecionar arquivo <span class="termoExterno">app-debug.apk</span>
+6. Cadastrar e-mail, <span class="termoExterno">Generate Links</span>
+7. Acessar e-mail e acessar o link</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="firebase">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Firebase:</h3>
+        </button>
+
+        <div class="conteudo esticado">
+          <p>
+            <strong>Conectar ao Banco de Dados Firebase:</strong>
+            <span class="indentado">1. Acessar Código da Tela
+    a. Copiar nome do <span class="termoExterno">package</span> 
+2. <span class="termoExterno">Adicionar projeto</span> Firebase em <a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a>
+    a. <span class="termoExterno">Adicionar projeto</span>
+    b. Nomear projeto, <span class="termoExterno">Continuar</span>
+    c. Desativar o <span class="termoExterno">Google Analytics neste projeto</span>
+    d. <span class="termoExterno">Criar projeto</span>, (Aguarde), <span class="termoExterno">Continuar</span>
+    e. Com o projeto já selecionado (automaticamente), Clicar em ícone do Android
+        i. Colar nome do package
+       ii. <span class="termoExterno">Registrar App</span>
+      iii. <span class="termoExterno">Fazer o download de google-services.json</span>
+       iv. <span class="termoExterno">Próxima</span>, <span class="termoExterno">Próxima</span>, <span class="termoExterno">Continuar no console</span>
+3. Adicionar o seu arquivo de <span class="termoExterno">google-services.json</span> em <span class="termoExterno">app</span>
+4. Acessar <span class="termoExterno">Gradle Scripts</span> &rArr; <span class="termoExterno">build.gradle (Project: )</span> [primeiro item vem do projeto]
+    a. <code>plugins {
+    id 'com.android.application' version '8.1.1' apply false
+    id 'com.google.gms.google-services' version '4.3.15' apply false
+}</code>
+5. Acessar <span class="termoExterno">Gradle Scripts</span> &rArr; <span class="termoExterno">build.gradle (Module: app)</span>
+    a. <code>plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}</code>
+    b. Adicionar em <span class="termoExterno">dependencies</span>:
+        i. <code>implementation platform('com.google.firebase:firebase-bom:32.3.1')</code>
+6. Ctrl + Shift + O (Sincronizar projeto com gradlle)
+7. <span class="termoExterno">Tools</span> (9° item superior direito), <span class="termoExterno">Firebase</span>
+    a. (Scroll pra cima)<span class="termoExterno">Realtime Database</span> &rArr; <span class="termoExterno">Get started with Realtime Database [java]</span>
+        i. <span class="termoExterno">Add the Realtime Database SDK to your app</span>
+            1. <span class="termoExterno">Accept Changes</span>
+8. Acessar projeto em <a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a> 
+    a. Aside Esquerdo, <span class="termoExterno">Criação</span>, <span class="termoExterno">Realtime Database</span>, <span class="termoExterno">Criar banco de dados</span>
+        i. <span class="termoExterno">Próxima</span>, <span class="termoExterno">Ativar</span>
+            1. <span class="termoExterno">Regras</span> (Semi-superior, semi-esquerdo)
+            2. <code>{
+"rules": {
+    ".read": true,
+    ".write": true
+    }
+}</code>
+            3. <span class="termoExterno">Publicar</span></span>
+          </p>
+
+          <p>
+            <strong>Autenticar E-mail no Firebase:</strong>
+            <span class="indentado">1. Acessar <a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a>
+    a. Selecionar projeto, Aside Esquerdo, <span class="termoExterno">Criação, Authentication, Vamos começar, E-mail/senha, Ativar</span> (só o primeiro), <span class="termoExterno">Salvar</span>
+2. Acessar Android Studio
+    a. <span class="termoExterno">Tools</span> (9° item superior direito), <span class="termoExterno">Firebase</span>
+    b. <span class="termoExterno">Authentication</span> &rArr; <span class="termoExterno">Authenticate using a custom authentication system [java]</span>
+        i. <span class="termoExterno">Connect to Firebase</span>
+            1. Selecionar projeto, (Aguarde) <span class="termoExterno">Conectar</span>
+       ii. <span class="termoExterno">Add the Firebase Authentication SDK to your app</span>
+            1. <span class="termoExterno">Accept Changes</span>
+3. Acessar Código da tela (Cadastro)
+    a. <code>FirebaseAuth auth = FirebaseAuth.getInstance();
+auth.createUserWithEmailAndPassword(email, senha)
+            .addOnCompleteListener(this, new OnCompleteListener&lt;AuthResult&gt;() {
+                @Override
+                public void onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                    if(task.isSuccessful()){
+                        msgSucesso();
+                    }else{
+                        msgErro();
+                    }
+                }
+            });</code>
+          i. <span class="citacao">email</span> uma String do E-mail do usuário
+         ii. <span class="citacao">senha</span> uma String da senha do usuário
+        iii. <span class="citacao">msgSucesso()</span> as ações que acontecem após criar usuário
+       - iv. <span class="citacao">msgErro()</span> as ações que acontecem após falhar em criar usuário
+    4. Acessar Código da tela (Login)
+    a. <code>FirebaseAuth autenticacao = FirebaseAuth.getInstance();
+autenticacao.signInWithEmailAndPassword(email, senha)
+        .addOnCompleteListener(new OnCompleteListener&lt;AuthResult&gt;() {
+            @Override
+            public void onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                if (task.isSuccessful()){
+                    acessarLogin();
+                } else {
+                    msgErro();
+                }
+            }
+        });</code>
+           i. <span class="citacao">email</span> uma String do E-mail do usuário
+          ii. <span class="citacao">senha</span> uma String da senha do usuário
+         iii. <span class="citacao">acessarLogin()</span> as ações que acontecem após logar usuário
+          iv. <span class="citacao">msgErro()</span> as ações que acontecem após falhar em logar usuário</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

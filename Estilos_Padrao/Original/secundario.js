@@ -25,7 +25,7 @@ for (let i = 0; i < conteudo.length; i++) {
 }
 
 opcoes.addEventListener("change", () => {
-  for (let i = 0; i < opcoes.length; i++) {
+  for (let i = 0; i <= opcoes.length; i++) {
     if (opcoes.value.slice(1) == titulos[i].id) {
       abreSecao(i);
       break;
@@ -33,6 +33,7 @@ opcoes.addEventListener("change", () => {
   }
 });
 
+botao.innerText="Abrir Seções"
 botao.addEventListener("click", () => {
   for (let i = 0; i < conteudo.length; i++) {
     if (pressionado) {
