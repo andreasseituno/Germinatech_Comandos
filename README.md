@@ -28,3 +28,7 @@ Meios de me ajudar com o projeto
 4. Se você encontrar algum comando que não funciona, crie uma Github Issue nesse repositório para eu corrigir.
 5. Se você tem um comando que eu não anotei e gostaria que fosse adicionado, fala comigo ou cria uma Github Issue.
 6. Eu não anotei todas as matérias, e nem tive todas as matérias para anotar. Se você gostaria que as suas anotações aparecessem no meu site, com uma nova página. Me encontra por aí, ou me contacta nas redes-socias da minha página principal.
+
+
+# Informações Extras
+1. Se for participar de alguma prática e não for permitido consulta além de anotações próprias, em cada pasta existe um documento "word.txt" em que você pode copiar e colar no seu documento, agora as anotações são suas.
