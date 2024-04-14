@@ -88,7 +88,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Html Prática
+    Html
   </div>
 </a>
 
@@ -100,7 +100,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Css Prática
+    Css
   </div>
 </a>
 
@@ -111,7 +111,7 @@ window.asideDinamico = `
       alt="Logo Ubuntu"
       class="icone"
       loading="lazy"
-    />Ub Prática
+    />Ubuntu/Linux
   </div>
 </a>
 
@@ -124,7 +124,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Pg Prática
+    PostgreSql
   </div>
 </a>
 
@@ -136,7 +136,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Git Prática
+    Git Bash
   </div>
 </a>
 
@@ -148,7 +148,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Server Prática
+    SqlServer
   </div>
 </a>
 
@@ -160,7 +160,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Docker Prática
+    Docker
   </div>
 </a>
 
@@ -172,7 +172,7 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Mobile Prática
+    Mobile
   </div>
 </a>
 </nav>
