@@ -46,7 +46,7 @@ aside nav {
   flex-wrap: wrap;
 
   border-radius: 16px;
-  height: calc(90vh - 110px);
+  height: calc(100vh - var(--tamanhoHeader) - 18px);
 
   overflow: hidden;
   overflow-y: auto;
@@ -93,10 +93,6 @@ a {
 header#principal h3 {
   font-size: 24px;
   width: calc(100% - var(--tamanhoAside));
-}
-
-aside h3 {
-  margin: 4vh 0px;
 }
 
 /* Classes */

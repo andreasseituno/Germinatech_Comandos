@@ -1,0 +1,281 @@
+Configurações Mongo:
+
+Iniciar Servidor (cada linha em terminal diferente):
+cd ../../Program Files\MongoDB\Server\6.0\bin && mongod.exe
+cd ../../Program Files\MongoDB\mongosh-2.0.2-win32-x64\bin && mongosh
+
+Finalizar Servidor (cada linha em terminal diferente):
+exit()
+Ctrl + C
+
+Importar arquivo csv:
+mongoimport.exe --db=techBank --collection=contas --type=csv --headerline --file="caminhoInteiro/Contas.csv"
+
+Importar arquivo json:
+mongoimport.exe --db=techBank --collection=clients --jsonArray --file="caminhoInteiro/Clientes.json"
+
+Ver versão do mongo:
+db.version()
+
+
+ 
+Bancos e Coleções:
+
+Ver todos os bancos:
+show dbs
+
+Entrar no banco:
+use dbGerminare
+
+Apagar banco:
+db.dropDatabase('dbGerminare')
+
+Ver coleções:
+show collections
+
+Apagar coleção:
+db.alunos.drop()
+
+
+
+Criar/Apagar Documentos:
+
+Inserir documento:
+db.alunos.insertOne(
+{nome:'Igor', idade:32, media:6.0, nascimento:new Date(2000, 01, 22), estagio:false}
+)
+
+Inserir documentos:
+db.alunos.insertMany([
+{nome:'Fernanda', idade:16},
+{nome:'Juliana', idade:15}
+])
+
+Criar documento quando não existir:
+db.alunos.updateOne(
+{nome:'Iago', idade:12}, {$setOnInsert:{}}, {upsert:true}
+)
+
+Deletar documento:
+db.alunos.deleteOne(
+{matricula:1024}
+)
+
+Deletetar documentos:
+db.alunos.deleteMany(
+{nome:'Igor'}
+)
+
+ 
+Visualizar Documentos (1):
+
+Ver o primeiro documento: 
+db.alunos.findOne()
+
+Ver todos os documentos:
+db.alunos.find()
+
+Ver documentos que atendem o filtro:
+db.alunos.find({idade:16})
+
+Ver documentos com uma condição E outra:
+db.alunos.find({idade:16, estagio:true})
+
+Ver documentos com uma condição OU outra:
+db.alunos.find({$or:[{nome:'Juliana'}, {nome:'Fabiana'}]})
+
+Ver documentos com campo maior que valor (ver outros operadores):
+db.alunos.find({media:{$gt:7}})
+
+Ver documentos com campo maior que data (maior que Janeiro, mesmo sendo 00):
+db.alunos.find({nascimento:{$gt: new Date(2000, 00, 01)}})
+
+Ver campos que comecem com a letra A (remover sinal para que contenham A):
+db.alunos.find({nome:{$regex:'^A'}})
+
+Encontrar valor (ativo) dentro de um objeto (status) de um campo (cartao_credito):
+db.clientes.find({"cartao_credito.status":'ativo'})
+
+
+
+ 
+Visualizar Documentos (2):
+
+Contar quantos documentos:
+db.alunos.find().count()
+
+Ver os primeiros 5 documentos:
+db.clientes.find().limit(5)
+
+Ver documentos que contenham um campo específico:
+db.alunos.find({telefone:{$exists:true}})
+
+Ver documentos que contenham um campo de um tipo específico:
+db.alunos.find({telefone:{$type:'string'}})
+
+Ver os valores diferentes:
+db.contas.distinct('agencia')
+
+Contar quantos valores diferentes:
+db.contas.distinct('agencia').length
+
+
+
+Atualizar Documentos:
+
+Atualizar documento (mudar valor/adicionar campo):
+db.alunos.update({nome:'Juliana'},
+{$set:{media:7.8}}
+)
+
+Atualizar documentos:
+db.alunos.updateMany({}, 
+{$set:{escola:'Germinare Tech', diretor:'Raul Moreira'}}
+)	
+
+Aumentar (diminuir) o valor:
+db.clientes.updateMany({},
+{$inc:{saldo:-99}}
+)
+
+Multiplicar (dividir) o valor:
+db.clientes.updateMany({}, 
+{$mul:{saldo:1.1}}
+)
+
+Atualizar para um valor contanto que já tenha ao menos este valor (max para oposto):
+db.alunos.updateMany({}, 
+{$min:{media:10}}
+)
+
+
+ 
+Campos:
+
+Ver tipo do campo:
+typeof db.alunos.findOne().telefone
+
+Ver campos específicos (0 para não ver):
+db.clientes.find({}, {nome:1})
+
+Ver documentos ordenados por campo (-1 para inverter):
+db.clientes.find().sort({nome:1})
+
+Renomear Campo:
+db.clientes.updateMany({}, {$rename:{'endereço':'endereco'}})
+
+Remover um campo:
+db.clientes.updateMany({}, {$unset:{cartao_credito:''}})
+
+
+ 
+Vetores:
+
+Encontrar tamanho específico de vetor (length):
+db.alunos.find({disciplina:{$size:4}})
+
+Encontrar o tamanho mínimo de vetor (length):
+db.alunos.find({$expr:{$gt:[{$size:"$disciplina"}, 3]}, disciplina:{$exists:true}})
+
+Encontrar valores dentro de vetor ($nin para oposto):
+db.alunos.find({disciplina:{$in:['ADD', 'BD2']}})
+
+Inserir valor no vetor:
+db.clientes.updateOne({nome:'Jucelio'}, 
+{$push:{emprestimo_tipo:'Pessoal'}})
+
+Inserir valores no vetor:
+db.alunos.updateOne({nome:'Iago'},
+{$addToSet:{disciplina:{$each:['POO', 'ADD', 'BD2']}}})
+
+Remover último valor do vetor (-1 para primeiro):
+db.clientes.updateOne({nome:'Juliano'}, 
+{$pop:{emprestimo_tipo:1}})
+
+Remover valor específico do vetor:
+db.clientes.updateOne({nome:'Lamelo'}, 
+{$pull:{emprestimo_tipo:'Consignado'}})
+
+Remover valores do vetor:
+db.clientes.updateOne({_id:1}, 
+{$pullAll:{scores:[0, 5, 7]}})
+
+
+
+Agregação (1):
+
+Somar o valor do campo de todos os documentos:
+db.contas.aggregate({$group:{_id:null, 'Total':{$sum:'$valor'}}})
+
+Agrupar os valores pela quantidade de documentos:
+db.contas.aggregate({$group:{_id:'$tipo', 'Total':{$count:{}}}})
+
+Somar o valor do campo agrupando por valor:
+db.contas.aggregate({$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}})
+
+Ordenar a agregação (-1 para oposto):
+db.contas.aggregate( 
+{$group:{_id:'$tipo','Total':{$sum:'$valor'}}},
+{$sort:{'Total':1}}
+)
+
+Ver as primeiros 5 agregações:
+db.contas.aggregate( 
+{$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}},
+{$limit:5}
+)
+
+Ver agregações que atendem o filtro:
+db.contas.aggregate( 
+{$group:{_id: '$tipo', 'Total':{$sum:'$valor'}}},
+{$match:{'Total':{$gt:0}}}
+)
+
+
+
+Agregação (2):
+
+Somar todos os valores do vetor:
+db.clientes.aggregate(
+{$unwind:'$seguros'},
+{$group:{_id:null, total:{$sum:'$seguros'}}}
+)
+
+Ver informações de 2 coleções:
+db.contas.aggregate(
+{$match:{id_cliente:30}},
+{$lookup:{from:'clientes', localField:'id_cliente', foreignField:'_id', as:'dadosCliente'}}
+)
+
+Arredondar casas decimais:
+db.contas.aggregate( 
+{$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}},
+{$project:{'Saida':{$round:['$Total', 2]}}}
+)
+
+Extrair ano ($month para mês, $dayOfMonth para dia):
+db.clientes.aggregate({$project:{'ano':{$year:'$data_nascimento'}}})
+
+Fazer condição:
+db.alunos.aggregate(
+{$project:{ _id:0, nome:1,idade:1, 
+condicao:{$cond:[{$gte:['$media', 7]}, 'Aprovado', 'Reprovado']}}}
+) 
+
+
+
+Informações importantes:
+
+Relação mongo para sql:
+banco de dados (database) = banco de dados (database)
+coleção = tabela
+documento = linha
+campo = coluna
+
+Operadores:
+$gt = maior
+$gte = maior igual
+$lt = menor
+$lte = menor igual
+$eq = igual
+$neq = diferente

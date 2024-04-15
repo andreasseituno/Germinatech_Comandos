@@ -8,6 +8,7 @@ criaRodape();
 const titulos = document.querySelectorAll("section button");
 const conteudo = document.getElementsByClassName("conteudo");
 const bolinhas = document.querySelectorAll("section img");
+const links = document.querySelectorAll(".conteudo a");
 
 // Elementos
 const opcoes = document.getElementById("opcoes");
@@ -33,7 +34,7 @@ opcoes.addEventListener("change", () => {
   }
 });
 
-botao.innerText="Abrir Seções"
+botao.innerText = "Abrir Seções";
 botao.addEventListener("click", () => {
   for (let i = 0; i < conteudo.length; i++) {
     if (pressionado) {
@@ -46,6 +47,17 @@ botao.addEventListener("click", () => {
   }
   pressionado = !pressionado;
 });
+
+for (let i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", () => {
+    for (let t = 0; t < titulos.length; t++) {
+      if (links[i].toString().split("#")[1] == titulos[t].id) {
+        abreSecao(t);
+        break;
+      }
+    }
+  });
+}
 
 // Métodos
 function criaRodape() {

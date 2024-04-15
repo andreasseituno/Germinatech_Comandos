@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lista de Comados do MongoDb, lista criada por um estudante de
+        curso técnico 'Germinatech'"
+    />
+    <title>Mongo</title>
+    <link rel="shortcut icon" href="../Imagens/icone_mongo.webp" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../Estilos_Padrao//Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos_Padrao/Minificado/secundario.css" />
+
+    <script src="../Estilos_Padrao/Minificado/cabecalhoHtml.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/cabecalho.js" defer></script>
+    <script src="../Estilos_Padrao/Minificado/secundario.js" defer></script>
+  </head>
+  <body>
+    <div id="cabecalhoFixo"></div>
+
+    <header id="falso"></header>
+
+    <header id="secundario">
+      <h1>Comandos MongoDb</h1>
+      <h2>
+        Todos os Comandos do MongoDb que anotei durante minhas aulas da
+        Germinatech
+      </h2>
+
+      <div id="botoesContainer">
+        <select
+          name="opcoes"
+          id="opcoes"
+          aria-label="Seleção das seções da página"
+          onchange="location = this.value"
+        >
+          <option value="#configuracoes">Mongo configuração</option>
+          <option value="#bancos">Bancos e Coleções</option>
+          <option value="#criar">Criar/Apagar</option>
+          <option value="#visualizar1">Visualizar (1)</option>
+          <option value="#visualizar2">Visualizar (2)</option>
+          <option value="#atualizar">Atualizar</option>
+          <option value="#campos">Campos</option>
+          <option value="#vetores">Vetores</option>
+          <option value="#agregacao1">Agregação (1)</option>
+          <option value="#agregacao2">Agregação (2)</option>
+          <option value="#informacoes">Extra</option>
+        </select>
+
+        <button id="btnAbrir"></button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <button id="configuracoes">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Mongo configuração:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>
+              Iniciar Servidor (cada linha em terminal diferente):
+            </strong>
+            cd ../../Program Files\MongoDB\Server\6.0\bin && mongod.exe <br />
+            cd ../../Program Files\MongoDB\mongosh-2.0.2-win32-x64\bin &&
+            mongosh
+          </p>
+
+          <p>
+            <strong>
+              Finalizar Servidor (cada linha em terminal diferente):
+            </strong>
+            exit() <br />
+            Ctrl + C
+          </p>
+
+          <p>
+            <strong>Importar arquivo csv:</strong>
+            mongoimport.exe --db=techBank --collection=contas --type=csv
+            --headerline --file="caminhoInteiro/Contas.csv"
+          </p>
+
+          <p>
+            <strong>Importar arquivo json:</strong>
+            mongoimport.exe --db=techBank --collection=clients --jsonArray
+            --file="caminhoInteiro/Clientes.json"
+          </p>
+
+          <p>
+            <strong>Ver versão do mongo:</strong>
+            db.version()
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="bancos">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Bancos e Coleções:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver todos os bancos:</strong>
+            show dbs
+          </p>
+
+          <p>
+            <strong>Entrar no banco:</strong>
+            use dbGerminare
+          </p>
+
+          <p>
+            <strong>Apagar banco:</strong>
+            db.dropDatabase('dbGerminare')
+          </p>
+
+          <p>
+            <strong>Ver coleções:</strong>
+            show collections
+          </p>
+
+          <p>
+            <strong>Apagar coleção:</strong>
+            db.alunos.drop()
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="criar">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Criar/Apagar Documentos:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Inserir documento:</strong>
+            db.alunos.insertOne( <br />
+            {nome:'Igor', idade:32, media:6.0, nascimento:new Date(2000, 01,
+            22), estagio:false} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Inserir documentos:</strong>
+            db.alunos.insertMany([ <br />
+            {nome:'Fernanda', idade:16}, <br />
+            {nome:'Juliana', idade:15} <br />
+            ])
+          </p>
+
+          <p>
+            <strong>Deletar documento:</strong>
+            db.alunos.deleteOne( <br />
+            {matricula:1024} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Deletetar documentos:</strong>
+            db.alunos.deleteMany( <br />
+            {nome:'Igor'} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Criar documento quando não existir:</strong>
+            db.alunos.updateOne( <br />
+            {nome:'Iago', idade:12}, {$setOnInsert:{}}, {upsert:true} <br />
+            )
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="visualizar1">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Visualizar Documentos (1):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver o primeiro documento:</strong>
+            db.alunos.findOne()
+          </p>
+
+          <p>
+            <strong>Ver todos os documentos:</strong>
+            db.alunos.find()
+          </p>
+
+          <p>
+            <strong>Ver documentos que atendem o filtro:</strong>
+            db.alunos.find({idade:16})
+          </p>
+
+          <p>
+            <strong>
+              Ver campos que comecem com a letra A (remover sinal para que
+              contenham A):
+            </strong>
+            db.alunos.find({nome:{$regex:'^A'}})
+          </p>
+
+          <p>
+            <strong>Ver documentos com uma condição E outra:</strong>
+            db.alunos.find({idade:16, estagio:true})
+          </p>
+
+          <p>
+            <strong>Ver documentos com uma condição OU outra:</strong>
+            db.alunos.find({$or:[{nome:'Juliana'}, {nome:'Fabiana'}]})
+          </p>
+
+          <p>
+            <strong>
+              Ver documentos com campo maior que valor (ver outros operadores):
+            </strong>
+            db.alunos.find({media:{$gt:7}})
+          </p>
+
+          <p>
+            <strong>
+              Ver documentos com campo maior que data (maior que Janeiro, mesmo
+              sendo 00):
+            </strong>
+            db.alunos.find({nascimento:{$gt: new Date(2000, 00, 01)}})
+          </p>
+
+          <p>
+            <strong>
+              Encontrar valor (ativo) dentro de um objeto (status) de um campo
+              (cartao_credito):
+            </strong>
+            db.clientes.find({"cartao_credito.status":'ativo'})
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="visualizar2">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Visualizar Documentos (2):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Contar quantos documentos:</strong>
+            db.alunos.find().count()
+          </p>
+
+          <p>
+            <strong>Ver os primeiros 5 documentos:</strong>
+            db.clientes.find().limit(5)
+          </p>
+
+          <p>
+            <strong>Ver documentos que contenham um campo específico:</strong>
+            db.alunos.find({telefone:{$exists:true}})
+          </p>
+
+          <p>
+            <strong>
+              Ver documentos que contenham um campo de um tipo específico:
+            </strong>
+            db.alunos.find({telefone:{$type:'string'}})
+          </p>
+
+          <p>
+            <strong>Ver os valores diferentes:</strong>
+            db.contas.distinct('agencia')
+          </p>
+
+          <p>
+            <strong>Contar quantos valores diferentes:</strong>
+            db.contas.distinct('agencia').length
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="atualizar">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Atualizar Documentos:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Atualizar documento (mudar valor/adicionar campo):</strong>
+            db.alunos.update({nome:'Juliana'}, <br />
+            {$set:{media:7.8}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Atualizar documentos:</strong>
+            db.alunos.updateMany({}, <br />
+            {$set:{escola:'Germinare Tech', diretor:'Raul Moreira'}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Aumentar (diminuir) o valor:</strong>
+            db.clientes.updateMany({}, <br />
+            {$inc:{saldo:-99}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Multiplicar (dividir) o valor:</strong>
+            db.clientes.updateMany({}, <br />
+            {$mul:{saldo:1.1}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>
+              Atualizar para um valor contanto que já tenha ao menos este valor
+              (max para oposto):
+            </strong>
+            db.alunos.updateMany({}, <br />
+            {$min:{media:10}} <br />
+            )
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="campos">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Campos:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Ver tipo do campo:</strong>
+            typeof db.alunos.findOne().telefone
+          </p>
+
+          <p>
+            <strong>Ver campos específicos (0 para não ver):</strong>
+            db.clientes.find({}, {nome:1})
+          </p>
+
+          <p>
+            <strong>
+              Ver documentos ordenados por campo (-1 para inverter):
+            </strong>
+            db.clientes.find().sort({nome:1})
+          </p>
+
+          <p>
+            <strong>Renomear Campo:</strong>
+            db.clientes.updateMany({}, {$rename:{'endereço':'endereco'}})
+          </p>
+
+          <p>
+            <strong>Remover um campo:</strong>
+            db.clientes.updateMany({}, {$unset:{cartao_credito:''}})
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="vetores">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Vetores:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Encontrar tamanho específico de vetor (length):</strong>
+            db.alunos.find({disciplina:{$size:4}})
+          </p>
+
+          <p>
+            <strong>Encontrar o tamanho mínimo de vetor (length):</strong>
+            db.alunos.find({$expr:{$gt:[{$size:"$disciplina"}, 3]},
+            disciplina:{$exists:true}})
+          </p>
+
+          <p>
+            <strong>Inserir valor no vetor:</strong>
+            db.clientes.updateOne({nome:'Jucelio'}, <br />
+            {$push:{emprestimo_tipo:'Pessoal'}})
+          </p>
+
+          <p>
+            <strong>Inserir valores no vetor:</strong>
+            db.alunos.updateOne({nome:'Iago'}, <br />
+            {$addToSet:{disciplina:{$each:['POO', 'ADD', 'BD2']}}})
+          </p>
+
+          <p>
+            <strong>
+              Encontrar valores dentro de vetor ($nin para oposto):
+            </strong>
+            db.alunos.find({disciplina:{$in:['ADD', 'BD2']}})
+          </p>
+
+          <p>
+            <strong>Remover último valor do vetor (-1 para primeiro):</strong>
+            db.clientes.updateOne({nome:'Juliano'}, <br />
+            {$pop:{emprestimo_tipo:1}})
+          </p>
+
+          <p>
+            <strong>Remover valor específico do vetor:</strong>
+            db.clientes.updateOne({nome:'Lamelo'}, <br />
+            {$pull:{emprestimo_tipo:'Consignado'}})
+          </p>
+
+          <p>
+            <strong>Remover valores do vetor:</strong>
+            db.clientes.updateOne({_id:1}, <br />
+            {$pullAll:{scores:[0, 5, 7]}})
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="agregacao1">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Agregação (1):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Somar o valor do campo de todos os documentos:</strong>
+            db.contas.aggregate({$group:{_id:null, 'Total':{$sum:'$valor'}}})
+          </p>
+
+          <p>
+            <strong>Agrupar os valores pela quantidade de documentos:</strong>
+            db.contas.aggregate({$group:{_id:'$tipo', 'Total':{$count:{}}}})
+          </p>
+
+          <p>
+            <strong>Somar o valor do campo agrupando por valor:</strong>
+            db.contas.aggregate({$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}})
+          </p>
+
+          <p>
+            <strong>Ordenar a agregação (-1 para oposto):</strong>
+            db.contas.aggregate( <br />
+            {$group:{_id:'$tipo','Total':{$sum:'$valor'}}}, <br />
+            {$sort:{'Total':1}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Ver as primeiros 5 agregações:</strong>
+            db.contas.aggregate( <br />
+            {$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}}, <br />
+            {$limit:5} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Ver agregações que atendem o filtro:</strong>
+            db.contas.aggregate( <br />
+            {$group:{_id: '$tipo', 'Total':{$sum:'$valor'}}}, <br />
+            {$match:{'Total':{$gt:0}}} <br />
+            )
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="agregacao2">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Agregação (2):</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Somar todos os valores do vetor:</strong>
+            db.clientes.aggregate( <br />
+            {$unwind:'$seguros'}, <br />
+            {$group:{_id:null, total:{$sum:'$seguros'}}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Ver informações de 2 coleções:</strong>
+            db.contas.aggregate( <br />
+            {$match:{id_cliente:30}}, <br />
+            {$lookup:{from:'clientes', localField:'id_cliente',
+            foreignField:'_id', as:'dadosCliente'}} <br />
+            )
+          </p>
+
+          <p>
+            <strong>Arredondar casas decimais:</strong>
+            db.contas.aggregate( <br />
+            {$group:{_id:'$tipo', 'Total':{$sum:'$valor'}}}, <br />
+            {$project:{'Saida':{$round:['$Total', 2]}}} <br />
+            )
+          </p>
+
+          <p>
+            <strong
+              >Extrair ano ($month para mês, $dayOfMonth para dia):</strong
+            >
+            db.clientes.aggregate({$project:{'ano':{$year:'$data_nascimento'}}})
+          </p>
+
+          <p>
+            <strong>Analisar condição (se verdadeiro isso, se não, isto):</strong>
+            db.alunos.aggregate( <br />
+            {$project:{ _id:0, nome:1,idade:1, <br />
+            condicao:{$cond:[{$gte:['$media', 7]}, 'Aprovado', 'Reprovado']}}}
+            <br />
+            )
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <button id="informacoes">
+          <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
+          <h3>Informações importantes:</h3>
+        </button>
+
+        <div class="conteudo">
+          <p>
+            <strong>Relação mongo para sql:</strong>
+            banco de dados (database) = banco de dados (database) <br />
+            coleção = tabela <br />
+            documento = linha <br />
+            campo = coluna
+          </p>
+
+          <p>
+            <strong>Operadores:</strong>
+            $gt = maior <br />
+            $gte = maior igual <br />
+            $lt = menor <br />
+            $lte = menor igual <br />
+            $eq = igual <br />
+            $neq = diferente
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

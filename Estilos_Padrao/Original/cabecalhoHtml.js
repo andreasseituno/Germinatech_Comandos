@@ -49,8 +49,6 @@ window.asideDinamico = `
 
 <hr style="margin-top: -1px" />
 
-<h3>Acessar</h3>
-
 <nav>
 <a href="../Pagina_Principal/index.html">
   <div>
@@ -161,6 +159,18 @@ window.asideDinamico = `
       loading="lazy"
     />
     Docker
+  </div>
+</a>
+
+<a href="../Estudos_Mongo/mongo.html">
+  <div>
+    <img
+      src="../Imagens/icone_mongo.webp"
+      alt="Logo MongoDb"
+      class="icone"
+      loading="lazy"
+    />
+    MongoDb
   </div>
 </a>
 
