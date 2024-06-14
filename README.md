@@ -16,8 +16,8 @@ Durante os meus 3 anos estudando na Germinare Tech anotei MUITOS comandos, comec
 01/2024 - Ubuntu         </br>
 02/2024 - Docker         </br>
 03/2024 - Android Studio </br>
-04/2024 - MongoDB *(em desenvolvimento)* </br>
-
+04/2024 - MongoDB        </br>
+06/2024 - Versão Final (Em desenvolvimento) </br>
 
 # Ajuda
 Meios de me ajudar com o projeto
