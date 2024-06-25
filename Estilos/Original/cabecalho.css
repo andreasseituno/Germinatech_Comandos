@@ -91,7 +91,7 @@ a {
 }
 
 header#principal h3 {
-  font-size: 24px;
+  font-size: calc(0.8vmin + 18px);
   width: calc(100% - var(--tamanhoAside));
 }
 
@@ -102,7 +102,7 @@ header#principal h3 {
   align-items: center;
   text-align: center;
 
-  font-size: calc(0.8vmin + 9px);
+  font-size: calc(0.8vmin + 8px);
   width: var(--tamanhoAside);
   height: var(--tamanhoHeader);
 }

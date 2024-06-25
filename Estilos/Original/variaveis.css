@@ -28,5 +28,5 @@
 
 :root {
   --tamanhoAside: clamp(24vw, 384px, 100vw);
-  --tamanhoHeader: clamp(80px, calc(14vmin + 16px), 144px);
+  --tamanhoHeader: clamp(80px, calc(14vmin + 16px), 96px);
 }

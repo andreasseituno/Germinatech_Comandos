@@ -21,7 +21,7 @@ window.headerDinamico = `
 </h2>
 </div>
 
-<h3>Todos os Comandos de Programação que anotei na Germinatech</h3>
+<h3></h3>
 `;
 
 window.asideDinamico = `
@@ -50,7 +50,7 @@ window.asideDinamico = `
 <hr style="margin-top: -1px" />
 
 <nav>
-<a href="../Pagina_Principal/index.html">
+<a href="../Inicio/index.html">
   <div>
     <img
       src="../Imagens/icone_home.webp"
@@ -78,7 +78,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Html/html.html">
+<a href="../Html/html.html">
   <div>
     <img
       src="../Imagens/icone_html.webp"
@@ -90,7 +90,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Css/css.html">
+<a href="../Css/css.html">
   <div>
     <img
       src="../Imagens/icone_css.webp"
@@ -102,7 +102,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Ub/ubuntu.html">
+<a href="../Ubuntu-Linux/ubuntu-linux.html">
   <div>
     <img
       src="../Imagens/icone_ub.webp"
@@ -113,7 +113,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Pg/postgre.html">
+<a href="../SqlPostgres/sqlpostgres.html">
   <div>
     <img
       src="../Imagens/icone_pg.webp"
@@ -126,7 +126,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Git/git.html">
+<a href="../Git/git.html">
   <div>
     <img
       src="../Imagens/icone_git.webp"
@@ -134,11 +134,11 @@ window.asideDinamico = `
       class="icone"
       loading="lazy"
     />
-    Git Bash
+    Git
   </div>
 </a>
 
-<a href="../Estudos_Server/server.html">
+<a href="../SqlServer/sqlserver.html">
   <div>
     <img
       src="../Imagens/icone_sql.webp"
@@ -150,7 +150,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Docker/docker.html">
+<a href="../Docker/docker.html">
   <div>
     <img
       src="../Imagens/icone_docker.webp"
@@ -162,7 +162,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Mongo/mongo.html">
+<a href="../MongoDb/mongodb.html">
   <div>
     <img
       src="../Imagens/icone_mongo.webp"
@@ -174,7 +174,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Estudos_Mobile/mobile.html">
+<a href="../Mobile/mobile.html">
   <div>
     <img
       src="../Imagens/icone_android.webp"

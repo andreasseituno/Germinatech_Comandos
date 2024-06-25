@@ -5,8 +5,14 @@ const cabecalhoFixo = document.getElementById("cabecalhoFixo");
 
 criaCabecalho();
 
+const tituloPrincipal = document.querySelector("header#principal h3");
+
+modificaCabecalho();
+
 // Listas
 const botoes = document.querySelectorAll(".containerLogo button");
+
+// Elementos
 
 // Variáveis
 var fechado = true;
@@ -50,6 +56,45 @@ function criaCabecalho() {
 
   cabecalhoFixo.appendChild(header);
   cabecalhoFixo.appendChild(aside);
+}
+
+function modificaCabecalho() {
+  var page = document.body.dataset.page;
+
+  switch (page) {
+    case "css":
+      tituloPrincipal.textContent = "Declarações Css";
+      break;
+    case "docker":
+      tituloPrincipal.textContent = "Comandos Docker";
+      break;
+    case "html":
+      tituloPrincipal.textContent = "Tags e atributos/parâmetros Html";
+      break;
+    case "git":
+      tituloPrincipal.textContent = "Comandos Git Bash";
+      break;
+    case "inicio":
+      tituloPrincipal.textContent =
+        "Todos os Comandos de Programação que anotei na Germinatech";
+      break;
+    case "mobile":
+      tituloPrincipal.textContent =
+        "Passo a passo desenvolvimento Mobile (Android Studio)";
+      break;
+    case "mongodb":
+      tituloPrincipal.textContent = "Comandos MongoDb";
+      break;
+    case "sqlpostgres":
+      tituloPrincipal.textContent = "Comandos PostgreSQL";
+      break;
+    case "sqlserver":
+      tituloPrincipal.textContent = "Comandos SQL Server";
+      break;
+    case "ubuntu-linux":
+      tituloPrincipal.textContent = "Comandos Linux/Ubuntu";
+      break;
+  }
 }
 
 function apareceCabecalho() {
