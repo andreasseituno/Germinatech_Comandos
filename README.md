@@ -1,7 +1,7 @@
 # Germinatech_Comandos
  Site de Todos os Comandos de Programação que anotei na Germinatech
 
-Acesse o site por aqui: https://andreasseituno.github.io/Germinatech_Comandos/Pagina_Principal/index.html
+Acesse o site por aqui: https://andreasseituno.github.io/Germinatech_Comandos/Inicio/
 
 # Explicação do Projeto
 Durante os meus 3 anos estudando na Germinare Tech anotei MUITOS comandos, comecei esse projeto para meus colegas pararem de me encher o saco pedindo pelas anotações. Hoje em dia, eu continuo com esse trabalho para ajudar aqueles que estão com dificuldades nas matérias e espero que esse site seja um meio de ajudar quem tá precisando, assim como eu precisei dessas anotações nos meus primeiros anos. Esse é um projeto ainda em desenvolvimento, em breve será criado uma url com um domínio próprio pra esse sistema, mas já estou disponibilizando o andamento com o link gerado pelo GitHub, use-o enquanto ainda está no ar. Se quiser compartilhar com os amiguinhos, fique à vontade, pois esse se tornou o objetivo desse site.
