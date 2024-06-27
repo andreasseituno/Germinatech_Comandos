@@ -70,9 +70,7 @@ function criaRodape() {
 }
 
 function criaTitulo() {
-  let titulo = document.createElement("h1");
-  titulo.textContent = retornaTituloPagina(document.body.dataset.page);
-  main.insertBefore(titulo, main.firstChild)
+  tituloPrincipal.textContent = retornaTituloPagina(document.body.dataset.page);
 }
 
 function abreSecao(n) {
