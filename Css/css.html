@@ -18,25 +18,19 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../Estilos/Original/variaveis.css" />
-    <link rel="stylesheet" href="../Estilos/Original/cabecalho.css" />
+    <link rel="stylesheet" href="../Estilos/Minificado/variaveis.css" />
+    <link rel="stylesheet" href="../Estilos/Minificado/cabecalho.css" />
     <link rel="stylesheet" href="../Estilos/Original/secundario.css" />
 
     <script src="../Estilos/Minificado/cabecalhoHtml.js" defer></script>
-    <script src="../Estilos/Minificado/cabecalho.js" defer></script>
-    <script src="../Estilos/Minificado/secundario.js" defer></script>
+    <script src="../Estilos/Original/cabecalho.js" defer></script>
+    <script src="../Estilos/Original/secundario.js" defer></script>
   </head>
   <body data-page="css">
     <div id="cabecalhoFixo"></div>
     <header id="falso"></header>
 
-    <header id="secundario">
-      <h1>Comandos Css</h1>
-      <h2>
-        Todas as Regras e Propriedades de Css que anotei durante minhas aulas da
-        Germinatech
-      </h2>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -54,122 +48,99 @@
           <option value="#imagem">Imagens de fundo</option>
           <option value="#shorthands">Shorthands</option>
         </select>
-
         <button id="btnAbrir"></button>
       </div>
-    </header>
-
-    <main>
       <section>
         <button id="text">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Texto (text):</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Adicionar sombra em um texto:</strong>
             {text-shadow}
           </p>
-
           <p>
             <strong>Deixar sublinhado:</strong>
             {text-decoration}
           </p>
-
           <p>
             <strong>
               Definir posição X do texto (centralizar com center):
             </strong>
             {text-align}
           </p>
-
           <p>
             <strong>
               Definir posição Y do texto (centralizar com middle):
             </strong>
             {vertical-align}
           </p>
-
           <p>
             <strong>Espaçamento antes do parágrafo:</strong>
             {text-indent}
           </p>
-
           <p>
             <strong>Transformar o texto em FIXA:</strong>
             {text-transform: uppercase}
           </p>
         </div>
       </section>
-
       <section>
         <button id="font">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Texto (font e outros):</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Definir fonte:</strong>
             {font-family}
           </p>
-
           <p>
             <strong>Definir tamanho da letra:</strong>
             {font-size}
           </p>
-
           <p>
             <strong>Deixar em negrito:</strong>
             {font-weight}
           </p>
-
           <p>
             <strong>Deixar em itálico:</strong>
             {font-style}
           </p>
-
           <p>
             <strong>Espaçamento de linha:</strong>
             {line-height}
           </p>
-
           <p>
             <strong>Dividir um texto em partes (geralmente listas):</strong>
             {columns}
           </p>
         </div>
       </section>
-
       <section>
         <button id="cor">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Cor:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Mudar cor da letra:</strong>
             {color}
           </p>
-
           <p>
             <strong>Mudar cor da borda:</strong>
             {border-color}
           </p>
-
           <p>
             <strong>Mudar cor de fundo:</strong>
             {background-color: <br />
             width: fit-content}
           </p>
-
           <p>
             <strong>Mudar cor do traço de digitação:</strong>
             {caret-color}
           </p>
-
           <p>
             <strong>Mudar cor de fundo com degradê:</strong>
             {background-image: linear-gradient (θdeg, color1 x%, color2,
@@ -177,34 +148,28 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="borda">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Borda:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Criar/editar borda:</strong>
             {border-style}
           </p>
-
           <p>
             <strong>Mudar tamanho/grossura da borda:</strong>
             {border-width}
           </p>
-
           <p>
             <strong>Fazer curva na borda:</strong>
             {border-radius}
           </p>
-
           <p>
             <strong>Deixar a grade de tabela visualmente mais bonito:</strong>
             {border-collapse}
           </p>
-
           <p>
             <strong>Criar borda feita de imagens:</strong>
             {border-image-source: url('img.png'); <br />
@@ -213,41 +178,34 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="caixas">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Editar caixas:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Redimensionar a caixa (auto para centralizar):</strong>
             {margin}
           </p>
-
           <p>
             <strong>
               Redimensionar o conteúdo de dentro em relação à caixa:
             </strong>
             {padding}
           </p>
-
           <p>
             <strong>Adicionar sombra em uma caixa:</strong>
             {box-shadow}
           </p>
-
           <p>
             <strong>Ocultar um elemento:</strong>
             {display: none}
           </p>
-
           <p>
             <strong>Colocar caixas uma ao lado da outra, se quebrando:</strong>
             {display: inline-block}
           </p>
-
           <p>
             <strong>
               Colocar caixas uma ao lado da outra, se espremendo (colocar no
@@ -255,17 +213,14 @@
             </strong>
             {display: flex}
           </p>
-
           <p>
             <strong>Fazer o mouse clicável:</strong>
             {cursor: pointer}
           </p>
-
           <p>
             <strong>Por uma caixa (img) ao lado de um texto:</strong>
             {float}
           </p>
-
           <p>
             <strong>
               Fazer os objetos filhos não escaparem do elemento (exclui o que
@@ -273,50 +228,42 @@
             </strong>
             {overflow: hidden}
           </p>
-
           <p>
             <strong>Adicionar uma scrollbar horizontal na caixa:</strong>
             {overflow-x: auto}
           </p>
         </div>
       </section>
-
       <section>
         <button id="position">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Position e FlexBox:</h3>
         </button>
-
         <div class="conteudo">
           <h4>
             *Position se coloca no elemento individual, FleBox SÓ no elemento
             pai*
           </h4>
-
           <p class="subtitulo">Position</p>
           <p class="subtitulo">FlexBox</p>
-
           <p>
             <strong>Posicionar a caixa no centro:</strong>
             {position: absolute; <br />
             top: 50%; <br />
             transform: translate(-50%, -50%)}
           </p>
-
           <p>
             <strong>Posicionar as caixa no centro (2):</strong>
             {display: flex; <br />
             align-items: center; <br />
             justify-content: center}
           </p>
-
           <p>
             <strong>
               Fazer elemento se referir à tamanho de tela e o deixar fixado:
             </strong>
             {position: fixed}
           </p>
-
           <p>
             <strong>
               Espaçamento igual p/ caixaS (space-around, para vazio externo,
@@ -325,18 +272,15 @@
             {display: flex; <br />
             justify-content: space-between}
           </p>
-
           <p>
             <strong>Deixar uma caixa grudada na parte de cima:</strong>
             {position: sticky top: 0}
           </p>
-
           <p>
             <strong>Colocar um objeto a direita de tudo:</strong>
             {display: flex; <br />
             justify-content: right}
           </p>
-
           <p>
             <strong>
               Colocar uma caixa sobreposta a outra (z-index é a prioridade em
@@ -347,25 +291,21 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="pseudo">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Pseudo-classes(:) e Pseudo-elementos(::) e Transição:</h3>
         </button>
-
         <div class="conteudo">
           <div class="separador">
             <p>
               <strong>Quando mouse em cima:</strong>
               div:hover {}
             </p>
-
             <p>
               <strong>Quando clicado:</strong>
               div:active {}
             </p>
-
             <p>
               <strong>
                 Quando link já visitado (por padrão já visitado é roxo e não
@@ -373,12 +313,10 @@
               </strong>
               a:visited {}
             </p>
-
             <p>
               <strong>Criar variáveis:</strong>
               :root{--exemploVar: black}
             </p>
-
             <p>
               <strong>
                 (efeito zebrado) Selecionar apenas par(even) ou ímpar(odd) ou
@@ -387,30 +325,25 @@
               tr:nth-child(even) {}
             </p>
           </div>
-
           <div class="separador">
             <p>
               <strong>Adicionar texto no início:</strong>
               div::before {content:'texto'}
             </p>
-
             <p>
               <strong>Adicionar texto no final:</strong>
               div::after {content:'texto'}
             </p>
           </div>
-
           <div class="separador">
             <p>
               <strong>Colocar um tempo para a alteração do elemento:</strong>
               {transition-duration: .5s}
             </p>
-
             <p>
               <strong>Ter uma espera, até fazer a alteração:</strong>
               {transition-delay: 1s}
             </p>
-
             <p>
               <strong>Deixar sua transição mais suave:</strong>
               {transition-timing-function: ease}
@@ -418,20 +351,17 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="imagem">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Imagens de fundo:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Colocar uma imagem de fundo: </strong>
             {background-image: url(imagem.png); <br />
             background-size: 280px, 130px}
           </p>
-
           <p>
             <strong>
               Mencionar quando a imagem começa (valor= top, bottom, left, right,
@@ -439,21 +369,18 @@
             </strong>
             {background-position: valorX valorY}
           </p>
-
           <p>
             <strong>
               Colocar imagem com responsividade e com proporções iguais:
             </strong>
             {background-size: contain}
           </p>
-
           <p>
             <strong>
               Colocar imagem com responsividade e com proporções cortadas:
             </strong>
             {background-size: cover}
           </p>
-
           <p>
             <strong>
               Deixar imagem parada pela scrollbar (efeito parallax):
@@ -462,13 +389,11 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="shorthands">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Shorthands</h3>
         </button>
-
         <div class="conteudo esticado">
           <p>
             <strong>Margin e Padding:</strong>
@@ -476,24 +401,20 @@
             Cima &rArr; Direita e Esquerda &rArr; Baixo <br />
             Cima e Baixo &rArr; Direita e Esquerda
           </p>
-
           <p>
             <strong>Font:</strong>
             font-style &rArr; font-weight &rArr; font-size &rArr; line-height
             &rArr; font-family
           </p>
-
           <p>
             <strong>Border:</strong>
             border-width &rArr; border-style &rArr; border-color
           </p>
-
           <p>
             <strong>Background:</strong>
             bg-color &rArr; bg-image &rArr; bg-position &rArr; bg-repeat &rArr;
             bg-attachment
           </p>
-
           <p>
             <strong>Border-radius:</strong>
             Superior Esquerdo &rArr; Superior Direito &rArr; Inferior Direito
@@ -503,12 +424,10 @@
             Superior Esquerdo e Inferior Direito &rArr; Superior Direito e
             Inferior Esquerdo <br />
           </p>
-
           <p>
             <strong>Flex:</strong>
             flex-grow &rArr; flex-shrink &rArr; flex-basis
           </p>
-
           <p>
             <strong>Transition:</strong>
             tr-property &rArr; tr-duration &rArr; tr-timing-function &rArr;

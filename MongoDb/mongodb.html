@@ -10,7 +10,11 @@
         curso técnico 'Germinatech'"
     />
     <title>MongoDb</title>
-    <link rel="shortcut icon" href="../Imagens/icone_mongo.webp" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../Imagens/icone_mongo.webp"
+      type="image/x-icon"
+    />
 
     <link rel="stylesheet" href="../Estilos/Minificado/variaveis.css" />
     <link rel="stylesheet" href="../Estilos/Minificado/cabecalho.css" />
@@ -25,13 +29,7 @@
 
     <header id="falso"></header>
 
-    <header id="secundario">
-      <h1>Comandos MongoDb</h1>
-      <h2>
-        Todos os Comandos do MongoDb que anotei durante minhas aulas da
-        Germinatech
-      </h2>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -54,9 +52,7 @@
 
         <button id="btnAbrir"></button>
       </div>
-    </header>
 
-    <main>
       <section>
         <button id="configuracoes">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
@@ -514,7 +510,9 @@
           </p>
 
           <p>
-            <strong>Analisar condição (se verdadeiro isso, se não, isto):</strong>
+            <strong
+              >Analisar condição (se verdadeiro isso, se não, isto):</strong
+            >
             db.alunos.aggregate( <br />
             {$project:{ _id:0, nome:1,idade:1, <br />
             condicao:{$cond:[{$gte:['$media', 7]}, 'Aprovado', 'Reprovado']}}}

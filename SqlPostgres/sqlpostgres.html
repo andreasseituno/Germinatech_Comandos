@@ -40,13 +40,7 @@
 
     <header id="falso"></header>
 
-    <header id="secundario">
-      <h1>Comandos SqlPostgres</h1>
-      <h2>
-        Todos os Comandos de PgSql que anotei durante minhas aulas da
-        Germinatech
-      </h2>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -69,80 +63,64 @@
           <option value="#procedure">Procedure</option>
           <option value="#json">Json</option>
         </select>
-
         <button id="btnAbrir"></button>
       </div>
-    </header>
-
-    <main>
       <section>
         <button id="docker">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Docker e bancos:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Iniciar o container pg (deixar pg no verde):</strong>
             docker start pg
           </p>
-
           <p>
             <strong>Executar a instância (entrar no root):</strong>
             docker exec -it pg bash
           </p>
-
           <p>
             <strong>Entrar no postgres:</strong>
             psql -U postgres
           </p>
-
           <p>
             <strong>Sair do postgres:</strong>
             \q
           </p>
-
           <p>
             <strong>Ver quais bancos existem:</strong>
             \l
           </p>
-
           <p>
             <strong>Criar banco dbMercado: </strong>
             createdb dbMercado -U postgres
           </p>
-
           <p>
             <strong>Entrar no banco (dentro do root):</strong>
             psql dbGerminare -U postgres
           </p>
-
           <p>
             <strong>Apagar banco: </strong>
             dropdb dbPratica -U postgres
           </p>
         </div>
       </section>
-
       <section>
         <button>
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tabelas:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver quais tabelas existem:</strong>
             \dt
           </p>
-
           <p>
             <strong>
               Ver o tipo da tabela (adicione o nome da tabela depois de \d):
             </strong>
             \d
           </p>
-
           <p>
             <strong>Criar tabela:</strong>
             CREATE TABLE aluno <br />( codigo DECIMAL, <br />
@@ -154,80 +132,67 @@
             data_mat DATE, <br />
             hora_nascimento TIMESTAMP);
           </p>
-
           <p>
             <strong>Criar tabela (com herança):</strong>
             CREATE TABLE industrializado <br />
             ( embalagem VARCHAR (20)) <br />
             inherits (alimento);
           </p>
-
           <p>
             <strong>Renomear tabela:</strong>
             ALTER TABLE professor <br />
             RENAME TO professores;
           </p>
-
           <p>
             <strong>Apagar tabela:</strong>
             DROP TABLE professor;
           </p>
         </div>
       </section>
-
       <section>
         <button id="colunas">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Colunas:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Adicionar coluna:</strong>
             ALTER TABLE professor <br />
             ADD COLUMN sobrenome VARCHAR (80);
           </p>
-
           <p>
             <strong>Apagar coluna:</strong>
             ALTER TABLE professor <br />
             DROP COLUMN sobrenome;
           </p>
-
           <p>
             <strong>Renomear coluna:</strong>
             ALTER TABLE professor <br />
             RENAME data_contratacao TO contraste;
           </p>
-
           <p>
             <strong>Renomear coluna temporariamente (aliás):</strong>
             SELECT nomes AS professores <wbr />
             FROM professor;
           </p>
-
           <p>
             <strong>Mudar o tipo da coluna (somente se compatível):</strong>
             ALTER TABLE professor <br />
             ALTER COLUMN idade REAL;
           </p>
-
           <p>
             <strong>Adicionar um valor máximo para uma coluna:</strong>
             ALTER TABLE aluno <br />
             ADD CHECK (media &lt; 10);
           </p>
-
           <p>
             <strong>Ver todas as colunas da tabela:</strong>
             SELECT * FROM professor
           </p>
-
           <p>
             <strong>Verificar se é par ou ímpar:</strong>
             SELECT CASE WHEN (4 % 2 = 0) THEN 'par' ELSE 'impar' END;
           </p>
-
           <p>
             <strong>
               Adicionar uma nova coluna temporariamente com uma condição:
@@ -240,26 +205,23 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="valores">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Valores:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Colocar/inserir valores: </strong>
             INSERT INTO aluno (id, nome) <br />
             VALUES (1, 'André), (2, 'Ana');
           </p>
-
           <p>
             <strong>Olhar valores de diferentes tabelas:</strong>
-            SELECT aluno.academias, academias.nome FROM aluno, academias <br />
+            SELECT aluno.academias, academias.nome FROM aluno, academias
+            <br />
             WHERE aluno.academias= academias.id;
           </p>
-
           <p>
             <strong>
               Trocar os valores, (apenas no Rodrigo nesse caso):
@@ -268,18 +230,15 @@
             SET idade=30, salario=2000 <br />
             WHERE nome LIKE 'Rodrigo';
           </p>
-
           <p>
             <strong>Apagar todos os valores:</strong>
             TRUNCATE TABLE professor;
           </p>
-
           <p>
             <strong>Deletar/apagar valores só de 1 linha:</strong>
             DELETE FROM aluno <br />
             WHERE nome LIKE 'Rodrigo';
           </p>
-
           <p>
             <strong>Colocar/inserir valores de outra tabela:</strong>
             INSERT INTO professor (cpf, nome, idade) <br />
@@ -287,13 +246,11 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="chaves">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Chaves e Serial:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -304,30 +261,25 @@
             nome VARCHAR (80), <br />
             preco REAL);
           </p>
-
           <p>
             <strong>Criar tabela com chave estrangeira:</strong>
             CREATE TABLE aluno ( <br />
             coluna INT REFERENCES professor);
           </p>
-
           <p>
             <strong>Reiniciar SERIAL:</strong>
             TRUNCATE TABLE professor RESTART IDENTITY;
           </p>
-
           <p>
             <strong>Adicionar a restrição de not null:</strong>
             ALTER TABLE aluno <br />
             ALTER COLUMN nome SET NOT NULL;
           </p>
-
           <p>
             <strong>
               Criar tabela com 2 chaves primárias (chave composta) e 2 chaves
               estrangeiras (modo alterno):
             </strong>
-
             CREATE TABLE notas_avv ( <br />
             id_aluno INT, <br />
             id_professor INT, <br />
@@ -338,24 +290,20 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="selects">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Editar Selects:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver colunas específicas:</strong>
             SELECT nome, idade FROM aluno;
           </p>
-
           <p>
             <strong>Somar colunas (a idade com o salario):</strong>
             SELECT nomes, idade + salario FROM professor;
           </p>
-
           <p>
             <strong>
               Ver colunas tenham 1 OU outra coluna igual (aceita símbolo de =,
@@ -363,7 +311,6 @@
             </strong>
             SELECT nome, sobrenome FROM aluno WHERE id=1 OR idade > 16;
           </p>
-
           <p>
             <strong>
               Ver colunas tenham 1 E outra coluna igual (aceita símbolo de =,
@@ -372,7 +319,6 @@
             SELECT nome, sobrenome FROM aluno WHERE nome= 'Ana' AND idade &lt;=
             16;
           </p>
-
           <p>
             <strong>
               Ordenar por ordem alfabética ou crescente (adicione DESC depois da
@@ -380,7 +326,6 @@
             </strong>
             SELECT * FROM aluno ORDER BY nome, idade;
           </p>
-
           <p>
             <strong>
               Ver algo entre certos valores (adicione NOT antes de BETWEEN para
@@ -388,14 +333,12 @@
             </strong>
             SELECT * FROM aluno WHERE media BETWEEN 7 AND 10;
           </p>
-
           <p>
             <strong>
               Filtrar com um limite (os 3 melhores, tirando os 2 primeiros):
             </strong>
             SELECT * FROM professor ORDER BY id LIMIT 3 OFFSET 2;
           </p>
-
           <p>
             <strong>
               Ver colunas que começam com uma letra única (S) (optar LIKE por
@@ -403,12 +346,10 @@
             </strong>
             SELECT * FROM aluno WHERE nome LIKE 'S%';
           </p>
-
           <p>
             <strong>Não mostrar resultados repetidos:</strong>
             SELECT DISTINCT academias FROM professor;
           </p>
-
           <p>
             <strong>
               Pegar as informações encontrados só na tabela produto (herança):
@@ -417,21 +358,17 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="fNumeros">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Funções de Numbers:</h3>
         </button>
-
         <div class="conteudo">
           <p><strong>Módulo:</strong> SELECT abs (-3);</p>
-
           <p>
             <strong>Potência (2 <sup>10</sup> ):</strong>
             SELECT power (2,10);
           </p>
-
           <p>
             <strong>
               Definir os decimais (round para arredondar, e trunc para eliminar)
@@ -439,40 +376,33 @@
             </strong>
             SELECT round (3.39812, 3);
           </p>
-
           <p>
             <strong>Arredondar (ceil para acima, floor para baixo):</strong>
             SELECT ceil (10.9);
           </p>
-
           <p>
             <strong>Converter inteiro em decimal:</strong>
             SELECT nome, trunc (cast (media AS decimal),2) AS media_em_decimal
             FROM aluno;
           </p>
-
           <p>
             <strong>Somar valores (agregação):</strong>
             SELECT *, (SELECT sum(idade) FROM aluno) AS soma FROM aluno;
           </p>
-
           <p>
             <strong>Calcular média (agregação):</strong>
             SELECT *, (SELECT avg(idade) FROM aluno) AS media FROM aluno;
           </p>
-
           <p>
             <strong>Contar quantas colunas tem de algo (agregação):</strong>
             SELECT *, (SELECT count(nome) FROM aluno) AS Quantidade FROM aluno;
           </p>
-
           <p>
             <strong>Modo fácil de escrever usando funções de agregação:</strong>
             SELECT nome, MAX (idade) FROM cliente <br />
             GROUP BY nome <br />
             HAVING max (idade) > 30;
           </p>
-
           <p>
             <strong>
               Modo +fácil de escrever usando funções de agregação:
@@ -482,72 +412,60 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="fString">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Funções de Strings:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Contar caracteres:</strong>
             SELECT char_length(nome) FROM aluno;
           </p>
-
           <p>
             <strong>Contar letras (não caracteres):</strong>
             SELECT char_length(replace (nome, ' ', ' ')) FROM aluno;
           </p>
-
           <p>
             <strong>Colocar em FIXA (lower para diminuir):</strong> SELECT
             upper(nome) FROM aluno;
           </p>
-
           <p>
             <strong>Obter data atual:</strong>
             SELECT now();
           </p>
-
           <p>
             <strong>
               Filtrar quantos dígitos antes e depois da vírgula (D):
             </strong>
             SELECT to_char (media, '000D9') FROM aluno;
           </p>
-
           <p>
             <strong>
               Obter dia (day), mês (month), ano (year) de uma coluna:
             </strong>
             SELECT extract (month FROM data_mat) AS Mes FROM aluno;
           </p>
-
           <p>
             <strong>Filtrar quantos dígitos por data:</strong>
             SELECT to_char(data_mat, 'DD/Mon/YYY') FROM aluno;
           </p>
         </div>
       </section>
-
       <section>
         <button id="fPessoal">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Funções de Pessoais:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver todas as funções:</strong>
             \df
           </p>
-
           <p>
             <strong>Apagar função:</strong>
             DROP FUNCTION somar_dias (data, integer);
           </p>
-
           <p>
             <strong>Criar função:</strong>
             CREATE FUNCTION somar_inteiros(int, int) RETURNS int <br />
@@ -555,7 +473,6 @@
             LANGUAGE SQL <br />
             IMMUTABLE RETURNS NULL ON NULL INPUT;
           </p>
-
           <p>
             <strong>Criar função (2):</strong>
             CREATE OR REPLACE FUNCTION somar_dias (data date, dias integer)
@@ -565,7 +482,6 @@
             END; <br />
             $$ LANGUAGE psqlgsql
           </p>
-
           <p>
             <strong>Criar função (3):</strong>
             CREATE FUNCTION adicionar_pedido (_id, _cliente, _data) RETURNS void
@@ -578,87 +494,72 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="user">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Privilégios (User e Role):</h3>
         </button>
-
         <div class="conteudo">
           <h4>
             *User ainda funciona, mas não é usado. O correto é usar Role. A
             principal diferença é que roles possuem privilégios e podem ser um
             usuário e/ou um grupo. *
           </h4>
-
           <p class="subtitulo">User:</p>
           <p class="subtitulo">Role:</p>
-
           <p>
             <strong>
               Ver todos os usuários (dentro do postgres ou outro usuário):
             </strong>
             SELECT * FROM pg_user;
           </p>
-
           <p>
             <strong
               >Ver todas as roles (dentro do postgres ou outro usuário):</strong
             >
             SELECT * FROM pg_roles;
           </p>
-
           <p>
             <strong>Criar Usuário:</strong>
             CREATE USER teste;
           </p>
-
           <p>
             <strong>Criar Role (2 opções pra você):</strong>
             CREATE ROLE aluno WITH LOGIN PASSWORD '12345'; <br />
             CREATE ROLE aluno NOSUPERUSER NOCREATEDB NOCREATEROLE LOGIN;
           </p>
-
           <p>
             <strong>Ver em qual usuário você está:</strong>
             SELECT * FROM current_user;
           </p>
-
           <p>
             <strong>Ver em qual role você está:</strong>
             SELECT * FROM current_role;
           </p>
-
           <p>
             <strong>Apagar usuário:</strong>
             DROP USER teste;
           </p>
-
           <p>
             <strong>Apagar role:</strong>
             DROP ROLE aluno;
           </p>
         </div>
       </section>
-
       <section>
         <button id="grant">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Privilégios (Grant e Revoke e Schema):</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Permitir um usuário acessar o banco:</strong>
             GRANT USAGE ON SCHEMA administrativo TO funcionario;
           </p>
-
           <p>
             <strong>Ver todos os Schemas (do banco):</strong>
             SELECT schema_name FROM information_schema.<wbr />schemata;
           </p>
-
           <p>
             <strong>
               Garantir privilégios à um usuário (estagiario) (trocar o update,
@@ -666,7 +567,6 @@
             </strong>
             GRANT UPDATE, SELECT ON TABLE funcionarios TO estagiario;
           </p>
-
           <p>
             <strong>
               Revogar privilégios à um usuário (estagiario) (trocar o update,
@@ -674,56 +574,47 @@
             </strong>
             REVOKE UPDATE, SELECT ON TABLE funcionarios FROM estagiario;
           </p>
-
           <p>
             <strong>Criar Schema:</strong>
             CREATE SCHEMA administrativo;
           </p>
-
           <p>
             <strong>Criar Tabela dentro do Schema (administrativo):</strong>
             CREATE TABLE administrativo.<wbr />funcionario (cod INT);
           </p>
-
           <p>
             <strong>
               Garantir privilégio às tabelas de um schema para 1 usuário:
             </strong>
             GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa TO aluno;
           </p>
-
           <p>
             <strong>
               Revogar privilégio às tabelas de um schema para 1 usuário:
             </strong>
             REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA empresa FROM aluno;
           </p>
-
           <p>
             <strong>Visualizar as permissões de cada usuário</strong>
             SELECT * FROM information_schema.table_privileges
           </p>
         </div>
       </section>
-
       <section>
         <button id="view">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>View e Trigger:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver todas as Views:</strong>
             \d+
           </p>
-
           <p>
             <strong>Criar View:</strong>
             CREATE VIEW vw_aluno15 AS <br />
             SELECT * FROM aluno WHERE idade = 15;
           </p>
-
           <p>
             <strong>Criar função de trigger:</strong>
             CREATE OR REPLACE FUNCTION data_cadastro() <br />
@@ -734,7 +625,6 @@
             END; <br />
             $$ language 'plpgsql'; <br />
           </p>
-
           <p>
             <strong>Criar trigger:</strong>
             CREATE TRIGGER data_cadastro_novoCliente <br />
@@ -742,20 +632,17 @@
             FOR EACH ROW <br />
             EXECUTE PROCEDURE data_cadastro();
           </p>
-
           <p>
             <strong>Apagar trigger:</strong>
             DROP TRIGGER data_cadastro_novoCliente ON cliente;
           </p>
         </div>
       </section>
-
       <section>
         <button id="procedure">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Procedure:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Criar Procedure Simples:</strong>
@@ -765,7 +652,6 @@
             TRUNCATE TABLE aluno; <br />
             COMMIT; END; $$; <br />
           </p>
-
           <p>
             <strong>Criar Procedure Complexa:</strong>
             CREATE OR REPLACE PROCEDURE limpaAluno() <br />
@@ -785,25 +671,21 @@
             END IF; <br />
             COMMIT; END; $$; <br />
           </p>
-
           <p>
             <strong>Realizar comandos da Procedure:</strong>
             CALL limpaAluno();
           </p>
-
           <p>
             <strong>Apagar Procedure:</strong>
             DROP PROCEDURE limpaAluno();
           </p>
         </div>
       </section>
-
       <section>
         <button id="json">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Json:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -811,13 +693,11 @@
             </strong>
             SELECT informacoes_adicionais-&gt; 'idade' FROM pessoa;
           </p>
-
           <p>
             <strong>Ver valores de lista que precisam ter estes intens:</strong>
             SELECT * FROM pessoas WHERE hobbies @&gt; '[“programacao”,
             “leitura”]'';
           </p>
-
           <p>
             <strong>
               Ver valores de lista que só tem algum destes itens mencionados:
@@ -825,17 +705,14 @@
             SELECT * FROM pessoa WHERE hobbies &lt;@ '[“leitura”, “programação”,
             “dança”]';
           </p>
-
           <p>
             <strong>Ver as chaves da coluna:</strong>
             SELECT DISTINCT jsonb_object_keys(pedido) FROM compras;
           </p>
-
           <p>
             <strong>Ver chave e valor (tupla) da coluna:</strong>
             SELECT jsonb_each(pedido) FROM compras;
           </p>
-
           <p>
             <strong>Ver tipo do valor da chave:</strong>
             SELECT DISTINCT jsonb_typeof (pedido-&gt;'produtos'-&gt;'bebidas')

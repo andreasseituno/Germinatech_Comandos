@@ -26,7 +26,7 @@
     <style>
       /* Elementos- Agrupadores */
 
-      section {
+      main > * {
         width: 86%;
       }
 
@@ -36,8 +36,8 @@
         flex-direction: row column;
         flex-wrap: wrap;
 
-        border: 1px solid var(--corBordaPreta);
-        box-shadow: 1px 2px 4px var(--corSombraPreta);
+        border: 1px solid var(--corBorda);
+        box-shadow: 1px 2px 4px var(--corSombraClara);
         border-radius: 4px;
         margin: 6px auto;
       }
@@ -51,7 +51,7 @@
       }
 
       .conteudo a {
-        text-shadow: 1px 1px 3px var(--corSombraPreta);
+        text-shadow: 1px 1px 3px var(--corSombraEscura);
         font-style: italic;
       }
 
@@ -124,19 +124,7 @@
 
     <header id="falso"></header>
 
-    <header id="secundario">
-      <hgroup>
-        <h1>Comandos Html</h1>
-        <h2>
-          Todas as Tags e Parâmetros<wbr />/Atributos que anotei nas minhas
-          aulas da Germinatech
-        </h2>
-        <h3>
-          Os atributos listados neste documento não possuem a informação
-          completa ou todos as tags que são atribuídas aos mesmos
-        </h3>
-      </hgroup>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -157,69 +145,51 @@
           <option value="#param3">Parâmetros (3)</option>
           <option value="#extra">Extra</option>
         </select>
-
         <button id="btnAbrir"></button>
       </div>
-    </header>
-
-    <main>
       <section>
         <button id="tags1">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para body (1):</h3>
         </button>
-
         <div class="conteudo tag">
           <div>
             <p><code>body</code> corpo de texto <code>body</code></p>
           </div>
-
           <div>
             <p>
               <code>h1...h2...h6</code> título principal (grande), secundário
               (médio), terciário (pequeno) <code>h1...h2...h6</code>
             </p>
-
             <p><code>p</code> parágrafo <code>p</code></p>
           </div>
-
           <div>
             <p><code>/br</code> quebra de texto <code>/br</code></p>
-
             <p><code>/wbr</code> quebra de palavra <code>/wbr</code></p>
           </div>
-
           <div>
             <p>
               <code>strong</code> texto de destaque/importância
               <code>strong</code> (negrito)
             </p>
-
             <p><code>em</code> dar ênfase <code>em</code> (itálico)</p>
           </div>
-
           <div>
             <p><code>/hr</code> linha horizontal <code>/hr</code></p>
           </div>
-
           <div>
             <p><code>ol</code> lista ordenada <code>ol</code></p>
-
             <p><code>ul</code> lista não ordenada <code>ul</code></p>
-
             <p><code>li</code> item da lista <code>li</code></p>
           </div>
-
           <div>
             <p><code>nav</code> conjunto de vários links <code>nav</code></p>
-
             <p>
               <code>a</code> palavra que leva à outra página <code>a</code> (add
               o param <a href="#param1"><code>href</code></a
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>/img</code> imagem <code>/img</code> (add o param
@@ -227,60 +197,45 @@
               >)
             </p>
           </div>
-
           <div>
             <p><code>div</code> caixa com quebra de linha <code>div</code></p>
-
             <p><code>span</code> caixa sem quebra de linha <code>span</code></p>
           </div>
         </div>
       </section>
-
       <section>
         <button id="tags2">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para body (2):</h3>
         </button>
-
         <div class="conteudo tag">
           <div>
             <p>
               <code>ins</code> novo texto inserido <code>ins</code> (sublinhado)
             </p>
-
             <p><code>del</code> texto deletado <code>del</code> (taxado)</p>
-
             <p><code>s</code> texto sem relevância <code>s</code> (taxado)</p>
           </div>
-
           <div>
             <p><code>q</code> citação curta <code>q</code> (aspas)</p>
-
             <p>
               <code>blockquote</code> citação longa/ de bloco
               <code>blockquote</code>
             </p>
-
             <p>
               <code>cite</code> os créditos da citação, nome do autor
               <code>cite</code> (itálico)
             </p>
           </div>
-
           <div>
             <p><code>sup</code> número em cima <code>sup</code></p>
-
             <p><code>sub</code> número em baixo <code>sub</code></p>
           </div>
-
           <div>
             <p><code>dl</code> lista de definição <code>dl</code></p>
-
             <p><code>dt</code> termo que vai ser definido <code>dt</code></p>
-
             <p><code>dd</code> definição do termo <code>dd</code></p>
           </div>
-
           <div>
             <p>
               <code>abbr</code> sigla ou abreviação
@@ -288,23 +243,19 @@
               <a href="#param2"> <code>title</code> </a>)
             </p>
           </div>
-
           <div>
             <p>
               <code>pre</code> <code>code</code> códigos <code>code</code>
               <code>pre</code> (monoespaçado)
             </p>
-
             <p>
               <code>kbd</code> tecla do computador, Ctrl
               <code>kbd</code> (monoespaçado)
             </p>
-
             <p>
               <code>var</code> variável de programação ou de matemática, x²
               <code>var</code> (itálico)
             </p>
-
             <p>
               <code>samp</code> mensagem do computador
               <code>samp</code> (monoespaçado)
@@ -312,13 +263,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="tags3">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para body (3):</h3>
         </button>
-
         <div class="conteudo tag">
           <div>
             <p>
@@ -326,41 +275,29 @@
               escolher o compatível <code>/source</code> (dentro de
               &lt;picture&gt;, &lt;audio&gt; ou &lt;video&gt;)
             </p>
-
             <p>
               <code>picture</code> conjunto de imagens e &lt;/source srcet&gt;
               <code>picture</code>
             </p>
-
             <p><code>audio</code> arquivo de áudio <code>audio</code></p>
-
             <p><code>video</code> arquivo de vídeo <code>video</code></p>
-
             <p><code>/track</code> arquivo de legenda <code>/track</code></p>
-
             <p>
               <code>iframe</code> quadro de vídeo/página
               <code>iframe</code> (dentro a mensagem quando não carregado)
             </p>
           </div>
-
           <div>
             <p><code>header</code> cabeçalho <code>header</code></p>
-
             <p>
               <code>main</code> conteúdo principal <code>main</code> (só existe
               1)
             </p>
-
             <p><code>aside</code> conteúdo lateral <code>aside</code></p>
-
             <p><code>section</code> seção <code>section</code></p>
-
             <p><code>article</code> artigo <code>article</code></p>
-
             <p><code>footer</code> rodapé <code>footer</code></p>
           </div>
-
           <div>
             <p>
               <code>hgroup</code> conjuntos de títulos e subtítulos, tags
@@ -368,42 +305,35 @@
               <code>hgroup</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>figure</code> imagem e &lt;figcaption&gt;
               <code>figure</code>
             </p>
-
             <p>
               <code>figcaption</code> legenda de uma imagem
               <code>figcaption</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>time</code> data <code>time</code> (hora, dia, ano, mês,
               data)
             </p>
-
             <p><code>address</code> endereço <code>address</code> (itálico)</p>
           </div>
-
           <div>
             <p><code>mark</code> texto grifado/marcado <code>mark</code></p>
-
             <p>
-              <code>small</code> texto pequeno/ letras miúdas <code>small</code>
+              <code>small</code> texto pequeno/ letras miúdas
+              <code>small</code>
             </p>
-
             <p>
               <code>map</code> conjunto de &lt;area&gt; <code>map</code> (add o
               param <a href="#param3"><code>name</code></a> igual ao param
               <a href="#param3"><code>usemap</code></a> no
               <a href="#tags2">&lt;<code>/img</code>&gt;</a>)
             </p>
-
             <p>
               <code>area</code> coordenadas de um mapa <code>area</code> (add o
               param <a href="#param3"><code>shape</code></a
@@ -413,43 +343,34 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="tags4">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para body (4):</h3>
         </button>
-
         <div class="conteudo tag">
           <h4>
             *Eu nunca usei tags desta seção, mas vale a pena ressaltá-las*
           </h4>
-
           <div>
             <p><code>b</code> negrito <code>b</code></p>
-
             <p><code>i</code> itálico <code>i</code></p>
-
             <p>
               <code>u</code> texto distinto com estilo diferente, palavras com
               erro <code>u</code> (sublinhado)
             </p>
           </div>
-
           <div>
             <p>
               <code>ruby</code> caractere asiático que precisa/tem um
               significado/pronunciação <code>ruby</code>
             </p>
-
             <p><code>rt</code> pronúncia de um &lt;ruby&gt; <code>rt</code></p>
-
             <p>
               <code>rp</code> parênteses que agrupam um &lt;rt&gt;
               <code>rp</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>details</code><code>summary</code> texto expansível quando
@@ -458,13 +379,11 @@
               &lt;details&gt;)
             </p>
           </div>
-
           <div>
             <p>
               <code>template</code> conteúdo escondido quando tela carregada
               <code>template</code>
             </p>
-
             <p>
               <code>dialog</code> caixa de mensagem pop-up para diálogo
               <code>dialog</code> (add o param
@@ -472,53 +391,44 @@
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>bdo</code> texto que vai ser invertido <code>bdo</code> (add
               o param <a href="#param3"><code>dir</code></a
               >)
             </p>
-
             <p>
               <code>bdi</code> texto que possivelmente pode ser lido por direção
               diferente <code>bdi</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>canvas</code> gráfico gerado por script
               <code>canvas</code> (dentro a mensagem para quando não carregar)
             </p>
-
             <p><code>svg</code> arquivo em SVG <code>svg</code></p>
           </div>
         </div>
       </section>
-
       <section>
         <button id="tagsFormulario">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para formulários:</h3>
         </button>
-
         <div class="conteudo tag">
           <div>
             <p>
               <code>form</code> início e fim do formulário <code>form</code>
             </p>
-
             <p>
               <code>label</code> texto em referência ao item do formulário
               <code>label</code> (add o param
               <a href="#paramFormulario"><code>for</code></a
               >)
             </p>
-
             <p><code>/input</code> campo para digitar <code>/input</code></p>
           </div>
-
           <div>
             <p>
               <code>textarea</code> campo com altura <code>textarea</code> (add
@@ -527,21 +437,17 @@
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>fieldset</code> seção do formulário <code>fieldset</code>
             </p>
-
             <p><code>legend</code> legenda de uma seção <code>legend</code></p>
           </div>
-
           <div>
             <p>
               <code>select</code><code>option</code> opção numa lista
               <code>option</code><code>select</code>
             </p>
-
             <p>
               <code>optgroup</code> seção de &lt;option&gt;
               <code>optgroup</code> (add o param
@@ -549,7 +455,6 @@
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>datalist</code><code>option</code> sugestão de opção em
@@ -558,7 +463,6 @@
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>meter</code> range não alterável <code>meter</code> (add o
@@ -567,7 +471,6 @@
               >, <a href="#paramFormulario"><code>max</code></a
               >)
             </p>
-
             <p>
               <code>progress</code> range não alterável para barras de progresso
               <code>progress</code> (add o param
@@ -576,7 +479,6 @@
               >)
             </p>
           </div>
-
           <div>
             <p>
               <code>output</code> resultado de uma conta
@@ -589,13 +491,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="paramFormulario">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Parâmetros para formulários:</h3>
         </button>
-
         <div class="conteudo parametros">
           <div>
             <p>
@@ -603,7 +503,6 @@
               <a href="#tagsFormulario"><code>form</code></a> para proteger
               dados, ou dados muito pesados/grandes.
             </p>
-
             <p>
               <code>form</code>
               <em>formularioPrincipal</em> dentro de
@@ -611,21 +510,18 @@
               (id do) &lt;form&gt; pertence.
             </p>
           </div>
-
           <div>
             <p>
               <code>for</code> <em>telefone</em> dentro de
               <a href="#tagsFormulario"><code>label</code></a> para dizer a qual
               (id do) &lt;/input&gt; se refere.
             </p>
-
             <p>
               <code>value</code> <em>enviar</em> dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para escrever
               algo dentro de um botão ou caixa.
             </p>
           </div>
-
           <div>
             <p>
               <code>autocomplete</code> <em>off</em> dentro de
@@ -633,45 +529,38 @@
               <a href="#tagsFormulario"><code>/input</code></a> para desabilitar
               sugestões.
             </p>
-
             <p>
               <code>autofocus</code>: dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para ser
               selecionado, assim que o site carregar.
             </p>
-
             <p>
               <code>required</code>: dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para obrigar a
               responder para enviar.
             </p>
-
             <p>
               <code>disabled</code>: dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para deixar
               desabilitado.
             </p>
-
             <p>
               <code>checked</code>: dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para deixar um
               checkbox já marcado.
             </p>
-
             <p>
               <code>selected</code>: dentro de
               <a href="#tagsFormulario"><code>/input</code></a> ou
               <a href="#tagsFormulario"><code>option</code></a> para deixar uma
               opção já selecionada.
             </p>
-
             <p>
               <code>placeholder</code>
               <em>exemplo@gmail.com</em> dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para uma
               mensagem inicial.
             </p>
-
             <p>
               <code>minlength</code>
               <em>4</em> dentro de
@@ -680,27 +569,23 @@
               pra <code>max</code>/<code>min</code>
               caso números).
             </p>
-
             <p>
               <code>step</code> <em>0.5</em> dentro
               <a href="#tagsFormulario"><code>/input</code></a> para dizer de
               quanto em quanto é aceito.
             </p>
-
             <p>
               <code>size</code> <em>4</em> dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para definir sua
               largura, em número de caracteres.
             </p>
           </div>
-
           <div>
             <p>
               <code>list</code> <em>opcoes</em> dentro de
               <a href="#tagsFormulario"><code>/input</code></a> para dizer a
               qual (id do) &lt;datalist&gt; se refere.
             </p>
-
             <p>
               <code>pattern</code>
               <em id="dupla">[A-z]</em> <code>title</code>
@@ -710,34 +595,29 @@
               de erro.
             </p>
           </div>
-
           <div>
             <p>
               <code>label</code> <em>titulo</em> dentro de
               <a href="#tagsFormulario"> <code>optgroup</code> </a> para dar um
               título à seção de opções.
             </p>
-
             <p>
               <code>readonly</code>: dentro de
               <a href="#tagsFormulario"><code>textarea</code></a> para deixar o
               texto apenas visível, não editável.
             </p>
-
             <p>
               <code>cols</code> <em id="dupla">9</em> <code>rows</code>
               <em>9</em> dentro de
               <a href="#tagsFormulario"><code>textarea</code></a> para fixar o
               tamanho, COLS é largura e ROWS altura.
             </p>
-
             <p>
               <code>oninput</code>
               <em>c.value = a.value + b.value</em> dentro de
               <a href="#tagsFormulario"><code>form</code></a> para que a conta
               entre &lt;/input&gt; (a, b) seja igual à um &lt;output&gt; (c).
             </p>
-
             <p>
               <code>low</code> <em id="dupla">3</em> <code>high</code>
               <em>7</em> dentro de
@@ -745,7 +625,6 @@
               que é muito/pouco para estilização LOW é valor baixo e HIGH valor
               alto.
             </p>
-
             <p>
               <code>optimum</code> <em>5</em> dentro de
               <a href="#tagsFormulario"><code>meter</code></a> para definir o
@@ -754,47 +633,36 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="tabela">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags e Parâmetros para tabelas:</h3>
         </button>
-
         <div class="conteudo">
           <div class="tag">
             <div>
               <p><code>table</code> tabela <code>table</code></p>
-
               <p><code>tr</code> linha da tabela <code>tr</code></p>
-
               <p>
                 <code>th</code> dado da coluna com importância
                 <code>th</code> (título da coluna)
               </p>
-
               <p><code>td</code> dado da coluna <code>td</code></p>
             </div>
-
             <div>
               <p><code>thead</code> cabeçalho da tabela <code>thead</code></p>
-
               <p><code>tbody</code> corpo da tabela <code>tbody</code></p>
-
               <p><code>tfoot</code> rodapé da tabela <code>tfoot</code></p>
-
               <p>
                 <code>caption</code> legenda/título da tabela
                 <code>caption</code>
               </p>
             </div>
-
             <div>
               <p>
                 <code>colgroup</code> conjunto de &lt;/col&gt;
                 <code>colgroup</code>
               </p>
-
               <p>
                 <code>/col <em>class= "col1"</em></code> (estiliza uma coluna
                 inteira, se tem 4 colunas, use 4 col, ou o param
@@ -803,34 +671,29 @@
               </p>
             </div>
           </div>
-
           <div class="parametros">
             <div>
               <p>
                 <code>rowspan</code> <em>3</em> dentro de
                 <a href="#tabela"><code>td</code></a> para juntar 3 linhas.
               </p>
-
               <p>
                 <code>colspan</code> <em>2</em> dentro de
                 <a href="#tabela"><code>td</code></a> para juntar 2 colunas.
               </p>
             </div>
-
             <div>
               <p>
                 <code>scope</code> <em>col</em> dentro de
                 <a href="#tabela"><code>th</code></a> para dizer que o título se
                 refere à coluna (cima-baixo).
               </p>
-
               <p>
                 <code>scope</code> <em>row</em>
                 <a href="#tabela"><code>th</code></a> para dizer que o título se
                 refere à linha (esquerda-direita).
               </p>
             </div>
-
             <div>
               <p>
                 <code>headers</code> <em>telefone</em> dentro de
@@ -838,7 +701,6 @@
                 &lt;th&gt; se refere.
               </p>
             </div>
-
             <div>
               <p>
                 <code>span</code> <em>5</em> dentro de
@@ -849,13 +711,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="head">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Tags para head:</h3>
         </button>
-
         <div class="conteudo tag">
           <div>
             <p>
@@ -863,25 +723,21 @@
               <code>head</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>!DOCYTYPE <em>html</em></code> tipo de documento, nesse caso
               html.
             </p>
-
             <p>
               <code>html <em>lang= "pt-br"</em></code> linguagem do documento,
               nesse caso português.
             </p>
           </div>
-
           <div>
             <p>
               <code>meta <em>charset= "UTF-8"</em></code> permite o uso de
               caracteres especiais como Ç ou acentos.
             </p>
-
             <p>
               <code
                 >meta
@@ -889,7 +745,6 @@
               >
               renderiza com a versão mais recente do navegador.
             </p>
-
             <p>
               <code
                 >meta
@@ -901,35 +756,29 @@
               body ocupa 100% da tela disponível do navegador.
             </p>
           </div>
-
           <div>
             <p><code>title</code> título do site/aba <code>tile</code></p>
           </div>
-
           <div>
             <p>
               <code>/link</code> relaciona o documento com algo de fora, CSS ou
               ICON <code>/link</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>style</code> configurar o CSS dentro do HTML, internal
               <code>style</code>
             </p>
-
             <p>
               <code>script</code> configurar o JS dentro do HTML, internal
               <code>script</code>
             </p>
-
             <p>
               <code>noscript</code> mensagem para usuários com scripts
               desabilitados <code>noscript</code>
             </p>
           </div>
-
           <div>
             <p>
               <code>/base</code> link padrão para todos os &lt;a&gt;
@@ -938,30 +787,25 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="param1">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Parâmetros/atributos (1):</h3>
         </button>
-
         <div class="conteudo parametros">
           <div>
             <p>
               <code>id</code> <em>impdum</em> especifica uma parte do texto.
             </p>
-
             <p>
               <code>class</code> <em>impsum</em> especifica partes do texto
               parecidas.
             </p>
-
             <p>
               <code>style</code> <em>color: green</em> mudar visualmente o
               elemento, inline.
             </p>
           </div>
-
           <div>
             <p>
               <code>href</code> <em id="dupla">#impsum</em> <code>target</code>
@@ -969,7 +813,6 @@
               HREF direciona o link ou palavra específica do texto ou uma outra
               página, TARGET diz onde o href vai levar (_blank = nova aba).
             </p>
-
             <p>
               <code>src</code> <em id="dupla">gato.jpg</em> <code>alt</code>
               <em>gato bege</em> dentro de
@@ -977,7 +820,6 @@
               arquivo, ALT a explicação da imagem, para acessibilidade.
             </p>
           </div>
-
           <div>
             <p>
               <code>width</code> <em id="dupla">420px</em> <code>height</code>
@@ -986,7 +828,6 @@
               (WIDTH é largura e HEIGHT altura).
             </p>
           </div>
-
           <div>
             <p>
               <code>type</code> <em>1</em> dentro de
@@ -994,28 +835,24 @@
               <a href="#tags1"><code>ul</code></a> para transformar listas (“1”
               varia para a, A, i, I ou em &lt;ul&gt; para circle ou square).
             </p>
-
             <p>
               <code>start</code> <em>5</em> dentro de
               <a href="#tags1"><code>ol</code></a> ou
               <a href="#tags1"><code>ul</code></a> para iniciar a lista por um
               número/letra específica.
             </p>
-
             <p>
               <code>reversed</code>: dentro de
               <a href="#tags1"><code>ol</code></a> para inverter a numeração
               (maior pro menor).
             </p>
           </div>
-
           <div>
             <p>
               <code>async</code>: dentro de
               <a href="#head"><code>script</code></a> para não dar prioridade em
               sua execução.
             </p>
-
             <p>
               <code>defer</code>: dentro de
               <a href="#head"><code>script</code></a> para carregar todo o HTML,
@@ -1024,13 +861,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="param2">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Parâmetros/atributos (2):</h3>
         </button>
-
         <div class="conteudo parametros">
           <div>
             <p>
@@ -1040,14 +875,12 @@
               situação, se é uma frase de um autor, adicione o link da página do
               autor.
             </p>
-
             <p>
               <code>title</code> <em>Acre</em> dentro de
               <a href="#tags2"><code>abbr</code></a> para dizer o significado da
               sigla, mouse em cima pra mostrar.
             </p>
           </div>
-
           <div>
             <p>
               <code>rel</code> <em>next</em> dentro de
@@ -1056,14 +889,12 @@
               pela URL, nofollow= external, mas com link patrocinado ou
               duvidoso).
             </p>
-
             <p>
               <code>hreflang</code> <em>pt-br</em> dentro de
               <a href="#tags1"><code>a</code></a> para dizer a linguagem do
               link.
             </p>
           </div>
-
           <div>
             <p>
               <code>preload</code> <em>auto</em> dentro de
@@ -1072,7 +903,6 @@
               ser baixado (auto= carrega o arquivo inteiro, metadata=
               informações principais, none= só quando tocar no play).
             </p>
-
             <p>
               <code>autoplay controls loop muted</code>: dentro de
               <a href="#tags3"><code>audio</code></a> ou
@@ -1080,39 +910,33 @@
               ser tocado, o LOOP autoexplicativo, MUTED o vídeo fica
               inicialmente sem som.
             </p>
-
             <p>
               <code>poster</code> <em>imagem.png</em> dentro de
               <a href="#tags3"><code>video</code></a> para thumbnail do vídeo.
             </p>
-
             <p>
               <code>scrset</code> <em>imagem.jpg</em> dentro de
               <a href="#tags3"><code>/source</code></a> para o caminho do
               arquivo.
             </p>
           </div>
-
           <div>
             <p>
               <code>scrolling</code> <em>yes</em> dentro de
               <a href="#tags3"><code>iframe</code></a> para habilitar (yes) ou
               desabilitar (no) a barra de rolagem.
             </p>
-
             <p>
               <code>frameborder</code> <em>0</em> dentro de
               <a href="#tags3"><code>iframe</code></a> para ter (1) ou remover
               (0) borda.
             </p>
-
             <p>
               <code>srcdoc</code>
               <em>&lt;p&gt; oi &lt;/p&gt;</em> dentro de
               <a href="#tags3"><code>iframe</code></a> para editar o que aparece
               dentro com uso de tags.
             </p>
-
             <p>
               <code>sandbox</code> <em id="dupla">sandbox</em>
               <code>referrerpolicy</code> <em>no-referrer</em> dentro de
@@ -1122,7 +946,6 @@
               questão de segurança.
             </p>
           </div>
-
           <div>
             <p>
               <code>media</code> <em>print</em> dentro de
@@ -1130,7 +953,6 @@
               específico (print= impressora, all= todos os tipos, screen=
               telas).
             </p>
-
             <p>
               <code>media</code>
               <em>screen and (orientation: portrait)</em> dentro de
@@ -1138,7 +960,6 @@
               específico. (orientation: portrait= modo retrato/em pé,
               orientation: landscape= modo paisagem/deitado).
             </p>
-
             <p>
               <code>media</code>
               <em id="dupla">(max-width: 100px)</em>
@@ -1150,13 +971,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="param3">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Parâmetros/atributos (3):</h3>
         </button>
-
         <div class="conteudo parametros">
           <div>
             <p>
@@ -1165,24 +984,19 @@
               <em>true</em> CONTENTEDITABLE deixa conteúdo de texto editável
               pelo usuário e SPELLCHECK habilita a correção ortográfica.
             </p>
-
             <p><code>hidden</code>: desaparecer o elemento.</p>
-
             <p><code>name</code> <em>mapa</em> nome do elemento.</p>
-
             <p>
               <code>tabindex</code> <em>3</em> definir a ordem de tab para
               elementos.
             </p>
           </div>
-
           <div>
             <p>
               <code>usemap</code> <em>#mapaBrasil</em> dentro de
               <a href="#tags1"><code>img</code></a> para dizer a qual (name do)
               &lt;map&gt; pertence.
             </p>
-
             <p>
               <code>shape</code> <em id="dupla">rect</em>
               <code>coords</code>
@@ -1195,25 +1009,21 @@
               poly diversas coordenadas).
             </p>
           </div>
-
           <div>
             <p>
               <code>dir</code> <em>rtl</em> dentro de
               <a href="#tags4"><code>bdo</code></a> para dizer a direção do
               texto, para ser invertido.
             </p>
-
             <p>
               <code>open</code>: <a href="#tags4"><code>dialog</code></a> para o
               deixar visível.
             </p>
-
             <p>
               <code>datetime</code> <em>2022-12-25</em> dentro de
               <a href="#tags3"><code>time</code></a> para especificar a data do
               evento/feriado.
             </p>
-
             <p>
               <code>default</code>: dentro de
               <a href="#tags3"><code>/track</code></a> para deixar uma legenda
@@ -1222,13 +1032,11 @@
           </div>
         </div>
       </section>
-
       <section>
         <button id="extra">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Informações importantes:</h3>
         </button>
-
         <div class="conteudo padrao">
           <p>
             <strong>
@@ -1236,24 +1044,20 @@
             </strong>
             !
           </p>
-
           <p>
             <strong>
               Palavras aleatórias (lorem) com número exato de palavras (Y):
             </strong>
             loremY
           </p>
-
           <p>
             <strong>Adicionar comentários:</strong>
             <span id="comentario">&lt;! -- comentário --&gt;</span>
           </p>
-
           <p>
             <strong>Modo simples de criar tabela com 3 tr e 6 td:</strong>
             table>tr*3>td*6
           </p>
-
           <p>
             <strong>
               Modo simples de criar uma div com id= pai, que comporta 5 spans de
@@ -1262,17 +1066,14 @@
             </strong>
             #pai>span. filhos*5>h1{Título $}+p{Palavra número $}*5
           </p>
-
           <p>
             <strong>Adicionar símbolo de menor &lt; e maior &gt;:</strong>
             <span id="menorMaior"></span>
           </p>
-
           <p>
             <strong> Adicionar o símbolo de arroba @:</strong>
             <span id="arroba"></span>
           </p>
-
           <p>
             <strong>
               Adicionar um emoji (entre o X e o ; vem o código do emoji):

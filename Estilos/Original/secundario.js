@@ -1,7 +1,10 @@
-// Gerando Footer
+// Gerando Elementos
+const main = document.querySelector("main");
+const tituloPrincipal = document.querySelector("main h1");
 const conteudoFooter = document.createElement("div");
-const footer = document.getElementsByTagName("footer")[0];
+const footer = document.querySelector("footer");
 
+criaTitulo();
 criaRodape();
 
 // Listas
@@ -18,6 +21,7 @@ const botao = document.getElementById("btnAbrir");
 var pressionado = false;
 
 // Eventos
+
 for (let i = 0; i < conteudo.length; i++) {
   titulos[i].addEventListener("click", () => {
     if (conteudo[i].offsetHeight == 0) abreSecao(i);
@@ -63,6 +67,12 @@ for (let i = 0; i < links.length; i++) {
 function criaRodape() {
   conteudoFooter.innerHTML = window.footerDinamico;
   footer.appendChild(conteudoFooter);
+}
+
+function criaTitulo() {
+  let titulo = document.createElement("h1");
+  titulo.textContent = retornaTituloPagina(document.body.dataset.page);
+  main.insertBefore(titulo, main.firstChild)
 }
 
 function abreSecao(n) {

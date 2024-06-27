@@ -29,13 +29,7 @@
 
     <header id="falso"></header>
 
-    <header id="secundario">
-      <h1>Comandos Shell</h1>
-      <h2>
-        Todos os Comandos do Shell que anotei durante minhas aulas da
-        Germinatech
-      </h2>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -55,59 +49,46 @@
           <option value="#grep">Grep</option>
           <option value="#awk">Awk</option>
         </select>
-
         <button id="btnAbrir"></button>
       </div>
-    </header>
-
-    <main>
       <section>
         <button id="docker">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Docker configurações:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Criar novo container (fora do root):</strong>
             docker pull ubuntu && docker run --name containerzinho -it ubuntu
           </p>
-
           <p>
             <strong>Iniciar o container ub (deixar ub no verde):</strong>
             docker start ub
           </p>
-
           <p>
             <strong>Executar a instância (como entrar no root):</strong>
             docker exec -it ub bash
           </p>
-
           <p>
             <strong>Ver imagens do docker:</strong>
             docker images
           </p>
-
           <p>
             <strong>Ver containers do docker:</strong>
             docker ps
           </p>
-
           <p>
             <strong>Ver usuário (root):</strong>
             whoami
           </p>
-
           <p>
             <strong>Ver nome da máquina (a36c69721192):</strong>
             hostname
           </p>
-
           <p>
             <strong>Ver diretório (/):</strong>
             pwd
           </p>
-
           <p>
             <strong>
               Ver data (adicione +% depois letra para ser específico, Y= ano, m=
@@ -115,7 +96,6 @@
             </strong>
             date
           </p>
-
           <p>
             <strong>
               Printar mensagem de texto (colocar -e depois de echo para
@@ -125,41 +105,34 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="arquivos">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Arquivos e pastas/diretórios:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Acessar diretório de trabalho (home):</strong>
             cd ~
           </p>
-
           <p>
             <strong>
               Ver todos os diretórios/arquivos (espaço e nome do caminho):
             </strong>
             ls -l
           </p>
-
           <p>
             <strong>Criar diretório:</strong>
             mkdir pasta1
           </p>
-
           <p>
             <strong>Entrar no diretório:</strong>
             cd pasta1
           </p>
-
           <p>
             <strong>Voltar 1 diretório:</strong>
             cd ..
           </p>
-
           <p>
             <strong>
               Entrar no caminho específico (voltar 2 vezes e entrar em 2
@@ -167,12 +140,10 @@
             </strong>
             cd ../../pasta1/pasta2
           </p>
-
           <p>
             <strong>Criar arquivo vazio:</strong>
             touch arq1.txt
           </p>
-
           <p>
             <strong>
               Criar arquivo cheio (instale o <a href="#python">nano</a> ou vá
@@ -180,65 +151,54 @@
             </strong>
             nano teste.py
           </p>
-
           <p>
             <strong>Executar um arquivo:</strong>
             bash mensagem.sh
           </p>
-
           <p>
             <strong>Encontrar/localizar onde existe o arquivo:</strong>
             find / -name arq1.txt
           </p>
         </div>
       </section>
-
       <section>
         <button id="editar">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Editar arquivos e diretórios:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Copiar o arquivo (e jogá-lo dentro da pasta1):</strong>
             cp ./arquivo.txt ./pasta1/
           </p>
-
           <p>
             <strong>Mover o arquivo (e jogá-lo dentro da pasta2):</strong>
             mv ./arquivo.txt ./pasta2
           </p>
-
           <p>
             <strong>Apagar/remover um arquivo:</strong>
             rm ./arquivo.txt
           </p>
-
           <p>
             <strong>
               Apagar/remover o diretório e todos os arquivos dentro:
             </strong>
             rm -r ./pasta
           </p>
-
           <p>
             <strong>Apagar/remover diretório vazio:</strong>
             rmdir pasta
           </p>
-
           <p>
             <strong>Renomear arquivo ou diretório:</strong>
             mv aquivi.txt arquivo.txt
           </p>
-
           <p>
             <strong>
               Alterar permissão do arquivo/diretório (7777 é permissão total):
             </strong>
             chmod 0777 arq1.txt
           </p>
-
           <p>
             <strong>
               Transportar um arquivo da sua máquina para o docker:
@@ -247,51 +207,43 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="operadores">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Operadores:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Executar vários comandos (;):</strong>
             ls -l; cd fndajdbas; pwd
           </p>
-
           <p>
             <strong>
               Executar vários comandos se o anterior der certo (&&):
             </strong>
             ls -l && cd aasd && pwd
           </p>
-
           <p>
             <strong>Executar comando se o anterior der errado (||):</strong>
             cd pasta1 || cd pasta2 || ls -l
           </p>
-
           <p>
             <strong>
               Usar o resultado do comando anterior para o próximo comando (|):
             </strong>
             cat -n arquivo4.txt | grep "Ana"
           </p>
-
           <p>
             <strong>Agrupar comandos (()):</strong>
             (cd principal || cd teste) && ls -l
           </p>
         </div>
       </section>
-
       <section>
         <button id="cats">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Leitura de Arquivos (Cats e outros):</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -300,31 +252,26 @@
             </strong>
             cat > arq1.txt
           </p>
-
           <p>
             <strong>Ver os conteúdos dentro do arquivo:</strong>
             cat arquivo.txt
           </p>
-
           <p>
             <strong>
               Inserir outro conteúdo dentro do arquivo (adicionar no final):
             </strong>
             cat >> arq1.txt
           </p>
-
           <p>
             <strong>
               Adicionar textos de arquivos em outro arquivo (concatenar):
             </strong>
             cat arq1.txt arq2.txt > arq3.txt
           </p>
-
           <p>
             <strong>Ordenar um arquivo (será criado o ordenado.txt):</strong>
             sort arq1.txt > ordenado.txt
           </p>
-
           <p>
             <strong>
               Contar linhas (trocar -l para -w para palavras, -c para
@@ -332,29 +279,24 @@
             </strong>
             wc -l arq1.txt
           </p>
-
           <p>
             <strong>Ver os primeiros (4) itens do arquivo:</strong>
             head -4 arq1.txt
           </p>
-
           <p>
             <strong>Ver os últimos (4) itens do arquivo:</strong>
             tail -4 arq1.txt
           </p>
         </div>
       </section>
-
       <section>
         <button id="usuarios">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Usuários e Grupos:</h3>
         </button>
-
         <div class="conteudo">
           <p class="subtitulo">Usuário</p>
           <p class="subtitulo">Grupo</p>
-
           <p>
             <strong>
               Ver todos os usuários (trocar passwd por shadow para mais detalhes
@@ -362,7 +304,6 @@
             </strong>
             cat /etc/passwd
           </p>
-
           <p>
             <strong>
               Ver todos os grupos (trocar group por gshadow para informações de
@@ -370,104 +311,85 @@
             </strong>
             cat /etc/group
           </p>
-
           <p>
             <strong>Criar usuário:</strong>
             adduser user1
           </p>
-
           <p>
             <strong>Criar grupo:</strong>
             groupadd germinare
           </p>
-
           <p>
             <strong>Excluir/deletar usuário:</strong>
             userdel user1
           </p>
-
           <p>
             <strong>Excluir/deletar grupo:</strong>
             groupdel germinare
           </p>
-
           <p>
             <strong>Entrar no usuário (logout para sair):</strong>
             login user1
           </p>
-
           <p>
             <strong>Adicionar usuário no grupo:</strong>
             usermod user1 -G germinare
           </p>
-
           <p><strong>Alterar senha do usuário:</strong> passwd user1</p>
         </div>
       </section>
-
       <section>
         <button id="python">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Python em linux:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Instalar o Python e Nano:</strong>
             apt-get update && apt-get install nano && apt-get install python3
           </p>
-
           <p>
             <strong>Ver versão do python:</strong>
             python3 --version
           </p>
-
           <p>
             <strong>Entrar no modo interativo do python:</strong>
             python3
           </p>
-
           <p>
             <strong>Sair do modo interativo (voltar pro root):</strong>
             exit()
           </p>
-
           <p>
             <strong>Executar programa python:</strong>
             python3 teste.py
           </p>
         </div>
       </section>
-
       <section>
         <button id="processos">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Processos:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver o dispositivo conectado:</strong>
             tty
           </p>
-
           <p>
             <strong>
               Verificar o jobs (processos ainda rodando) em execução:
             </strong>
             jobs
           </p>
-
           <p>
             <strong>Transformar o job em primeiro plano (foreground):</strong>
             fg 1
           </p>
-
           <p>
             <strong>Transformar o job em segundo plano (background):</strong>
             bg 1
           </p>
-
           <p>
             <strong>
               Ver o ID dos processos da máquina (abrir arquivos com nano e rodar
@@ -477,13 +399,11 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="variaveis">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Variáveis de ambiente:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -492,37 +412,31 @@
             </strong>
             echo $HOME
           </p>
-
           <p>
             <strong>
               Ver os diretórios como fonte pesquisa (diretórios de acesso):
             </strong>
             echo $PATH
           </p>
-
           <p>
             <strong>Ver o ambiente shell sendo utilizado (bash):</strong>
             echo $SHELL
           </p>
-
           <p>
             <strong>Listar todas as variáveis de ambiente:</strong>
             env
           </p>
-
           <p>
             <strong>Listar comandos recentes:</strong>
             history
           </p>
         </div>
       </section>
-
       <section>
         <button id="grep">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Grep:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -531,29 +445,24 @@
             </strong>
             'Ana'
           </p>
-
           <p>
             <strong>
               Encontrar texto que não tem algo (quais não são Ana):
             </strong>
             grep arquivo4.txt '^Ana'
           </p>
-
           <p>
             <strong>Encontrar letras no arquivo:</strong>
             grep arq1.txt '[aeiouAEIOU]'
           </p>
-
           <p>
             <strong>Encontrar texto que contenham 2 opções de letras:</strong>
             grep '[cC]arlos' atividade.txt
           </p>
-
           <p>
             <strong>Encontrar linhas com 5 letras ou mais:</strong>
             grep '.....' teste.txt
           </p>
-
           <p>
             <strong>
               Encontrar linhas com 5 letras ou mais e que a segunda letra seja
@@ -561,43 +470,36 @@
             </strong>
             grep '.n...' teste.txt
           </p>
-
           <p>
             <strong>Ver linhas com pelo menos 15 caracteres:</strong>
             egrep '.{15}$' atividade1.txt
           </p>
         </div>
       </section>
-
       <section>
         <button id="awk">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Awk:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver a primeira e a terceira palavra da linha:</strong>
             awk '{print $1, $3}' teste.txt
           </p>
-
           <p>
             <strong>Ver a última palavra da linha:</strong>
             awk '{print $NF}' teste.txt
           </p>
-
           <p>
             <strong>
               Ver intervalos mas substituindo o espaço (' ') por outro caracter:
             </strong>
             awk -F ':' '{print $1}' teste.txt
           </p>
-
           <p>
             <strong>Adicionar caracter entre as palavras:</strong>
             awk -F ':' '{print $1"\t"$3"\t"$5}' /etc/passwd
           </p>
-
           <p>
             <strong>
               Encontrar texto pela palavra (quais linhas a primeira palavra é
@@ -605,7 +507,6 @@
             </strong>
             awk '($1=="Ana")' arquivo4.txt
           </p>
-
           <p>
             <strong>
               Ver linhas com primeira palavra maior que 5 caracteres:

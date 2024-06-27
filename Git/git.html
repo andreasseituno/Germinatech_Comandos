@@ -32,13 +32,7 @@
 
     <header id="falso"></header>
 
-    <header id="secundario">
-      <h1>Comandos Git Bash</h1>
-      <h2>
-        Todos os Comandos de Git Bash que anotei durante minhas aulas da
-        Germinatech
-      </h2>
-
+    <main>
       <div id="botoesContainer">
         <select
           name="opcoes"
@@ -51,132 +45,106 @@
           <option value="#commits">Estados e Commits</option>
           <option value="#pull">Pull, Push e Branch</option>
         </select>
-
         <button id="btnAbrir"></button>
       </div>
-    </header>
-
-    <main>
       <section>
         <button id="configuracoes">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Configurações git:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Adicionar nome de usuário:</strong>
             git config --global user.name 'André'
           </p>
-
           <p>
             <strong>Ver credenciais:</strong>
             git config --list
           </p>
-
           <p>
             <strong>Adicionar e-mail:</strong>
             git config --global user.email email@exemplo.com
           </p>
-
           <p>
             <strong>Adicionar repositório no git bash:</strong>
             git remote add origin https://github.com<wbr />/andreasseituno/aula6.git
           </p>
-
           <p>
             <strong>Criar/iniciar um repositório na pasta local:</strong>
             git init
           </p>
-
           <p>
             <strong>Trocar nome da branch :</strong>
             git branch -M main
           </p>
         </div>
       </section>
-
       <section>
         <button id="arquivos">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Arquivos e Pastas:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>Ver todas as pastas: </strong>
             ls -l
           </p>
-
           <p>
             <strong>Criar pasta:</strong>
             mkdir pasta1
           </p>
-
           <p>
             <strong>Abrir pasta:</strong>
             cd pasta1
           </p>
-
           <p>
             <strong>Abrir a pasta com VS code:</strong>
             code .
           </p>
-
           <p>
             <strong>Criar arquivo:</strong>
             touch arquivo.txt
           </p>
-
           <p>
             <strong>Renomear arquivo (para arquivo.txt):</strong>
             git mv aquvi.txt arquivo.txt
           </p>
-
           <p>
             <strong>Apagar arquivo:</strong>
             git clean -fd andre.txt
           </p>
         </div>
       </section>
-
       <section>
         <button id="commits">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Estados e Commits:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong> Clonar: </strong>
             git clone https://github.com/<wbr />andreasseituno/aula6.2.git
           </p>
-
           <p>
             <strong>Ver os status do Code:</strong>
             code status
           </p>
-
           <p>
             <strong>Estado modificado para preparado:</strong>
             git add andre.txt
           </p>
-
           <p>
             <strong>Estado preparado para modificado (voltar):</strong>
             git reset andre.txt
           </p>
-
           <p>
             <strong>Desfaz uma alteração do arquivo modificado:</strong>
             git restore --staged andre.txt
           </p>
-
           <p>
             <strong>Dar commit:</strong>
             git commit -m mensagem
           </p>
-
           <p>
             <strong>
               Ver todos os commits (adicione o --oneline --graph para ficar mais
@@ -186,13 +154,11 @@
           </p>
         </div>
       </section>
-
       <section>
         <button id="pull">
           <img src="../Imagens/circulo1.webp" alt="icone de circulo com seta" />
           <h3>Pull, Push e Branches:</h3>
         </button>
-
         <div class="conteudo">
           <p>
             <strong>
@@ -201,32 +167,26 @@
             </strong>
             git checkout main
           </p>
-
           <p>
             <strong>Dar push:</strong>
             git push origin main
           </p>
-
           <p>
             <strong>Dar push com licença MIT e README:</strong>
             git push --rebase origin main
           </p>
-
           <p>
             <strong>Baixar todos os commits:</strong>
             git fetch
           </p>
-
           <p>
             <strong>Dar pull (git fetch + git merge):</strong>
             git pull origin
           </p>
-
           <p>
             <strong>Criar branch:</strong>
             git branch nome_da_branch
           </p>
-
           <p>
             <strong>Ver em qual branch você está:</strong>
             git checkout

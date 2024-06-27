@@ -5,7 +5,7 @@ const cabecalhoFixo = document.getElementById("cabecalhoFixo");
 
 criaCabecalho();
 
-const tituloPrincipal = document.querySelector("header#principal h3");
+const tituloCabecalho = document.querySelector("header#principal h3");
 
 modificaCabecalho();
 
@@ -59,42 +59,7 @@ function criaCabecalho() {
 }
 
 function modificaCabecalho() {
-  var page = document.body.dataset.page;
-
-  switch (page) {
-    case "css":
-      tituloPrincipal.textContent = "Declarações Css";
-      break;
-    case "docker":
-      tituloPrincipal.textContent = "Comandos Docker";
-      break;
-    case "html":
-      tituloPrincipal.textContent = "Tags e atributos/parâmetros Html";
-      break;
-    case "git":
-      tituloPrincipal.textContent = "Comandos Git Bash";
-      break;
-    case "inicio":
-      tituloPrincipal.textContent =
-        "Todos os Comandos de Programação que anotei na Germinatech";
-      break;
-    case "mobile":
-      tituloPrincipal.textContent =
-        "Passo a passo desenvolvimento Mobile (Android Studio)";
-      break;
-    case "mongodb":
-      tituloPrincipal.textContent = "Comandos MongoDb";
-      break;
-    case "sqlpostgres":
-      tituloPrincipal.textContent = "Comandos PostgreSQL";
-      break;
-    case "sqlserver":
-      tituloPrincipal.textContent = "Comandos SQL Server";
-      break;
-    case "ubuntu-linux":
-      tituloPrincipal.textContent = "Comandos Linux/Ubuntu";
-      break;
-  }
+  tituloCabecalho.textContent = retornaTituloPagina(document.body.dataset.page);
 }
 
 function apareceCabecalho() {
@@ -121,4 +86,29 @@ function fechaAside() {
   aside.style.visibility = "hidden";
   aside.style.transition = "margin .25s ease 0s, visibility 0s ease .2501s";
   fechado = true;
+}
+
+function retornaTituloPagina(pagina) {
+  switch (pagina) {
+    case "css":
+      return "Declarações Css";
+    case "docker":
+      return "Comandos Docker";
+    case "html":
+      return "Tags e atributos/parâmetros Html";
+    case "git":
+      return "Comandos Git Bash";
+    case "inicio":
+      return "Todos os Comandos de Programação que anotei na Germinatech";
+    case "mobile":
+      return "Passo a passo desenvolvimento Mobile (Android Studio)";
+    case "mongodb":
+      return "Comandos MongoDb";
+    case "sqlpostgres":
+      return "Comandos PostgreSQL";
+    case "sqlserver":
+      return "Comandos SQL Server";
+    case "ubuntu-linux":
+      return "Comandos Linux/Ubuntu";
+  }
 }

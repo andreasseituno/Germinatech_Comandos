@@ -7,7 +7,7 @@ header#principal h3 {
 }
 
 header#principal {
-  background-color: var(--corAzulEscuroPrincipal);
+  background-color: var(--corPrincipal);
   color: var(--corTextoClaro);
   display: flex;
   position: absolute;
@@ -19,14 +19,14 @@ header#principal {
 }
 
 header#falso {
-  background-color: var(--corAzulClaroSecundario);
+  background-color: var(--corPrincipal);
   height: var(--tamanhoHeader);
 }
 
 aside {
-  background-color: var(--corAzulEscuroSecundario);
+  background-color: var(--corPrincipalComplementar);
   color: var(--corTextoClaro);
-  box-shadow: 8px 0px 8px var(--corSombraPreta);
+  box-shadow: 8px 0px 8px var(--corSombraEscura);
   position: absolute;
   text-align: center;
 
@@ -53,7 +53,7 @@ aside nav {
 }
 
 aside nav div {
-  box-shadow: -2px 2px 4px var(--corSombraAzul);
+  box-shadow: -2px 2px 4px var(--corSombraEscura);
   display: flex;
 
   align-items: center;
@@ -81,7 +81,7 @@ aside nav a {
 }
 
 aside nav a:hover {
-  background-color: var(--corAzulEscuroSelecao);
+  background-color: var(--corPrincipalSelecao);
   transition-duration: 0.2s;
 }
 
@@ -108,7 +108,7 @@ header#principal h3 {
 }
 
 .containerLogo button {
-  box-shadow: 2px 0px 4px var(--corSombraAzul);
+  box-shadow: 2px 0px 4px var(--corSombraEscura);
   height: 100%;
   padding: 8px 16px;
 
@@ -120,7 +120,7 @@ header#principal h3 {
 }
 
 .containerLogo button:hover {
-  background-color: var(--corAzulEscuroSelecao);
+  background-color: var(--corPrincipalSelecao);
   transition-duration: 0.2s;
 }
 
@@ -139,13 +139,13 @@ header#principal h3 {
   margin: 0px 8px;
 }
 
-.icone#info{
+.icone#info {
   width: 22px;
   height: 22px;
 }
 
 .logo {
-  box-shadow: -4px -2px 4px var(--corSombraPreta);
+  box-shadow: -4px -2px 4px var(--corSombraEscura);
   border-radius: 50%;
 
   width: calc(var(--tamanhoHeader) - 16px);
