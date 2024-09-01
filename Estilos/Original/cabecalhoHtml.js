@@ -50,7 +50,7 @@ window.asideDinamico = `
 <hr style="margin-top: -1px" />
 
 <nav>
-<a href="../Inicio/index.html">
+<a href="../Inicio/">
   <div>
     <img
       src="../Imagens/icone_home.webp"
@@ -78,7 +78,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Html/html.html">
+<a href="../Html/">
   <div>
     <img
       src="../Imagens/icone_html.webp"
@@ -90,7 +90,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Css/css.html">
+<a href="../Css/">
   <div>
     <img
       src="../Imagens/icone_css.webp"
@@ -102,7 +102,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Ubuntu-Linux/ubuntu-linux.html">
+<a href="../Ubuntu-Linux/">
   <div>
     <img
       src="../Imagens/icone_ub.webp"
@@ -113,7 +113,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../SqlPostgres/sqlpostgres.html">
+<a href="../SqlPostgres/">
   <div>
     <img
       src="../Imagens/icone_pg.webp"
@@ -126,7 +126,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Git/git.html">
+<a href="../Git/">
   <div>
     <img
       src="../Imagens/icone_git.webp"
@@ -138,7 +138,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../SqlServer/sqlserver.html">
+<a href="../SqlServer/">
   <div>
     <img
       src="../Imagens/icone_sql.webp"
@@ -150,7 +150,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Docker/docker.html">
+<a href="../Docker/">
   <div>
     <img
       src="../Imagens/icone_docker.webp"
@@ -162,7 +162,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../MongoDb/mongodb.html">
+<a href="../MongoDb/">
   <div>
     <img
       src="../Imagens/icone_mongo.webp"
@@ -174,7 +174,7 @@ window.asideDinamico = `
   </div>
 </a>
 
-<a href="../Mobile/mobile.html">
+<a href="../Mobile/">
   <div>
     <img
       src="../Imagens/icone_android.webp"
