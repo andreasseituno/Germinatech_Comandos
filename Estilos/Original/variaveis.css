@@ -21,6 +21,8 @@
   --corTextoClaro: rgb(255, 255, 255);
 
   --corContrateClaro: rgb(245, 250, 255);
+
+  --corInativo: rgba(50, 50, 70, 0.9)
 }
 
 :root {

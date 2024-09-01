@@ -11,12 +11,18 @@ modificaCabecalho();
 
 // Listas
 const botoes = document.querySelectorAll(".containerLogo button");
+const botoesNavegacao = document.querySelectorAll("aside nav a");
 
 // Elementos
 
 // Variáveis
 var fechado = true;
 var scrollPos = 0;
+
+botoesNavegacao.forEach((a) => {
+  if (a.dataset.page == document.body.dataset.page) a.classList.add("inativo");
+  else a.classList.remove("inativo");
+});
 
 // Eventos
 window.addEventListener("scroll", () => {
@@ -41,7 +47,7 @@ window.addEventListener("click", (e) => {
   if (clicouForaAside && clicouForaCabecalho && !fechado) fechaAside();
 });
 
-botoes.forEach(button => {
+botoes.forEach((button) => {
   button.addEventListener("click", () => {
     if (fechado) abreAside();
     else fechaAside();

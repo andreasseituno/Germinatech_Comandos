@@ -85,6 +85,12 @@ aside nav a:hover {
   transition-duration: 0.2s;
 }
 
+aside nav a.inativo,
+aside nav a.inativo:hover {
+  background-color: var(--corInativo);
+  cursor: auto;
+}
+
 a {
   color: unset;
   text-decoration: none;
