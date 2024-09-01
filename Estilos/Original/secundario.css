@@ -1,4 +1,11 @@
 /* Elementos- Agrupadores */
+* {
+  z-index: 2;
+}
+
+main * {
+  z-index: 1;
+}
 
 body {
   background-color: var(--corSecundaria);
@@ -70,7 +77,7 @@ button {
 
 /* Elementos- Texto */
 
-main h1{
+main h1 {
   text-align: center;
   font-size: 32px;
 }
@@ -93,6 +100,7 @@ section h4 {
 
 section p {
   box-shadow: 1px 2px 4px var(--corSombraClara);
+  border: 2px solid transparent;
   flex-grow: 1;
   border-radius: 4px;
   line-height: 24px;
@@ -101,12 +109,51 @@ section p {
   min-height: 72px;
   margin: 1px 0.65%;
   padding: 12px 16px 20px;
+
+  box-sizing: border-box;
+}
+
+section p code {
+  border: 2px solid transparent;
+  position: relative;
+  padding: 4px;
+}
+
+section p:not(:has(code)):hover,
+section p code:hover {
+  background-color: var(--corQuintenariaSelecao);
+  border: 2px solid var(--corBorda);
+  cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 section strong {
   color: var(--corTextoEscuroSecundario);
   display: block;
+  position: relative;
   margin-bottom: 6px;
+}
+
+section p strong::before {
+  color: transparent;
+  position: absolute;
+  visibility: hidden;
+  content: "Copiar código:";
+}
+
+section p.copiado strong::before {
+  content: "Copiado";
+}
+
+section p:not(:has(code)):hover strong {
+  color: transparent;
+  transition: 0.4s ease-in;
+}
+
+section p:not(:has(code)):hover strong::before{
+  color: var(--corTextoEscuroSecundario);
+  visibility: visible;
+  transition: 1s ease-out 0.25s;
 }
 
 a {
@@ -188,7 +235,6 @@ button#btnAbrir {
 
   cursor: pointer;
 }
-
 
 select:active,
 button:active {

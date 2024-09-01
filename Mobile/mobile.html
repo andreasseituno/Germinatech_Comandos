@@ -18,11 +18,36 @@
     <link rel="stylesheet" href="../Estilos/Minificado/cabecalho.css" />
     <link rel="stylesheet" href="../Estilos/Minificado/secundario.css" />
 
-    <style>
-      code {
+    <style>     
+      section p code {
         background-color: var(--corTerciaria);
         display: inline-block;
         vertical-align: top;
+      }
+
+      section p code::before {
+        background-color: var(--corPrincipal);
+        color: var(--corTextoClaro);
+        position: absolute;
+
+        border-radius: 4px;
+        padding: 6px;
+
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+
+        opacity: 0;
+        content: "Copiar código:";
+      }
+
+      section p code.copiado::before {
+        content: "Copiado";
+      }
+
+      section p code:hover::before {
+        opacity: 0.9;
+        transition: 0.3s ease-out;
       }
 
       section a {

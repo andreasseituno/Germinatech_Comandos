@@ -9,6 +9,7 @@ criaRodape();
 
 // Listas
 const titulos = document.querySelectorAll("section button");
+const paragrafos = document.querySelectorAll("section p");
 const conteudo = document.getElementsByClassName("conteudo");
 const bolinhas = document.querySelectorAll("section img");
 const links = document.querySelectorAll(".conteudo a");
@@ -19,6 +20,7 @@ const botao = document.getElementById("btnAbrir");
 
 // Variáveis
 var pressionado = false;
+var ultimoClipBoard = null;
 
 // Eventos
 
@@ -27,6 +29,25 @@ for (let i = 0; i < conteudo.length; i++) {
     if (conteudo[i].offsetHeight == 0) abreSecao(i);
     else fechaSecao(i);
   });
+}
+
+for (let i = 0; i < paragrafos.length; i++) {
+  let codigos = paragrafos[i].getElementsByTagName("code");
+
+  for (let c = 0; c < codigos.length; c++) {
+    codigos[c].addEventListener("click", () => {
+      let comando = codigos[c].textContent;
+      navigator.clipboard.writeText(comando.trim());
+      mudaEstadoCopia(codigos[c]);
+    });
+  }
+  
+  if (codigos.length == 0) {
+    paragrafos[i].addEventListener("click", () => {
+      copiaComando(paragrafos[i].childNodes);
+      mudaEstadoCopia(paragrafos[i]);
+    });
+  }
 }
 
 opcoes.addEventListener("change", () => {
@@ -92,4 +113,26 @@ function limpaTitulos() {
     titulos[i].style.borderWidth = "0px";
     bolinhas[i].setAttribute("src", "../Imagens/circulo1.webp");
   }
+}
+
+function copiaComando(conteudoTag) {
+  let comando = "";
+  for (let i = 0; i < conteudoTag.length; i++) {
+    if (
+      conteudoTag[i].nodeType == Node.TEXT_NODE ||
+      conteudoTag[i].nodeName == "SPAN"
+    ) {
+      comando += conteudoTag[i].textContent;
+    }
+  }
+
+  navigator.clipboard.writeText(comando.trim());
+}
+
+function mudaEstadoCopia(tag) {
+  if (ultimoClipBoard && tag != ultimoClipBoard) {
+    ultimoClipBoard.classList.remove("copiado");
+  }
+  tag.classList.add("copiado");
+  ultimoClipBoard = tag;
 }
