@@ -41,12 +41,12 @@ window.addEventListener("click", (e) => {
   if (clicouForaAside && clicouForaCabecalho && !fechado) fechaAside();
 });
 
-for (let i = 0; i < botoes.length; i++) {
-  botoes[i].addEventListener("click", () => {
+botoes.forEach(button => {
+  button.addEventListener("click", () => {
     if (fechado) abreAside();
     else fechaAside();
   });
-}
+});
 
 // Métodos
 function criaCabecalho() {

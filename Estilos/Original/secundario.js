@@ -31,25 +31,6 @@ for (let i = 0; i < conteudo.length; i++) {
   });
 }
 
-for (let i = 0; i < paragrafos.length; i++) {
-  let codigos = paragrafos[i].getElementsByTagName("code");
-
-  for (let c = 0; c < codigos.length; c++) {
-    codigos[c].addEventListener("click", () => {
-      let comando = codigos[c].textContent;
-      navigator.clipboard.writeText(comando.trim());
-      mudaEstadoCopia(codigos[c]);
-    });
-  }
-  
-  if (codigos.length == 0) {
-    paragrafos[i].addEventListener("click", () => {
-      copiaComando(paragrafos[i].childNodes);
-      mudaEstadoCopia(paragrafos[i]);
-    });
-  }
-}
-
 opcoes.addEventListener("change", () => {
   for (let i = 0; i <= opcoes.length; i++) {
     if (opcoes.value.slice(1) == titulos[i].id) {
@@ -73,16 +54,35 @@ botao.addEventListener("click", () => {
   pressionado = !pressionado;
 });
 
-for (let i = 0; i < links.length; i++) {
-  links[i].addEventListener("click", () => {
+links.forEach((a) => {
+  a.addEventListener("click", () => {
     for (let t = 0; t < titulos.length; t++) {
-      if (links[i].toString().split("#")[1] == titulos[t].id) {
+      if (a.toString().split("#")[1] == titulos[t].id) {
         abreSecao(t);
         break;
       }
     }
   });
-}
+});
+
+paragrafos.forEach((p) => {
+  let codigos = Array.from(p.getElementsByTagName("code"));
+
+  codigos.forEach((code) => {
+    code.addEventListener("click", () => {
+      let comando = code.textContent;
+      navigator.clipboard.writeText(comando.trim());
+      mudaEstadoCopia(code);
+    });
+  });
+
+  if (codigos.length == 0) {
+    p.addEventListener("click", () => {
+      copiaComando(p.childNodes);
+      mudaEstadoCopia(p);
+    });
+  }
+});
 
 // Métodos
 function criaRodape() {
@@ -117,14 +117,11 @@ function limpaTitulos() {
 
 function copiaComando(conteudoTag) {
   let comando = "";
-  for (let i = 0; i < conteudoTag.length; i++) {
-    if (
-      conteudoTag[i].nodeType == Node.TEXT_NODE ||
-      conteudoTag[i].nodeName == "SPAN"
-    ) {
+  conteudoTag.forEach((filho) => {
+    if (filho.nodeType == Node.TEXT_NODE || filho.nodeName == "SPAN") {
       comando += conteudoTag[i].textContent;
     }
-  }
+  });
 
   navigator.clipboard.writeText(comando.trim());
 }
