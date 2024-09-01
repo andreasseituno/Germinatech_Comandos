@@ -119,7 +119,7 @@ function copiaComando(conteudoTag) {
   let comando = "";
   conteudoTag.forEach((filho) => {
     if (filho.nodeType == Node.TEXT_NODE || filho.nodeName == "SPAN") {
-      comando += conteudoTag[i].textContent;
+      comando += filho.textContent;
     }
   });
 
